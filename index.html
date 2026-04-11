@@ -93,10 +93,12 @@ tr:last-child td{border-bottom:none}tr:nth-child(even){background:#f8f9fc}
 .pkg{background:#fff;border-radius:var(--r);overflow:hidden;border:1px solid var(--border);transition:.2s;box-shadow:var(--shadow)}
 .pkg:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(27,58,107,.12)}
 .pkg.ct1{border-top:4px solid var(--orange)}.pkg.ct2{border-top:4px solid var(--purple)}
+.pkg.ct3{border-top:4px solid var(--red)}
 .pkg-hd{padding:14px 18px;display:flex;align-items:center;gap:12px}
 .pkg-em{font-size:34px}.pkg-nm h3{font-size:14px;font-weight:700}
 .pkg-nm .tier{font-size:10px;font-weight:700;letter-spacing:.4px}
 .pkg-nm .tier.or{color:var(--orange)}.pkg-nm .tier.pp{color:var(--purple)}
+.pkg-nm .tier.rd{color:var(--red)}
 .pkg-bd{padding:0 18px 16px;font-size:12px;line-height:1.6;color:var(--muted)}
 
 .chk-list{list-style:none;padding:0}
@@ -119,18 +121,20 @@ tr:last-child td{border-bottom:none}tr:nth-child(even){background:#f8f9fc}
 <div class="hdr">
   <div class="hdr-left">
     <div class="logo">30</div>
-    <div><h1>CTKM Tháng 4 — Truyền Thông Nội Bộ</h1><div class="sub">Sáp Glanzen · Serum DrForSkin 7in1 · Áp dụng từ T4/2026</div></div>
+    <div><h1>CTKM Tháng 4 — Truyền Thông Nội Bộ</h1><div class="sub">Sáp Glanzen · Serum DrForSkin 7in1 · Uốn Nhuộm + Phục hồi · Áp dụng từ T4/2026</div></div>
   </div>
-  <div class="hdr-right"><span class="badge or">CTKM T4</span><span class="badge gr">2 CT</span></div>
+  <div class="hdr-right"><span class="badge or">CTKM T4</span><span class="badge gr">3 CT</span></div>
 </div>
 
 <div class="tabs" id="tabs">
-  <button class="tab active" onclick="go('s1')"><span class="t-label">Tổng quan</span>2 CTKM T4</button>
-  <button class="tab" onclick="go('s2')"><span class="t-label">Chi tiết</span>CT1: Sáp Glanzen</button>
-  <button class="tab" onclick="go('s3')"><span class="t-label">Chi tiết</span>CT2: DrForSkin</button>
-  <button class="tab" onclick="go('s4')"><span class="t-label">Salon</span>Kịch bản bán hàng</button>
-  <button class="tab" onclick="go('s5')"><span class="t-label">Quản lý</span>Đo lường & KPI</button>
-  <button class="tab" onclick="go('s6')"><span class="t-label">Quy chế</span>Rule CTKM v3</button>
+  <button class="tab active" onclick="go('s1')"><span class="t-label">Tổng quan</span>3 CTKM T4</button>
+  <button class="tab" onclick="go('s2')"><span class="t-label">Data</span>Phân tích & Data</button>
+  <button class="tab" onclick="go('s3')"><span class="t-label">Chi tiết</span>CT1: Sáp Glanzen</button>
+  <button class="tab" onclick="go('s4')"><span class="t-label">Chi tiết</span>CT2: DrForSkin</button>
+  <button class="tab" onclick="go('s5')"><span class="t-label">Chi tiết</span>CT3: Uốn Nhuộm</button>
+  <button class="tab" onclick="go('s6')"><span class="t-label">Salon</span>Kịch bản bán hàng</button>
+  <button class="tab" onclick="go('s7')"><span class="t-label">Quản lý</span>Đo lường & Salon</button>
+  <button class="tab" onclick="go('s8')"><span class="t-label">Quy chế</span>Rule CTKM v3</button>
 </div>
 
 <div class="wrap">
@@ -139,16 +143,17 @@ tr:last-child td{border-bottom:none}tr:nth-child(even){background:#f8f9fc}
 <div class="sec active" id="s1">
 <div class="bn nv">
   <div class="zone">CTKM THÁNG 4/2026</div>
-  <h2>2 Chương trình khuyến mại — Sản phẩm gắn liền Dịch vụ</h2>
+  <h2>3 Chương trình khuyến mại — Sản phẩm & Dịch vụ gắn liền nhu cầu thật</h2>
   <p>Triết lý mới: CTKM = kích hoạt nhu cầu thật của khách, không chỉ giảm giá. SP phải gắn với DV khách vừa dùng.</p>
-  <div class="tags"><span class="tag">CT1: Sáp Glanzen × DV Cắt</span><span class="tag">CT2: DrForSkin × DV Chăm da</span><span class="tag">Rule v3.0</span></div>
+  <div class="tags"><span class="tag">CT1: Sáp Glanzen × DV Cắt</span><span class="tag">CT2: DrForSkin × DV Chăm da</span><span class="tag">CT3: Uốn Nhuộm + Phục hồi</span><span class="tag">Rule v3.0</span></div>
 </div>
 
 <div class="kpi-g" style="margin-bottom:22px">
-  <div class="kpi"><div class="v">2</div><div class="l">Chương trình</div><div class="t">Glanzen + DrForSkin</div></div>
-  <div class="kpi"><div class="v">C+F</div><div class="l">Nhóm CTKM</div><div class="t">Cross DV↔SP + Trial</div></div>
+  <div class="kpi"><div class="v">3</div><div class="l">Chương trình</div><div class="t">Glanzen + DrForSkin + UND</div></div>
+  <div class="kpi"><div class="v">C+F+B+G</div><div class="l">Nhóm CTKM</div><div class="t">Cross DV↔SP + Trial + Seasonal</div></div>
   <div class="kpi"><div class="v">≥120tr</div><div class="l">Target DT Glanzen</div><div class="t">Baseline: ~109tr</div></div>
   <div class="kpi"><div class="v">≥180</div><div class="l">Combo DrForSkin/tháng</div><div class="t">Baseline: ~0</div></div>
+  <div class="kpi"><div class="v">≥20%</div><div class="l">Tăng gói UND vs T3</div><div class="t">Kích cầu post-Tết</div></div>
 </div>
 
 <!-- CTKM T3 vs T4 -->
@@ -156,17 +161,17 @@ tr:last-child td{border-bottom:none}tr:nth-child(even){background:#f8f9fc}
   <div class="c-title"><span class="ic">⚖️</span> Tại sao đổi cách làm?</div>
   <div class="cmp">
     <div class="cmp-box old"><h4>Cách cũ</h4><div class="big">Nhóm E</div><p style="font-size:11px;margin-top:6px">SP thuần, không gắn DV<br>KH không có lý do mua</p></div>
-    <div class="cmp-box new"><h4>CTKM T4 (cách mới)</h4><div class="big">Nhóm C+F</div><p style="font-size:11px;margin-top:6px">SP gắn liền DV đang dùng<br>Trial trên tóc/da KH trước<br>Stylist/Skinner chủ động giới thiệu<br>Đúng moment → tỷ lệ convert cao</p></div>
+    <div class="cmp-box new"><h4>CTKM T4 (cách mới)</h4><div class="big">Nhóm C+F+B+G</div><p style="font-size:11px;margin-top:6px">SP gắn liền DV đang dùng<br>Trial trên tóc/da KH trước<br>Stylist/Skinner chủ động giới thiệu<br>Đúng moment → tỷ lệ convert cao<br>Kích cầu seasonal UND post-Tết</p></div>
   </div>
   <div class="sb ok">
     <span class="sb-label gr">Nguyên tắc cốt lõi</span>
-    <strong>KH không cần "quyết định mua"</strong> — KH trải nghiệm SP trước (stylist vuốt sáp / skinner thoa serum), thấy kết quả trên mình, rồi mới được giới thiệu mua.
+    <strong>KH không cần "quyết định mua"</strong> — KH trải nghiệm SP trước (stylist vuốt sáp / skinner thoa serum), thấy kết quả trên mình, rồi mới được giới thiệu mua. Với UND: tóc vừa xử lý hóa chất = CẦN phục hồi = nhu cầu thật.
   </div>
 </div>
 
-<!-- 2 CT OVERVIEW -->
+<!-- 3 CT OVERVIEW -->
 <div class="c">
-  <div class="c-title"><span class="ic">📦</span> 2 Chương trình triển khai</div>
+  <div class="c-title"><span class="ic">📦</span> 3 Chương trình triển khai</div>
   <div class="pkg-grid">
     <div class="pkg ct1">
       <div class="pkg-hd">
@@ -190,6 +195,17 @@ tr:last-child td{border-bottom:none}tr:nth-child(even){background:#f8f9fc}
         <strong>Đối tượng:</strong> KH có DV chăm da trong bill (mặt nạ sủi bọt, lột mụn, Combo 3/5 chăm da...)
       </div>
     </div>
+    <div class="pkg ct3">
+      <div class="pkg-hd">
+        <div class="pkg-em">💈</div>
+        <div class="pkg-nm"><div class="tier rd">CT3 · NHÓM B + G</div><h3>Uốn Nhuộm từ 478K — Tặng Phục hồi 146K</h3></div>
+      </div>
+      <div class="pkg-bd">
+        <strong>Cơ chế:</strong> KH dùng DV Uốn/Nhuộm ≥ 478K → TẶNG 1 lần DV Phục hồi tóc trị giá 146K<br><br>
+        <strong>Mục tiêu:</strong> Kích cầu UND giảm 75% post-Tết · Cross-sell DV Dưỡng phục hồi · Tạo trial DV Dưỡng<br><br>
+        <strong>Đối tượng:</strong> KH sử dụng DV Uốn/Nhuộm có giá từ 478K trở lên
+      </div>
+    </div>
   </div>
 </div>
 
@@ -199,17 +215,129 @@ tr:last-child td{border-bottom:none}tr:nth-child(even){background:#f8f9fc}
   <div class="dec-bd">
     <div class="dec-row"><div class="dec-chk">1</div><div>Brief <strong>Stylist</strong> về CT1 Glanzen: cắt xong → vuốt sáp tạo kiểu → giới thiệu mua</div></div>
     <div class="dec-row"><div class="dec-chk">2</div><div>Brief <strong>Skinner</strong> về CT2 DrForSkin: chăm da xong → thoa serum → giới thiệu combo</div></div>
-    <div class="dec-row"><div class="dec-chk">3</div><div>Kiểm tra salon đang chạy <strong>< 3 CTKM</strong> đồng thời</div></div>
-    <div class="dec-row"><div class="dec-chk">4</div><div>Kiểm tra <strong>không trùng CTKM HQ</strong> cho cùng SP</div></div>
-    <div class="dec-row"><div class="dec-chk">5</div><div>Chuẩn bị <strong>SP tại salon</strong>: Sáp Glanzen + DrForSkin + Apteka đủ tồn kho</div></div>
-    <div class="dec-row"><div class="dec-chk">6</div><div>In/dán <strong>standee hoặc poster</strong> tại quầy (nếu có)</div></div>
-    <div class="dec-row"><div class="dec-chk">7</div><div>Theo dõi <strong>số lượt sử dụng sau 7 ngày</strong> → quyết định tiếp tục/điều chỉnh/dừng</div></div>
+    <div class="dec-row"><div class="dec-chk">3</div><div>Brief <strong>Stylist/Thợ UND</strong> về CT3: Uốn/Nhuộm xong → tặng phục hồi → giới thiệu DV Dưỡng</div></div>
+    <div class="dec-row"><div class="dec-chk">4</div><div>Kiểm tra salon đang chạy <strong>< 3 CTKM</strong> đồng thời</div></div>
+    <div class="dec-row"><div class="dec-chk">5</div><div>Kiểm tra <strong>không trùng CTKM HQ</strong> cho cùng SP/DV</div></div>
+    <div class="dec-row"><div class="dec-chk">6</div><div>Chuẩn bị <strong>SP tại salon</strong>: Sáp Glanzen + DrForSkin + Apteka đủ tồn kho</div></div>
+    <div class="dec-row"><div class="dec-chk">7</div><div>Chuẩn bị <strong>voucher phục hồi</strong> cho CT3 (in sẵn, ghi thời hạn 14 ngày)</div></div>
+    <div class="dec-row"><div class="dec-chk">8</div><div>In/dán <strong>standee hoặc poster</strong> tại quầy (nếu có)</div></div>
+    <div class="dec-row"><div class="dec-chk">9</div><div>Theo dõi <strong>số lượt sử dụng sau 7 ngày</strong> → quyết định tiếp tục/điều chỉnh/dừng</div></div>
   </div>
 </div>
 </div>
 
-<!-- ===================== S2: CT1 GLANZEN ===================== -->
+<!-- ===================== S2: PHÂN TÍCH & DATA ===================== -->
 <div class="sec" id="s2">
+<div class="bn nv">
+  <div class="zone">DATA & INSIGHT</div>
+  <h2>Phân tích & Cơ sở dữ liệu — Tại sao 3 CTKM này?</h2>
+  <p>Dữ liệu T3/2026 cho thấy cơ hội rõ ràng ở 3 ngành hàng. Mỗi CTKM đều có cơ sở data cụ thể.</p>
+</div>
+
+<!-- Card 1: Bức tranh doanh thu -->
+<div class="c">
+  <div class="c-title"><span class="ic">📊</span> Bức tranh doanh thu T3/2026 — Tại sao 3 CTKM này?</div>
+  <div class="tw"><table>
+    <tr><th>Ngành hàng</th><th class="n">DTT</th><th class="n">Tỷ trọng</th><th class="n">Xu hướng vs T2</th><th>Cơ hội CTKM</th></tr>
+    <tr><td>Relax/Spa</td><td class="n">13.48 tỷ</td><td class="n">58%</td><td class="n bd">-1.3%</td><td>Cross-sell SP chăm da (CT2)</td></tr>
+    <tr><td>SC (Cắt)</td><td class="n">7.25 tỷ</td><td class="n">31%</td><td class="n bd">-3.7%</td><td>Cross-sell SP tạo kiểu (CT1)</td></tr>
+    <tr class="hl"><td><strong>UND</strong></td><td class="n"><strong>2.38 tỷ</strong></td><td class="n"><strong>10%</strong></td><td class="n bd"><strong>-75% (!)</strong></td><td><strong>Kích cầu seasonal (CT3)</strong></td></tr>
+    <tr><td>SP</td><td class="n">~10% ngoài DV</td><td class="n">~10%</td><td class="n">—</td><td>Tăng qua CT1, CT2</td></tr>
+  </table></div>
+  <div class="sb wr">
+    <span class="sb-label or">Nhận định</span>
+    Relax và SC ổn định nhưng giảm nhẹ → cơ hội cross-sell SP. UND giảm cực mạnh 75% post-Tết → cần kích cầu ngay bằng CT3 seasonal. SP tăng gián tiếp qua CT1 và CT2.
+  </div>
+</div>
+
+<!-- Card 2: CT1 Glanzen insight -->
+<div class="c">
+  <div class="c-title"><span class="ic">💇</span> CT1 Glanzen — Tại sao gắn với DV Cắt?</div>
+  <div class="sb wr">
+    <span class="sb-label or">Data cơ sở</span>
+    <strong>SC = 65,233 gói/tháng</strong> — dịch vụ có lượng bill lớn nhất chuỗi<br>
+    <strong>DV vuốt sáp tạo kiểu: 343 gói</strong>, giảm 17.7% → DV liên quan đang yếu<br>
+    <strong>Cross-sell rate DV cắt → SP hiện tại ~1%</strong> → room tăng rất lớn<br>
+    <strong>65K bill cắt × 2% convert = 1,300 lượt mua sáp thêm/tháng</strong>
+  </div>
+  <div class="sb ok">
+    <span class="sb-label gr">Insight</span>
+    Stylist cắt xong vuốt sáp = moment tự nhiên nhất, KH đang ngồi, vừa thấy tóc mới đẹp → sẵn sàng chi cho SP giữ kiểu. Đây là lúc trial hiệu quả nhất — không cần hỏi, cứ vuốt sáp tạo kiểu luôn.
+  </div>
+</div>
+
+<!-- Card 3: CT2 DrForSkin insight -->
+<div class="c">
+  <div class="c-title"><span class="ic">✨</span> CT2 DrForSkin — Tại sao gắn với DV Chăm da?</div>
+  <div class="sb wr">
+    <span class="sb-label or">Data cơ sở</span>
+    <strong>Nhóm DV chăm da cơ bản: 5,307 gói</strong>, SaleRate 4.7%, tăng 3.8%<br>
+    <strong>Mặt nạ tẩy da chết sủi bọt = 5,065 gói</strong> (chiếm 95% nhóm) → base ổn định<br>
+    <strong>Tổng KH eligible ~10,800 bill/tháng</strong><br>
+    <strong>Target 180 combo = chỉ cần 1.7% convert</strong> → rất khả thi
+  </div>
+  <div class="sb ok">
+    <span class="sb-label gr">Insight</span>
+    KH vừa chăm da = da sạch nhất, quan tâm da nhất → đúng moment thoa serum trial. Tặng Apteka tạo routine tại nhà → quay lại DV. Combo "mua 1 tặng 1" tạo cảm giác lợi ích lớn, thực tế xả tồn Apteka thông minh.
+  </div>
+</div>
+
+<!-- Card 4: CT3 UND insight -->
+<div class="c">
+  <div class="c-title"><span class="ic">🔥</span> CT3 UND — Tại sao cần kích cầu ngay?</div>
+  <div class="sb dg">
+    <span class="sb-label rd">CẢNH BÁO — UND GIẢM 75%</span>
+    <strong>UND tổng: 2.38 tỷ, GIẢM 75% vs T2</strong> — mức giảm kỷ lục post-Tết. Nếu không kích cầu ngay, đội ngũ UND sẽ thiếu việc, salon mất doanh thu ngành hàng thứ 3.
+  </div>
+  <div class="tw"><table>
+    <tr><th>DV</th><th class="n">DTT T3</th><th class="n">Gói T3</th><th class="n">vs T2</th><th class="n">SaleRate</th></tr>
+    <tr><td>Uốn K-Perm cao cấp</td><td class="n">0.73 tỷ</td><td class="n">1,512</td><td class="n bd">-78%</td><td class="n">1.3%</td></tr>
+    <tr><td>Uốn tiêu chuẩn</td><td class="n">0.43 tỷ</td><td class="n">1,096</td><td class="n bd">-72%</td><td class="n">1.0%</td></tr>
+    <tr><td>Nhuộm cao cấp Milano</td><td class="n">0.27 tỷ</td><td class="n">732</td><td class="n bd">-74%</td><td class="n">0.6%</td></tr>
+    <tr><td>Nhuộm phủ bạc tiêu chuẩn</td><td class="n">0.30 tỷ</td><td class="n">1,105</td><td class="n bd">-52%</td><td class="n">1.0%</td></tr>
+    <tr><td>Dưỡng phục hồi Lipid Bond</td><td class="n">0.08 tỷ</td><td class="n">506</td><td class="n bd">-69%</td><td class="n">0.4%</td></tr>
+  </table></div>
+  <div class="sb ok">
+    <span class="sb-label gr">Giải pháp</span>
+    Uốn/Nhuộm từ 478K → <strong>TẶNG phục hồi 146K</strong>. KH vừa xử lý hóa chất → tóc CẦN phục hồi = nhu cầu thật. Tặng phục hồi = tạo trial DV Dưỡng → kéo KH quay lại dưỡng tiếp. Đây là cross-sell DV↔DV (nhóm B) kết hợp seasonal (nhóm G).
+  </div>
+</div>
+
+<!-- Card 5: Mix DTT theo vùng -->
+<div class="c">
+  <div class="c-title"><span class="ic">🗺️</span> Mix DTT theo vùng — Không đồng đều</div>
+  <div class="tw"><table>
+    <tr><th>Vùng</th><th class="n">SC%</th><th class="n">Relax%</th><th class="n">UND%</th><th>Nhận xét</th></tr>
+    <tr><td>TT02 Hà Đông</td><td class="n">45%</td><td class="n">43%</td><td class="n">12%</td><td>SC rất cao → ưu tiên CT1</td></tr>
+    <tr><td>TT09 Q4,7,8</td><td class="n">37%</td><td class="n">52%</td><td class="n">12%</td><td>SC cao → CT1 + CT3</td></tr>
+    <tr><td>TT08 Q3,10 Tân Bình</td><td class="n">30%</td><td class="n">60%</td><td class="n">10%</td><td>Relax tốt → CT2</td></tr>
+    <tr><td>TT16 Bình Dương</td><td class="n">25%</td><td class="n">67%</td><td class="n">8%</td><td>UND yếu → CT3</td></tr>
+    <tr><td>TT14 Biên Hòa</td><td class="n">23%</td><td class="n">64%</td><td class="n">13%</td><td>UND khá → CT3 ít cần</td></tr>
+  </table></div>
+  <div class="sb nv">
+    <span class="sb-label nv">Benchmark chuỗi</span>
+    SC 31% | Relax 58% | UND 10% — SM dùng benchmark này để so sánh salon mình, từ đó ưu tiên CT nào phù hợp đặc thù vùng.
+  </div>
+</div>
+
+<!-- Card 6: DV đang trending -->
+<div class="c">
+  <div class="c-title"><span class="ic">📈</span> DV đang trending — Dùng làm anchor</div>
+  <div class="tw"><table>
+    <tr><th>DV</th><th class="n">Tăng trưởng</th><th class="n">Gói</th><th>Link CTKM</th></tr>
+    <tr><td>LRT VIP 70K</td><td class="n gd">+37.2%</td><td class="n">20,816</td><td>Có thể cross-sell trong tương lai</td></tr>
+    <tr><td>Gội dưỡng sinh CVG</td><td class="n gd">+46.7%</td><td class="n">2,270</td><td>Đang hot, có thể làm trial</td></tr>
+    <tr><td>Gội Combo 4</td><td class="n gd">+10.7%</td><td class="n">2,302</td><td>Upsell từ Combo 2/3</td></tr>
+  </table></div>
+  <div class="sb ok">
+    <span class="sb-label gr">Gợi ý</span>
+    Các DV đang trending có thể dùng làm anchor cho CTKM tương lai (T5+). Hiện tại tập trung 3 CT ưu tiên, không mở thêm để tránh loãng effort.
+  </div>
+</div>
+</div>
+
+<!-- ===================== S3: CT1 GLANZEN ===================== -->
+<div class="sec" id="s3">
 <div class="bn or">
   <div class="zone">CT1 · NHÓM C + F</div>
   <h2>Sáp Glanzen — "Giữ Form" khi cắt tạo kiểu</h2>
@@ -271,8 +399,8 @@ tr:last-child td{border-bottom:none}tr:nth-child(even){background:#f8f9fc}
 </div>
 </div>
 
-<!-- ===================== S3: CT2 DRFORSKIN ===================== -->
-<div class="sec" id="s3">
+<!-- ===================== S4: CT2 DRFORSKIN ===================== -->
+<div class="sec" id="s4">
 <div class="bn pur">
   <div class="zone">CT2 · NHÓM C + E</div>
   <h2>Serum DrForSkin 7in1 + Tẩy da chết Apteka</h2>
@@ -353,8 +481,86 @@ tr:last-child td{border-bottom:none}tr:nth-child(even){background:#f8f9fc}
 </div>
 </div>
 
-<!-- ===================== S4: KỊCH BẢN BÁN HÀNG ===================== -->
-<div class="sec" id="s4">
+<!-- ===================== S5: CT3 UỐN NHUỘM + PHỤC HỒI ===================== -->
+<div class="sec" id="s5">
+<div class="bn" style="background:linear-gradient(135deg,#b71c1c,#e53935);border-radius:var(--r);padding:28px;margin-bottom:24px;color:#fff;position:relative;overflow:hidden">
+  <div class="zone">CT3 · NHÓM B + G</div>
+  <h2>Uốn Nhuộm từ 478K — Tặng Phục hồi 146K</h2>
+  <p>Kích cầu UND đang giảm 75% post-Tết + Cross-sell DV Dưỡng phục hồi</p>
+  <div class="tags"><span class="tag">Uốn/Nhuộm ≥ 478K</span><span class="tag">Tặng Phục hồi 146K</span><span class="tag">Kích cầu UND</span></div>
+</div>
+
+<div class="c">
+  <div class="c-title"><span class="ic">🎯</span> Mục tiêu kinh doanh</div>
+  <div class="kpi-g">
+    <div class="kpi"><div class="v">≥20%</div><div class="l">Target gói UND tăng vs T3</div><div class="t">Kích cầu post-Tết</div></div>
+    <div class="kpi"><div class="v">~500</div><div class="l">Lượt tặng phục hồi/tháng</div><div class="t">Ước tính</div></div>
+    <div class="kpi"><div class="v">≥8%</div><div class="l">SaleRate UND target</div><div class="t">Baseline: 6.4%</div></div>
+  </div>
+  <ul class="chk-list" style="margin-top:14px">
+    <li><span class="ok">☑</span> Kích cầu UND đang giảm 75% post-Tết</li>
+    <li><span class="ok">☑</span> Cross-sell DV Uốn/Nhuộm → DV Dưỡng phục hồi</li>
+    <li><span class="ok">☑</span> Tạo trial DV Dưỡng → KH quay lại dưỡng tiếp</li>
+    <li><span class="ok">☑</span> Tăng AOV bill UND (thêm giá trị phục hồi)</li>
+  </ul>
+</div>
+
+<div class="c">
+  <div class="c-title"><span class="ic">⚙️</span> Cơ chế chi tiết</div>
+  <div class="flow">
+    <div class="flow-step">
+      <div class="flow-n" style="background:var(--red)">1</div>
+      <div class="flow-c"><h4>Điều kiện</h4><p>KH sử dụng DV Uốn hoặc Nhuộm có giá từ 478K trở lên (Uốn K-Perm, Uốn tiêu chuẩn, Nhuộm Milano, Nhuộm phủ bạc...)</p></div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-n" style="background:var(--navy)">2</div>
+      <div class="flow-c"><h4>Ưu đãi — TẶNG Phục hồi 146K</h4><p>TẶNG 1 lần DV Phục hồi tóc trị giá 146K.<br>Áp dụng ngay bill đó hoặc <strong>voucher quay lại trong 14 ngày</strong>.</p></div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-n" style="background:var(--green)">3</div>
+      <div class="flow-c"><h4>Logic — Nhu cầu thật</h4><p>Tóc vừa xử lý hóa chất = CẦN phục hồi = nhu cầu thật.<br>KH trải nghiệm DV Dưỡng lần đầu → quay lại dưỡng chuyên sâu (Lipid Bond).</p></div>
+    </div>
+  </div>
+  <div class="sb wr" style="margin-top:12px">
+    <span class="sb-label or">Giới hạn</span>
+    1 lần/KH. DV phục hồi 146K = nằm trong ngưỡng tặng DV ≤ 100K... (<strong>NOTE: 146K vượt ngưỡng 100K → cần GDKV phê duyệt theo Rule v3</strong>)
+  </div>
+</div>
+
+<div class="c">
+  <div class="c-title"><span class="ic">💬</span> Kịch bản nhân viên — Phục hồi tặng kèm UND</div>
+  <div class="sb nv">
+    <span class="sb-label nv">Sau khi làm UND xong</span>
+    <em>"Anh vừa uốn/nhuộm → tóc cần phục hồi ngay. Em tặng anh 1 lần phục hồi trị giá 146K luôn nhé, giữ cho tóc mềm mượt không khô xơ."</em>
+  </div>
+  <div class="sb ok">
+    <span class="sb-label gr">Nếu KH hỏi về phục hồi</span>
+    <em>"Phục hồi giúp tóc sau khi uốn/nhuộm giữ nếp đẹp hơn, không bị khô gãy. Bình thường 146K nhưng hôm nay anh được tặng luôn."</em>
+  </div>
+  <div class="sb dg">
+    <span class="sb-label rd">Nếu KH từ chối</span>
+    <em>"Dạ không sao, anh có voucher phục hồi tặng kèm, 14 ngày quay lại dùng được nhé."</em><br>
+    <strong style="font-size:11px">→ Không ép. Tặng voucher = tạo lý do quay lại. KH dùng voucher = trial DV Dưỡng.</strong>
+  </div>
+</div>
+
+<div class="c">
+  <div class="c-title"><span class="ic">💰</span> Phân tích tài chính CT3</div>
+  <div class="sb wr">
+    <span class="sb-label or">Chi phí & ước tính</span>
+    <strong>Chi phí:</strong> Phục hồi 146K/KH (chi phí phục vụ thực tế ~50-70K)<br>
+    <strong>Base eligible:</strong> UND bill ≥478K → ước tính ~3,000-4,000 bill/tháng (total UND 7,235 gói, filter ≥478K)<br>
+    <strong>Nếu 15% nhận voucher quay lại:</strong> 500-600 lượt dưỡng thêm/tháng → DT Dưỡng tăng ~75-90 triệu
+  </div>
+  <div class="sb ok">
+    <span class="sb-label gr">ROI</span>
+    Chi 146K tặng → KH quay lại dưỡng 1-2 lần nữa (LTV dưỡng ~300-500K). <strong>Breakeven nếu 30% KH được tặng quay lại dưỡng thêm ≥1 lần.</strong>
+  </div>
+</div>
+</div>
+
+<!-- ===================== S6: KỊCH BẢN BÁN HÀNG ===================== -->
+<div class="sec" id="s6">
 <div class="bn dk">
   <div class="zone">KỊCH BẢN BÁN HÀNG</div>
   <h2>Hướng dẫn Stylist & Skinner — Từng bước cụ thể</h2>
@@ -437,6 +643,44 @@ tr:last-child td{border-bottom:none}tr:nth-child(even){background:#f8f9fc}
   </div>
 </div>
 
+<!-- CT3 Script -->
+<div class="c">
+  <div class="c-title"><span class="ic">💈</span> CT3: Nhân viên giới thiệu Phục hồi tặng kèm UND</div>
+
+  <div class="mx-grid">
+    <div class="mx pt">
+      <h4>✅ NÊN LÀM</h4>
+      <p>• UND xong → chủ động nói tặng phục hồi<br>• Giải thích lý do: tóc vừa xử lý hóa chất cần phục hồi<br>• Làm phục hồi ngay nếu KH đồng ý<br>• KH không dùng ngay → tặng voucher 14 ngày<br>• Sau phục hồi → nhắc KH quay lại dưỡng tiếp</p>
+    </div>
+    <div class="mx nm">
+      <h4>❌ KHÔNG LÀM</h4>
+      <p>• Quên giới thiệu phục hồi (= mất cơ hội tạo trial)<br>• Bỏ qua bước tặng voucher khi KH từ chối<br>• Tặng phục hồi cho bill UND < 478K<br>• Nài nỉ quá mức khi KH không muốn<br>• Không giải thích tại sao tóc cần phục hồi</p>
+    </div>
+  </div>
+
+  <div class="c" style="background:#fff0f0;border-color:var(--red);margin-top:14px">
+    <h4 style="color:var(--red);margin-bottom:10px">🎬 Flow hoàn chỉnh — UND + Phục hồi</h4>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-n" style="background:var(--red)">1</div>
+        <div class="flow-c"><h4>UND xong → Giới thiệu phục hồi (15 giây)</h4><p><em>"Tóc anh vừa xử lý hóa chất, em tặng phục hồi để giữ tóc đẹp"</em> — nói tự nhiên, như một phần dịch vụ.</p></div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-n" style="background:var(--navy)">2</div>
+        <div class="flow-c"><h4>Làm phục hồi ngay (thời gian DV)</h4><p>KH đồng ý → làm DV phục hồi ngay tại chỗ. Ghi nhận vào hệ thống campaign.</p></div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-n" style="background:var(--green)">3</div>
+        <div class="flow-c"><h4>Sau phục hồi → Nhắc quay lại (15 giây)</h4><p><em>"Anh thấy tóc mềm hơn không? Dịch vụ này bình thường 146K, hôm nay anh được tặng. Lần sau tóc cần dưỡng thêm anh quay lại nhé."</em></p></div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-n" style="background:var(--muted)">4</div>
+        <div class="flow-c"><h4>Nếu KH không dùng ngay → Tặng voucher</h4><p>Tặng voucher phục hồi 146K, thời hạn 14 ngày. <em>"Dạ không sao, anh có voucher phục hồi tặng kèm, 14 ngày quay lại dùng được nhé."</em></p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Xử lý tình huống -->
 <div class="c">
   <div class="c-title"><span class="ic">🔥</span> Xử lý tình huống thường gặp</div>
@@ -447,25 +691,27 @@ tr:last-child td{border-bottom:none}tr:nth-child(even){background:#f8f9fc}
     <tr><td>Để lần sau</td><td>"Để lần sau mua"</td><td>"Dạ được anh, nhưng ưu đãi này chỉ trong tháng 4 thôi, anh cân nhắc nhé" (tạo urgency nhẹ)</td></tr>
     <tr><td>Đã có SP rồi</td><td>"Anh dùng loại khác rồi"</td><td>"Dạ tốt ạ. Anh thử cảm nhận SP em vừa dùng xem so với loại anh đang dùng thế nào nhé" (không nói xấu SP khác)</td></tr>
     <tr><td>KH hài lòng DV</td><td>"Tóc/Da hôm nay đẹp quá"</td><td>"Anh muốn giữ như này ở nhà không? [Giới thiệu SP] hôm nay đang có ưu đãi..."</td></tr>
+    <tr><td>CT3: KH hỏi "Tại sao tặng?"</td><td>"Sao lại tặng phục hồi?"</td><td>"Tóc sau khi uốn/nhuộm cần phục hồi ngay anh, em tặng để anh thấy tóc đẹp hơn"</td></tr>
+    <tr><td>CT3: KH đã dùng DV dưỡng khác</td><td>"Anh đã dưỡng rồi"</td><td>"Dạ phục hồi này khác anh, chuyên cho tóc vừa uốn/nhuộm, bổ sung dưỡng chất bị mất"</td></tr>
   </table></div>
 </div>
 </div>
 
-<!-- ===================== S5: ĐO LƯỜNG ===================== -->
-<div class="sec" id="s5">
+<!-- ===================== S7: ĐO LƯỜNG & SALON ===================== -->
+<div class="sec" id="s7">
 <div class="bn grn">
   <div class="zone">ĐO LƯỜNG & KPI</div>
   <h2>Theo dõi hiệu quả — Ai đo, đo gì, khi nào</h2>
-  <p>Đơn giản: 2 chỉ số mỗi CT. Review sau 7 ngày. Quyết định tiếp tục/điều chỉnh/dừng.</p>
+  <p>Đơn giản: 2-3 chỉ số mỗi CT. Review sau 7 ngày. Quyết định tiếp tục/điều chỉnh/dừng.</p>
 </div>
 
 <div class="c">
-  <div class="c-title"><span class="ic">📊</span> KPI tổng hợp 2 chương trình</div>
+  <div class="c-title"><span class="ic">📊</span> KPI tổng hợp 3 chương trình</div>
   <div class="tw"><table>
-    <tr><th>KPI</th><th>CT1 Glanzen</th><th>CT2 DrForSkin</th><th>Ai đo</th><th>Khi nào</th></tr>
-    <tr><td><strong>Doanh thu SP</strong></td><td>Baseline ~109tr → Target ≥120tr</td><td>Baseline 0 → Target: tính sau khi có giá SP</td><td>Data team / BI</td><td>Hàng tuần</td></tr>
-    <tr><td><strong>Lượt bán/salon/tháng</strong></td><td>Baseline 6.6 → Target ≥8</td><td>Baseline 0 → Target ≥3/tuần</td><td>Hệ thống campaign</td><td>Hàng tuần</td></tr>
-    <tr><td><strong>Tỷ lệ convert</strong></td><td>KH cắt → mua sáp: ~1% → ≥2%</td><td>KH chăm da → mua combo: 0% → ≥5%</td><td>Lượt mua / Tổng bill DV</td><td>Sau 7 ngày, 30 ngày</td></tr>
+    <tr><th>KPI</th><th>CT1 Glanzen</th><th>CT2 DrForSkin</th><th>CT3 UND + PH</th><th>Ai đo</th><th>Khi nào</th></tr>
+    <tr><td><strong>Doanh thu SP/DV</strong></td><td>Baseline ~109tr → Target ≥120tr</td><td>Baseline 0 → Target: tính sau khi có giá SP</td><td>UND tăng ≥20% vs T3</td><td>Data team / BI</td><td>Hàng tuần</td></tr>
+    <tr><td><strong>Lượt bán/salon/tháng</strong></td><td>Baseline 6.6 → Target ≥8</td><td>Baseline 0 → Target ≥3/tuần</td><td>Target ~500 lượt tặng PH/tháng</td><td>Hệ thống campaign</td><td>Hàng tuần</td></tr>
+    <tr><td><strong>Tỷ lệ convert</strong></td><td>KH cắt → mua sáp: ~1% → ≥2%</td><td>KH chăm da → mua combo: 0% → ≥5%</td><td>SaleRate UND: 6.4% → ≥8%</td><td>Lượt mua / Tổng bill DV</td><td>Sau 7 ngày, 30 ngày</td></tr>
   </table></div>
 </div>
 
@@ -481,7 +727,7 @@ tr:last-child td{border-bottom:none}tr:nth-child(even){background:#f8f9fc}
     </div>
     <div class="flow-step">
       <div class="flow-n" style="background:var(--navy)">14d</div>
-      <div class="flow-c"><h4>Sau 14 ngày — Mid-review</h4><p>So sánh DTT nhóm SP mục tiêu vs 2 tuần trước CTKM.<br>Nếu DTT SP tăng + lượt dùng ổn → giữ nguyên.<br>Nếu lượt dùng OK nhưng DTT không tăng → kiểm tra giá, margin.</p></div>
+      <div class="flow-c"><h4>Sau 14 ngày — Mid-review</h4><p>So sánh DTT nhóm SP mục tiêu vs 2 tuần trước CTKM.<br>Nếu DTT SP tăng + lượt dùng ổn → giữ nguyên.<br>Nếu lượt dùng OK nhưng DTT không tăng → kiểm tra giá, margin.<br>CT3: kiểm tra tỷ lệ voucher phục hồi được dùng (target ≥15%).</p></div>
     </div>
     <div class="flow-step">
       <div class="flow-n" style="background:var(--green)">30d</div>
@@ -499,12 +745,48 @@ tr:last-child td{border-bottom:none}tr:nth-child(even){background:#f8f9fc}
     <tr><th>Tên CTKM</th><th>Nhóm</th><th>Salon</th><th>Thời gian</th><th class="n">Tổng lượt dùng</th><th>DTT SP tăng/giảm</th><th>Tiếp tục?</th><th>Ghi chú</th></tr>
     <tr><td>Giữ Form — Glanzen</td><td>C+F</td><td>(điền)</td><td>(điền)</td><td class="n">(điền)</td><td>(điền)</td><td>Có / Không</td><td></td></tr>
     <tr><td>Chăm Da Trọn Bộ — DrForSkin</td><td>C+E</td><td>(điền)</td><td>(điền)</td><td class="n">(điền)</td><td>(điền)</td><td>Có / Không</td><td></td></tr>
+    <tr><td>Uốn Nhuộm + Phục hồi</td><td>B+G</td><td>(điền)</td><td>(điền)</td><td class="n">(điền)</td><td>(điền)</td><td>Có / Không</td><td></td></tr>
   </table></div>
+</div>
+
+<!-- Salon tracking matrix -->
+<div class="c">
+  <div class="c-title"><span class="ic">🏪</span> Bảng đánh giá thực hiện theo Salon</div>
+  <p style="font-size:12px;color:var(--muted);margin-bottom:14px">Mỗi tuần SM/Supervisor cập nhật. Data team hỗ trợ số lượt từ hệ thống. Format: thực tế / target mỗi tháng.</p>
+  <div class="tw"><table>
+    <tr><th>Salon</th><th>Vùng</th><th class="n">CT1 Glanzen (lượt)</th><th class="n">CT2 DrForSkin (lượt)</th><th class="n">CT3 UND (lượt tặng PH)</th><th class="n">Tổng SP bán</th><th>Đánh giá</th></tr>
+    <tr><td>10 TP</td><td>TT03 Đông HN</td><td class="n">___ / 8</td><td class="n">___ / 3</td><td class="n">___ / 5</td><td class="n">___</td><td>⬜</td></tr>
+    <tr><td>109 TQH</td><td>TT03 Đông HN</td><td class="n">___ / 8</td><td class="n">___ / 3</td><td class="n">___ / 5</td><td class="n">___</td><td>⬜</td></tr>
+    <tr><td>116 TK</td><td>TT03 Đông HN</td><td class="n">___ / 8</td><td class="n">___ / 3</td><td class="n">___ / 5</td><td class="n">___</td><td>⬜</td></tr>
+    <tr><td>168 NVC</td><td>TT03 Đông HN</td><td class="n">___ / 8</td><td class="n">___ / 3</td><td class="n">___ / 5</td><td class="n">___</td><td>⬜</td></tr>
+    <tr><td>103 TN</td><td>TT17 Thủ Đức</td><td class="n">___ / 8</td><td class="n">___ / 3</td><td class="n">___ / 5</td><td class="n">___</td><td>⬜</td></tr>
+    <tr><td>382 NT</td><td>TT08 Tân Bình</td><td class="n">___ / 8</td><td class="n">___ / 3</td><td class="n">___ / 5</td><td class="n">___</td><td>⬜</td></tr>
+    <tr><td>575 AC</td><td>TT06 Bình Tân</td><td class="n">___ / 8</td><td class="n">___ / 3</td><td class="n">___ / 5</td><td class="n">___</td><td>⬜</td></tr>
+    <tr><td>145 THT</td><td>TT04 Nam HN</td><td class="n">___ / 8</td><td class="n">___ / 3</td><td class="n">___ / 5</td><td class="n">___</td><td>⬜</td></tr>
+  </table></div>
+  <div class="sb ok" style="margin-top:12px">
+    <span class="sb-label gr">Thang đánh giá</span>
+    🟢 <strong>Đạt ≥80% target tất cả CT</strong> → Salon xuất sắc<br>
+    🟡 <strong>Đạt 50-80%</strong> → Cần điều chỉnh, brief lại team<br>
+    🔴 <strong>Đạt &lt;50%</strong> → SM cần hành động: tìm nguyên nhân, đổi cách brief
+  </div>
+</div>
+
+<!-- Phân bổ target theo đặc thù salon -->
+<div class="c">
+  <div class="c-title"><span class="ic">🎯</span> Phân bổ target theo đặc thù salon</div>
+  <div class="sb nv">
+    <span class="sb-label nv">Hướng dẫn SM tự điều chỉnh</span>
+    <strong>Salon SC > 40%</strong> → Ưu tiên CT1 (Glanzen), target CT1 cao hơn<br>
+    <strong>Salon có DV chăm da SaleRate cao</strong> → Ưu tiên CT2 (DrForSkin), target CT2 cao hơn<br>
+    <strong>Salon UND < 8%</strong> → Ưu tiên CT3 (UND + Phục hồi), target CT3 cao hơn<br>
+    <strong>SM tự điều chỉnh target theo đặc thù</strong>, tổng effort tương đương. Ví dụ: salon SC 45% có thể đặt CT1 target = 12 lượt thay vì 8, giảm CT3 target xuống 3.
+  </div>
 </div>
 </div>
 
-<!-- ===================== S6: RULE CTKM ===================== -->
-<div class="sec" id="s6">
+<!-- ===================== S8: RULE CTKM ===================== -->
+<div class="sec" id="s8">
 <div class="bn nv">
   <div class="zone">QUY CHẾ CTKM v3.0</div>
   <h2>Tóm tắt quy chế — Dành cho SM & Supervisor</h2>
@@ -571,7 +853,7 @@ function go(id){
   document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
   document.getElementById(id).classList.add('active');
-  const idx=['s1','s2','s3','s4','s5','s6'].indexOf(id);
+  const idx=['s1','s2','s3','s4','s5','s6','s7','s8'].indexOf(id);
   document.querySelectorAll('.tab')[idx].classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
 }
