@@ -136,6 +136,7 @@ tr:last-child td{border-bottom:none}tr:nth-child(even){background:#f8f9fc}
   <button class="tab" onclick="go('s7')"><span class="t-label">Quản lý</span>Đo lường & Salon</button>
   <button class="tab" onclick="go('s8')"><span class="t-label">Quy chế</span>Rule CTKM v3</button>
   <button class="tab" onclick="go('s9')"><span class="t-label">Tra cứu</span>🔍 Salon của tôi</button>
+  <button class="tab" onclick="go('s10')"><span class="t-label">Khả thi</span>📐 Phân tích mục tiêu</button>
 </div>
 
 <div class="wrap">
@@ -313,12 +314,16 @@ tr:last-child td{border-bottom:none}tr:nth-child(even){background:#f8f9fc}
 </div>
 
 <div class="c">
-  <div class="c-title"><span class="ic">🎯</span> Mục tiêu kinh doanh</div>
+  <div class="c-title"><span class="ic">🎯</span> Mục tiêu kinh doanh (tính khả thi từ số KH &amp; lượt CTKM)</div>
   <div class="kpi-g">
-    <div class="kpi"><div class="v">10K</div><div class="l">Target AOV SP tạo kiểu</div><div class="t">Baseline: 6.5K · +54%</div></div>
-    <div class="kpi"><div class="v">3.5%</div><div class="l">Target CR SP tạo kiểu</div><div class="t">Baseline: ~2% · +1.5pts</div></div>
+    <div class="kpi"><div class="v">6.5K → 9K</div><div class="l">Target AOV SP tạo kiểu</div><div class="t">+38% · realistic (stretch +54%)</div></div>
+    <div class="kpi"><div class="v">2% → 3%</div><div class="l">Target CR SP tạo kiểu</div><div class="t">+1pt · realistic</div></div>
     <div class="kpi"><div class="v">600</div><div class="l">Target lượt CTKM T4</div><div class="t">5/salon/tuần × 30 × 4</div></div>
     <div class="kpi"><div class="v">≥66%</div><div class="l">Margin Rate sau KM</div><div class="t">Cả 2 tầng đều an toàn</div></div>
+  </div>
+  <div class="sb wr" style="margin-top:10px">
+    <span class="sb-label or">Tính khả thi</span>
+    30 salon × ~1,500 KH/tháng = 45,000 KH ảnh hưởng. Base DT SP tạo kiểu ~290M. CT1 thêm 600 lượt × 237K = 142M (+49%). Cộng halo effect (SP tạo kiểu khác tăng nhẹ): AOV thực tế tăng ~+38%. Nếu lượt CTKM tăng 2x (1,200 lượt) → đạt +54% stretch.
   </div>
   <ul class="chk-list" style="margin-top:14px">
     <li><span class="ok">☑</span> Tăng AOV nhóm SP tạo kiểu (sáp/gel/xịt) tại salon triển khai</li>
@@ -403,14 +408,18 @@ tr:last-child td{border-bottom:none}tr:nth-child(even){background:#f8f9fc}
 </div>
 
 <div class="c">
-  <div class="c-title"><span class="ic">🎯</span> Mục tiêu kinh doanh — AOV Relax 3 nhóm salon</div>
+  <div class="c-title"><span class="ic">🎯</span> Mục tiêu kinh doanh — AOV Relax 3 nhóm salon (khả thi)</div>
   <div class="kpi-g">
-    <div class="kpi"><div class="v">145K → 170K</div><div class="l">Nhóm S1 (cao)</div><div class="t">+17% · ~15 salon AOV ≥ 140K</div></div>
-    <div class="kpi"><div class="v">118K → 140K</div><div class="l">Nhóm S2 (trung)</div><div class="t">+19% · ~30 salon AOV 100-140K</div></div>
-    <div class="kpi"><div class="v">85K → 110K</div><div class="l">Nhóm S3 (thấp)</div><div class="t">+29% · ~6 salon AOV &lt; 100K</div></div>
+    <div class="kpi"><div class="v">145K → 150K</div><div class="l">Nhóm S1 (cao)</div><div class="t">+3% · ~15 salon AOV ≥ 140K</div></div>
+    <div class="kpi"><div class="v">118K → 125K</div><div class="l">Nhóm S2 (trung)</div><div class="t">+6% · ~30 salon AOV 100-140K</div></div>
+    <div class="kpi"><div class="v">85K → 92K</div><div class="l">Nhóm S3 (thấp)</div><div class="t">+8% · ~6 salon AOV &lt; 100K</div></div>
     <div class="kpi"><div class="v">≥+10K</div><div class="l">Lãi ròng/lượt</div><div class="t">Margin thêm − cost SP tặng</div></div>
     <div class="kpi"><div class="v">1,030</div><div class="l">Target lượt CTKM T4</div><div class="t">S1: 360 · S2: 600 · S3: 72</div></div>
     <div class="kpi"><div class="v">≥80%</div><div class="l">% tồn SP 0-3T đã xả</div><div class="t">Cuối T4</div></div>
+  </div>
+  <div class="sb wr" style="margin-top:10px">
+    <span class="sb-label or">Tại sao target Relax thấp hơn dự kiến ban đầu?</span>
+    Base DT Relax rất lớn (~11 tỷ/tháng toàn 50 salon) → 1,030 lượt CTKM × bill upgrade ~150K = 154M chỉ chiếm 1.4% base. Không thể đẩy AOV Relax lên +17-29% chỉ với số lượt đó. Realistic uplift: +3-8%. Muốn uplift cao hơn → cần tăng số lượt CTKM 3-5 lần (cần staff brief kỹ + poster/SMS truyền thông).
   </div>
   <ul class="chk-list" style="margin-top:14px">
     <li><span class="ok">☑</span> Tăng AOV Relax theo từng nhóm salon (S1/S2/S3) với target cụ thể</li>
@@ -508,14 +517,18 @@ tr:last-child td{border-bottom:none}tr:nth-child(even){background:#f8f9fc}
 </div>
 
 <div class="c">
-  <div class="c-title"><span class="ic">🎯</span> Mục tiêu kinh doanh — AOV UND 3 nhóm salon</div>
+  <div class="c-title"><span class="ic">🎯</span> Mục tiêu kinh doanh — AOV UND 3 nhóm salon (khả thi)</div>
   <div class="kpi-g">
-    <div class="kpi"><div class="v">32K → 45K</div><div class="l">Nhóm UND-HIGH</div><div class="t">+40% · ~13 salon AOV UND ≥ 30K</div></div>
-    <div class="kpi"><div class="v">23K → 32K</div><div class="l">Nhóm UND-MID</div><div class="t">+40% · ~25 salon AOV 20-30K</div></div>
-    <div class="kpi"><div class="v">13K → 20K</div><div class="l">Nhóm UND-LOW</div><div class="t">+54% · ~20 salon AOV &lt; 20K</div></div>
+    <div class="kpi"><div class="v">32K → 35K</div><div class="l">Nhóm UND-HIGH</div><div class="t">+9% · ~13 salon AOV UND ≥ 30K</div></div>
+    <div class="kpi"><div class="v">23K → 27K</div><div class="l">Nhóm UND-MID</div><div class="t">+17% · ~25 salon AOV 20-30K</div></div>
+    <div class="kpi"><div class="v">13K → 17K</div><div class="l">Nhóm UND-LOW</div><div class="t">+31% · ~20 salon AOV &lt; 20K</div></div>
     <div class="kpi"><div class="v">≥15%</div><div class="l">Tỷ lệ upsell Combo 1.4M+</div><div class="t">Tặng cả Bond + Tím</div></div>
     <div class="kpi"><div class="v">480</div><div class="l">Target gói CTKM T4</div><div class="t">3/salon/tuần × 40 × 4</div></div>
     <div class="kpi"><div class="v">≥40%</div><div class="l">Margin Rate sau KM</div><div class="t">Đạt ngưỡng v3</div></div>
+  </div>
+  <div class="sb wr" style="margin-top:10px">
+    <span class="sb-label or">Tại sao target UND thấp hơn dự kiến ban đầu?</span>
+    Không thể 100% KH UND chuyển từ bill 380K lên 700K. Thực tế chỉ ~8% KH UND qualify gói CTKM (12 gói/salon/tháng / 150 KH UND/salon). BS UND trung bình tăng từ 380K → 405K (+7%). Nhóm LOW có base thấp (13K) nên dễ uplift +31%. Nhóm HIGH base cao (32K) nên chỉ +9%. Muốn đạt stretch target (+40-54%) cần tăng gói CTKM ≥ 3-4x (cần staff brief + SMS re-targeting KH đã UND).
   </div>
   <ul class="chk-list" style="margin-top:14px">
     <li><span class="ok">☑</span> Tăng AOV UND theo 3 nhóm salon (HIGH/MID/LOW) với target cụ thể</li>
@@ -917,18 +930,134 @@ tr:last-child td{border-bottom:none}tr:nth-child(even){background:#f8f9fc}
   <div class="c-title"><span class="ic">📖</span> Giải thích ký hiệu nhóm</div>
   <div class="tw"><table>
     <tr><th>CT</th><th>Nhóm</th><th>Tiêu chí</th><th>Target AOV</th></tr>
-    <tr><td rowspan="2"><strong>CT1</strong> Sáp Glanzen</td><td><span class="badge or">Ưu tiên</span></td><td>AOV SP tạo kiểu &lt; 6K (top 20 salon)</td><td rowspan="2">6.5K → 10K (+54%)</td></tr>
+    <tr><td rowspan="2"><strong>CT1</strong> Sáp Glanzen</td><td><span class="badge or">Ưu tiên</span></td><td>AOV SP tạo kiểu &lt; 6K (top 20 salon)</td><td rowspan="2">6.5K → 9K (+38%)</td></tr>
     <tr><td><span class="badge gr">Eligible</span></td><td>Có Stylist Level 2+ điểm NL ≥ 4.0 (hầu hết salon)</td></tr>
-    <tr><td rowspan="3"><strong>CT2</strong> Relax + SP</td><td><span class="badge nv">S1 cao</span></td><td>AOV Relax ≥ 140K</td><td>145K → 170K (+17%)</td></tr>
-    <tr><td><span class="badge or">S2 trung</span></td><td>AOV Relax 100–140K</td><td>118K → 140K (+19%)</td></tr>
-    <tr><td><span class="badge red">S3 thấp</span></td><td>AOV Relax &lt; 100K</td><td>85K → 110K (+29%)</td></tr>
-    <tr><td rowspan="3"><strong>CT3</strong> UND + Laborie</td><td><span class="badge gr">HIGH</span></td><td>AOV UND ≥ 30K</td><td>32K → 45K (+40%)</td></tr>
-    <tr><td><span class="badge or">MID</span></td><td>AOV UND 20–30K</td><td>23K → 32K (+40%)</td></tr>
-    <tr><td><span class="badge red">LOW</span></td><td>AOV UND &lt; 20K</td><td>13K → 20K (+54%)</td></tr>
+    <tr><td rowspan="3"><strong>CT2</strong> Relax + SP</td><td><span class="badge nv">S1 cao</span></td><td>AOV Relax ≥ 140K</td><td>145K → 150K (+3%)</td></tr>
+    <tr><td><span class="badge or">S2 trung</span></td><td>AOV Relax 100–140K</td><td>118K → 125K (+6%)</td></tr>
+    <tr><td><span class="badge red">S3 thấp</span></td><td>AOV Relax &lt; 100K</td><td>85K → 92K (+8%)</td></tr>
+    <tr><td rowspan="3"><strong>CT3</strong> UND + Laborie</td><td><span class="badge gr">HIGH</span></td><td>AOV UND ≥ 30K</td><td>32K → 35K (+9%)</td></tr>
+    <tr><td><span class="badge or">MID</span></td><td>AOV UND 20–30K</td><td>23K → 27K (+17%)</td></tr>
+    <tr><td><span class="badge red">LOW</span></td><td>AOV UND &lt; 20K</td><td>13K → 17K (+31%)</td></tr>
   </table></div>
 </div>
 
 <div id="salon-results" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px"></div>
+
+</div>
+
+<!-- ===================== S10: PHÂN TÍCH KHẢ THI ===================== -->
+<div class="sec" id="s10">
+<div class="bn nv">
+  <div class="zone">📐 PHÂN TÍCH KHẢ THI</div>
+  <h2>Target AOV có khả thi không? — Tính từ số KH &amp; lượt CTKM</h2>
+  <p>Kiểm tra target bằng phép tính: với số lượt CTKM hiện tại và số KH/salon/tháng, AOV có thể tăng được bao nhiêu?</p>
+</div>
+
+<div class="c">
+  <div class="c-title"><span class="ic">⚖️</span> Công thức kiểm tra khả thi</div>
+  <div class="sb nv">
+    <span class="sb-label nv">Nguyên tắc</span>
+    AOV ngành = DT ngành ÷ Tổng KH salon. Để tăng AOV X%, cần tăng DT ngành X% trong khi Tổng KH không đổi.<br>
+    Mỗi lượt CTKM đóng góp DT thêm = <strong>Bill upgrade do CTKM</strong> (vd bill Relax từ 150K → 300K = +150K).<br>
+    → <strong>% Uplift AOV = (Số lượt CTKM × Bill upgrade) ÷ (Tổng KH × AOV hiện tại) × 100%</strong>
+  </div>
+</div>
+
+<div class="c">
+  <div class="c-title"><span class="ic">💇</span> CT1 — Sáp Glanzen</div>
+  <div class="tw"><table>
+    <tr><th>Thông số</th><th class="n">Giá trị</th><th>Nguồn</th></tr>
+    <tr><td>Salon triển khai</td><td class="n">30</td><td>Stylist L2+ NL ≥ 4.0</td></tr>
+    <tr><td>KH/salon/tháng (TB)</td><td class="n">1,500</td><td>Data T4 13d × 2.3</td></tr>
+    <tr><td>Tổng KH ảnh hưởng</td><td class="n">45,000</td><td>30 × 1,500</td></tr>
+    <tr><td>AOV SP tạo kiểu hiện tại</td><td class="n">6.5K</td><td>Data T4</td></tr>
+    <tr><td>Base DT SP tạo kiểu/tháng</td><td class="n">292M</td><td>45,000 × 6.5K</td></tr>
+    <tr><td>Lượt CTKM T4</td><td class="n">600</td><td>5/salon/tuần × 30 × 4</td></tr>
+    <tr><td>Giá bán TB Glanzen</td><td class="n">237K</td><td>Mix Tầng A (251K) + Tầng B (223K)</td></tr>
+    <tr class="hl"><td><strong>DT CTKM thêm</strong></td><td class="n"><strong>142M</strong></td><td>600 × 237K</td></tr>
+    <tr><td>Halo effect (SP tạo kiểu khác)</td><td class="n">+40M</td><td>Ước tính +15% base</td></tr>
+    <tr style="background:#e8f5e9"><td><strong>AOV mới</strong></td><td class="n"><strong>~9.0K</strong></td><td>(292 + 142 + 40) / 45,000</td></tr>
+    <tr style="background:#e8f5e9"><td><strong>Uplift khả thi</strong></td><td class="n gd"><strong>+38%</strong></td><td>6.5K → 9K</td></tr>
+  </table></div>
+  <div class="sb ok" style="margin-top:10px">
+    <span class="sb-label gr">Kết luận</span>
+    Target +38% (9K) <strong>khả thi</strong> vì base AOV SP tạo kiểu thấp (6.5K). Muốn +54% stretch → cần tăng lượt CTKM lên ~1,200 (2x) hoặc tăng halo effect qua training stylist brief cả nhóm SP tạo kiểu.
+  </div>
+</div>
+
+<div class="c">
+  <div class="c-title"><span class="ic">💆</span> CT2 — Relax tặng SP cận date</div>
+  <div class="tw"><table>
+    <tr><th>Thông số</th><th class="n">Giá trị</th><th>Nguồn</th></tr>
+    <tr><td>Salon triển khai</td><td class="n">50</td><td>3 nhóm S1/S2/S3</td></tr>
+    <tr><td>KH/salon/tháng (TB)</td><td class="n">2,000</td><td>Salon CT2 thường lớn</td></tr>
+    <tr><td>Tổng KH ảnh hưởng</td><td class="n">100,000</td><td>50 × 2,000</td></tr>
+    <tr><td>AOV Relax hiện tại (TB)</td><td class="n">118K</td><td>Data T4</td></tr>
+    <tr><td>Base DT Relax/tháng</td><td class="n">11,800M</td><td>100,000 × 118K</td></tr>
+    <tr><td>Lượt CTKM T4</td><td class="n">1,030</td><td>S1: 360 · S2: 600 · S3: 72</td></tr>
+    <tr><td>Bill upgrade TB/lượt</td><td class="n">150K</td><td>VD: Relax 150K → 300K</td></tr>
+    <tr class="hl"><td><strong>DT CTKM thêm</strong></td><td class="n"><strong>155M</strong></td><td>1,030 × 150K</td></tr>
+    <tr style="background:#fff9e6"><td><strong>% DT thêm / Base</strong></td><td class="n"><strong>1.3%</strong></td><td>155 ÷ 11,800</td></tr>
+    <tr style="background:#fff9e6"><td><strong>Uplift AOV trực tiếp</strong></td><td class="n"><strong>+1-2%</strong></td><td>Chỉ 1,030 lượt / 100K KH</td></tr>
+  </table></div>
+  <div class="sb wr" style="margin-top:10px">
+    <span class="sb-label or">Tại sao target thấp?</span>
+    Base DT Relax quá lớn (11.8 tỷ), 1,030 lượt CTKM chỉ bằng 1% số KH Relax. Không thể đẩy AOV Relax +17-29% như dự kiến ban đầu. <strong>Target thực tế: S1 +3%, S2 +6%, S3 +8%</strong> (S3 ít salon nên % tốt hơn).
+  </div>
+  <div class="sb ok">
+    <span class="sb-label gr">Để đạt +15% AOV Relax</span>
+    Cần tăng lượt CTKM lên <strong>~5,000-7,000/tháng</strong> (5-7x target hiện tại). Có thể đạt được qua:<br>
+    • Brief tất cả Skinner + Stylist Relax (không chỉ nhân viên đủ NL ≥ 3.5)<br>
+    • Standee / poster tại quầy pitch combo + truyền thông SMS KH<br>
+    • Training kỹ năng pitch "upgrade bill qualify tặng SP"
+  </div>
+</div>
+
+<div class="c">
+  <div class="c-title"><span class="ic">💈</span> CT3 — UND tặng Laborie</div>
+  <div class="tw"><table>
+    <tr><th>Thông số</th><th class="n">Giá trị</th><th>Nguồn</th></tr>
+    <tr><td>Salon triển khai</td><td class="n">40</td><td>Stylist L2+ NL ≥ 4.0 + Laborie</td></tr>
+    <tr><td>KH/salon/tháng (TB)</td><td class="n">2,000</td><td>Data T4 13d × 2.3</td></tr>
+    <tr><td>CR UND TB (nhóm HIGH)</td><td class="n">10%</td><td>Data T4</td></tr>
+    <tr><td>KH UND/salon HIGH</td><td class="n">200</td><td>2,000 × 10%</td></tr>
+    <tr><td>Gói CTKM/salon/tháng</td><td class="n">12</td><td>3/tuần × 4</td></tr>
+    <tr><td>% KH UND qualify</td><td class="n">6%</td><td>12 / 200</td></tr>
+    <tr><td>BS UND hiện (HIGH)</td><td class="n">380K</td><td>Data T4</td></tr>
+    <tr><td>BS UND mới sau CT</td><td class="n">400K</td><td>94%×380 + 6%×700</td></tr>
+    <tr class="hl"><td><strong>Tăng BS UND TB</strong></td><td class="n"><strong>+5%</strong></td><td>380 → 400</td></tr>
+    <tr><td>Halo effect (stylist pitch tốt hơn)</td><td class="n">+3-5%</td><td>BS UND thêm</td></tr>
+    <tr style="background:#e8f5e9"><td><strong>AOV UND mới (HIGH)</strong></td><td class="n"><strong>~35K</strong></td><td>10% × ~410K</td></tr>
+    <tr style="background:#e8f5e9"><td><strong>Uplift HIGH khả thi</strong></td><td class="n gd"><strong>+9%</strong></td><td>32K → 35K</td></tr>
+  </table></div>
+  <div class="sb wr" style="margin-top:10px">
+    <span class="sb-label or">Vì sao không thể +40%?</span>
+    Để AOV UND-HIGH tăng +40% (32K → 45K), cần BS UND TB tăng từ 380K → 450K. Tức <strong>~22% KH UND phải upgrade lên 700K</strong>. Hiện tại chỉ 6% KH UND qualify → thực tế ~+5-10% uplift. Không thể 100% KH upgrade từ 360K → 700K như dự kiến.
+  </div>
+  <div class="sb ok">
+    <span class="sb-label gr">Target mới theo nhóm</span>
+    UND-LOW có uplift cao nhất (+31%) vì base thấp (13K) — chỉ cần thêm 4K đã là +31%. UND-HIGH base cao (32K) nên chỉ +9% khả thi.
+  </div>
+</div>
+
+<div class="c">
+  <div class="c-title"><span class="ic">📊</span> Tóm tắt 2 bộ target</div>
+  <div class="tw"><table>
+    <tr><th>CT</th><th>Nhóm</th><th class="n">AOV hiện</th><th class="n">🎯 Target khả thi (chính thức)</th><th class="n">⭐ Stretch target (best case)</th></tr>
+    <tr><td>CT1</td><td>Tất cả salon ưu tiên</td><td class="n">6.5K</td><td class="n gd">9K (+38%)</td><td class="n">10K (+54%) với 2x lượt CTKM</td></tr>
+    <tr><td rowspan="3">CT2</td><td>S1 cao</td><td class="n">145K</td><td class="n gd">150K (+3%)</td><td class="n">170K (+17%) với 5x lượt</td></tr>
+    <tr><td>S2 trung</td><td class="n">118K</td><td class="n gd">125K (+6%)</td><td class="n">140K (+19%) với 5x lượt</td></tr>
+    <tr><td>S3 thấp</td><td class="n">85K</td><td class="n gd">92K (+8%)</td><td class="n">110K (+29%) với 5x lượt</td></tr>
+    <tr><td rowspan="3">CT3</td><td>HIGH</td><td class="n">32K</td><td class="n gd">35K (+9%)</td><td class="n">45K (+40%) với 4x gói</td></tr>
+    <tr><td>MID</td><td class="n">23K</td><td class="n gd">27K (+17%)</td><td class="n">32K (+40%) với 4x gói</td></tr>
+    <tr><td>LOW</td><td class="n">13K</td><td class="n gd">17K (+31%)</td><td class="n">20K (+54%) với 4x gói</td></tr>
+  </table></div>
+  <div class="sb nv" style="margin-top:10px">
+    <span class="sb-label nv">Gợi ý trình sếp</span>
+    Commit <strong>target khả thi</strong> làm mục tiêu chính thức (đảm bảo đạt được). Stretch target dùng để thưởng bonus nếu salon đạt vượt qua thực thi tốt (brief kỹ, poster, re-targeting KH cũ).
+  </div>
+</div>
+</div>
 
 <style>
 .salon-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:14px;box-shadow:var(--shadow)}
@@ -964,7 +1093,7 @@ function go(id){
   document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
   document.getElementById(id).classList.add('active');
-  const idx=['s1','s2','s3','s4','s5','s6','s7','s8','s9'].indexOf(id);
+  const idx=['s1','s2','s3','s4','s5','s6','s7','s8','s9','s10'].indexOf(id);
   document.querySelectorAll('.tab')[idx].classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
 }
@@ -1031,8 +1160,8 @@ const SALONS = [
   {n:"99 TSN", a:"Nguyễn Thanh Sang", r:125, u:30, ct1p:true, ct2:"S2", ct3:"HIGH", ct3p:true}
 ];
 
-const CT2_TARGETS = {S1:{cur:145,tgt:170,up:"+17%"}, S2:{cur:118,tgt:140,up:"+19%"}, S3:{cur:85,tgt:110,up:"+29%"}};
-const CT3_TARGETS = {HIGH:{cur:32,tgt:45,up:"+40%"}, MID:{cur:23,tgt:32,up:"+40%"}, LOW:{cur:13,tgt:20,up:"+54%"}};
+const CT2_TARGETS = {S1:{cur:145,tgt:150,up:"+3%"}, S2:{cur:118,tgt:125,up:"+6%"}, S3:{cur:85,tgt:92,up:"+8%"}};
+const CT3_TARGETS = {HIGH:{cur:32,tgt:35,up:"+9%"}, MID:{cur:23,tgt:27,up:"+17%"}, LOW:{cur:13,tgt:17,up:"+31%"}};
 
 function salonCard(s){
   const c2 = CT2_TARGETS[s.ct2];
