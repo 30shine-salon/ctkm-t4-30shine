@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đề xuất CTKM T4/2026 v3 — 30Shine</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B3A6B;--navy-lt:#2a5290;--orange:#FF7A29;--red:#E63946;--green:#2d8a4e;--green-lt:#e6f4ea;--yellow:#FFD23F;--cream:#FFF8EC;--bg:#f4f6f9;--card:#fff;--text:#1a1a2e;--muted:#6b7280;--border:#e5e7eb;--shadow:0 2px 12px rgba(27,58,107,.08);--r:16px;--purple:#7b1fa2;--purple-lt:#f3e8ff}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Be Vietnam Pro',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;font-size:14px}
+.hdr{background:linear-gradient(135deg,var(--navy),var(--navy-lt));color:#fff;padding:18px 24px;border-bottom:4px solid var(--orange)}
+.hdr h1{font-size:22px;font-weight:700}.hdr .sub{font-size:12px;opacity:.85;margin-top:4px}
+.wrap{max-width:1100px;margin:0 auto;padding:20px 16px}
+.c{background:var(--card);border-radius:var(--r);padding:24px;box-shadow:var(--shadow);margin-bottom:20px;border:1px solid var(--border)}
+.c-title{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--orange)}
+h2{font-size:19px;color:var(--navy);margin:0 0 12px 0}
+h3{font-size:15px;color:var(--navy-lt);margin:18px 0 8px 0}
+p{margin-bottom:8px}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13px}
+th,td{padding:8px 10px;text-align:left;border:1px solid var(--border);vertical-align:top}
+th{background:var(--navy);color:#fff;font-weight:600}
+tr:nth-child(even){background:#f9fafb}
+.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.3px}
+.b-or{background:var(--orange);color:#fff}.b-gr{background:var(--green);color:#fff}.b-red{background:var(--red);color:#fff}.b-nv{background:var(--navy);color:#fff}.b-pu{background:var(--purple);color:#fff}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:14px 0}
+.kpi{background:var(--cream);border-left:4px solid var(--orange);padding:12px 14px;border-radius:8px}
+.kpi-lbl{font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.4px}
+.kpi-val{font-size:20px;font-weight:700;color:var(--navy);margin-top:4px}
+.kpi-sub{font-size:11px;color:var(--green);margin-top:3px}
+.note{background:#fff9e6;border-left:4px solid var(--yellow);padding:12px 16px;border-radius:8px;margin:14px 0;font-size:13px}
+.warn{background:#ffeef0;border-left:4px solid var(--red);padding:12px 16px;border-radius:8px;margin:14px 0;font-size:13px}
+.ok{background:var(--green-lt);border-left:4px solid var(--green);padding:12px 16px;border-radius:8px;margin:14px 0;font-size:13px}
+.formula{background:#1a1a2e;color:#7efbb7;padding:12px 16px;border-radius:8px;font-family:'Courier New',monospace;font-size:13px;margin:10px 0;white-space:pre-wrap;line-height:1.5}
+.nav-top{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.nav-top a{padding:8px 14px;background:var(--navy);color:#fff;text-decoration:none;border-radius:8px;font-size:12px;font-weight:600}
+.nav-top a:hover{background:var(--navy-lt)}
+.ct-head{background:linear-gradient(135deg,var(--orange),#ff9d5c);color:#fff;padding:14px 18px;border-radius:12px;margin-bottom:14px}
+.ct-head h2{color:#fff}
+.ct-head .sub{opacity:.92;font-size:12px;margin-top:4px}
+ul{padding-left:20px;margin:8px 0}li{margin-bottom:4px}
+.footer{text-align:center;padding:30px 0;color:var(--muted);font-size:12px}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+<h1>Đề xuất CTKM T4/2026 — Phiên bản v3</h1>
+<div class="sub">Redesign theo feedback | Ngày: 2026-04-13 | Dữ liệu lũy kế T4 (13 ngày)</div>
+</div>
+
+<div class="wrap">
+
+<div class="nav-top">
+<a href="#feedback">📝 Feedback sếp</a>
+<a href="#baseline">📊 Baseline T4</a>
+<a href="#ct1">CT1 Sáp</a>
+<a href="#ct2">CT2 Relax</a>
+<a href="#ct3">CT3 UND</a>
+<a href="#summary">✅ Tóm tắt</a>
+</div>
+
+<div class="c" id="feedback">
+<div class="c-title">📝 Feedback của sếp → hướng redesign</div>
+<table>
+<tr><th>Nhận xét</th><th>Hướng xử lý trong v3</th></tr>
+<tr><td>CT đang nhạt nhoà, chưa đánh đúng tệp KH nào</td><td>Mỗi CT có phân tầng KH cụ thể dựa trên CRM</td></tr>
+<tr><td>Chưa chỉ rõ salon nào, nhân sự nào đủ khả năng chạy</td><td>Chỉ định rõ salon (theo AOV baseline) + NV (Level + điểm NL)</td></tr>
+<tr><td>Không tăng AOV SC — chỉ tập trung Relax / UND / SP</td><td>Bỏ phần SC khỏi CT2, target chỉ Relax / UND / SP</td></tr>
+<tr><td>Nới tiêu chí NV để nhiều salon chạy được</td><td>Stylist Level 2+ điểm NL ≥ 4.0 (thay vì cấp 4+ cứng)</td></tr>
+<tr><td>CT1: không có mẫu 10g tặng — tập trung bán SP</td><td>Bỏ tầng C "free mẫu", chỉ còn 2 tầng A/B bán thật</td></tr>
+<tr><td>CT2: so DT DV thu được vs cost SP tặng có quá thấp không</td><td>Tính chi tiết: "Cost SP tặng ≤ 20% bill" để margin ≥ 40%</td></tr>
+<tr><td>CT2: không có KH nữ ở 30Shine</td><td>Bỏ mọi reference KH nữ khỏi mô tả CT2</td></tr>
+<tr><td>CT3: uốn tặng Bond, nhuộm tặng Tím. LNG UND gốc 60%</td><td>Tính bill ngưỡng dựa LNG 60% và cost SP 140K</td></tr>
+</table>
+</div>
+
+<div class="c" id="baseline">
+<div class="c-title">📊 Baseline T4 (13 ngày) — điểm bắt đầu</div>
+
+<div class="kpi-grid">
+<div class="kpi"><div class="kpi-lbl">AOV Relax median</div><div class="kpi-val">~120K</div><div class="kpi-sub">Gap 2.4x giữa Max 172K ↔ Min 73K</div></div>
+<div class="kpi"><div class="kpi-lbl">AOV UND median</div><div class="kpi-val">~26K</div><div class="kpi-sub">Gap 5.0x giữa Max 45K ↔ Min 9K</div></div>
+<div class="kpi"><div class="kpi-lbl">AOV SP median</div><div class="kpi-val">~13K</div><div class="kpi-sub">Gap 9.3x giữa Max 28K ↔ Min 3K</div></div>
+<div class="kpi"><div class="kpi-lbl">AOV SP tạo kiểu</div><div class="kpi-val">~6.5K</div><div class="kpi-sub">Max 16K, phần lớn salon &lt;7K — cơ hội lớn</div></div>
+<div class="kpi"><div class="kpi-lbl">CR SP median</div><div class="kpi-val">~4%</div><div class="kpi-sub">Max 10.9%, min 1.1%</div></div>
+<div class="kpi"><div class="kpi-lbl">CR UND median</div><div class="kpi-val">~7.5%</div><div class="kpi-sub">Max 13.6%, min 2.6%</div></div>
+</div>
+
+<div class="note">
+<b>Kết luận:</b> Gap rất lớn giữa salon Max và Min ở cả 3 mảng → phần lớn salon còn room tăng AOV bằng upsell/cross-sell, không cần kéo cao CR toàn hệ.
+</div>
+</div>
+
+<!-- CT1 -->
+<div class="c" id="ct1">
+<div class="ct-head">
+<h2>CT1 — Sáp Glanzen Prime Sandalwood (2 tầng)</h2>
+<div class="sub">Tập trung: AOV nhóm SP tạo kiểu + CR SP tạo kiểu riêng</div>
+</div>
+
+<h3>Mục tiêu cụ thể</h3>
+<div class="kpi-grid">
+<div class="kpi"><div class="kpi-lbl">AOV SP tạo kiểu</div><div class="kpi-val">6.5K → 10K</div><div class="kpi-sub">+54% tại 30-40 salon</div></div>
+<div class="kpi"><div class="kpi-lbl">CR SP tạo kiểu</div><div class="kpi-val">2% → 3.5%</div><div class="kpi-sub">+1.5pts</div></div>
+<div class="kpi"><div class="kpi-lbl">Target lượt</div><div class="kpi-val">600 lượt</div><div class="kpi-sub">5/salon/tuần × 30 salon × 4 tuần</div></div>
+<div class="kpi"><div class="kpi-lbl">Margin Rate</div><div class="kpi-val">≥ 66%</div><div class="kpi-sub">Cả 2 tầng đều an toàn</div></div>
+</div>
+
+<h3>Thông điệp (mạnh hơn, không tặng mẫu)</h3>
+<div class="ok">
+<b>"Tóc khoẻ từ bàn tay stylist — giữ kiểu cả ngày với sáp thế hệ mới"</b><br>
+Stylist vuốt thử sáp lên tóc KH sau khi cắt → pitch trực tiếp → offer mua tại quầy. <b>Không tặng mẫu 10g</b> — mọi offer đều gắn với giao dịch mua.
+</div>
+
+<h3>Phân tầng 2 mức giảm</h3>
+<table>
+<tr><th>Tầng</th><th>Nhóm KH</th><th>Nhận diện CRM</th><th>Mức giảm</th><th>Giá bán</th></tr>
+<tr><td><span class="badge b-nv">A</span></td><td>Đã mua SP tạo kiểu trong 6 tháng</td><td><code>last_styling_purchase ≤ 180d</code></td><td>10%</td><td>251,100đ</td></tr>
+<tr><td><span class="badge b-or">B</span></td><td>Chưa mua hoặc &gt; 6 tháng</td><td><code>last_styling_purchase &gt; 180d</code> hoặc NULL</td><td>20%</td><td>223,200đ</td></tr>
+</table>
+<p><small><i>Ước tính tỷ lệ: Tầng A ~30%, Tầng B ~70%</i></small></p>
+
+<h3>Salon triển khai (~30-40 salon, nới tiêu chí NV)</h3>
+<table>
+<tr><th>Tiêu chí</th><th>Trước</th><th>Sau (nới)</th></tr>
+<tr><td>NV</td><td>Stylist cấp 4+ có cert SP</td><td><b>Stylist Level 2+ điểm NL ≥ 4.0</b> hoặc có cert SP</td></tr>
+<tr><td>Salon mix SC</td><td>≥ 35%</td><td>Bỏ điều kiện</td></tr>
+<tr><td>Số salon</td><td>15 chọn lọc</td><td><b>30-40 salon</b> có ≥ 3 NV đủ tiêu chí</td></tr>
+</table>
+
+<p><b>Top 20 salon ưu tiên</b> (AOV SP tạo kiểu hiện &lt; 6K → tạo uplift lớn): 236 DBT, 39 HBT, 190 HB, 341 XVNT, 363 LNQ TN, 7 DTP LA, 730 TL10, 304 NT TH, 90 NH, 595 BT TH, 168 NVC, 25 TD, 575 AC, 8 CVL, 290 QT TH, 148 TD, 50BT4 NPC LD, 99 TSN, 420 HTP, 202 DC</p>
+
+<h3>KPI</h3>
+<table>
+<tr><th>Chỉ số</th><th>Target</th><th>Kill Switch</th></tr>
+<tr><td>Số lượt CTKM</td><td>≥ 5/salon/tuần</td><td>&lt; 50% target</td></tr>
+<tr><td>AOV SP tạo kiểu</td><td>+54% (6.5K→10K)</td><td>&lt; +15%</td></tr>
+<tr><td>CR SP tạo kiểu</td><td>+1.5pts (2%→3.5%)</td><td>Drop</td></tr>
+<tr><td>Margin Rate sau KM</td><td>≥ 66%</td><td>&lt; 20%</td></tr>
+<tr><td>CR SP tổng (bảo vệ)</td><td>Không drop</td><td>Drop &gt; 2pts</td></tr>
+</table>
+</div>
+
+<!-- CT2 -->
+<div class="c" id="ct2">
+<div class="ct-head">
+<h2>CT2 — Relax tặng SP cận date (3 bậc bill, tính lãi/lỗ cụ thể)</h2>
+<div class="sub">Chỉ tập trung Relax, tính chi tiết DT upgrade vs cost SP tặng</div>
+</div>
+
+<h3>Nguyên tắc tài chính — cost SP tối đa</h3>
+<div class="formula">LNG Relax = 60% → Margin = 0.6 × Bill
+Sau tặng SP (cost c): Margin = 0.6B − c
+Điều kiện Margin Rate ≥ 40%:
+    0.6B − c ≥ 0.4B
+    c ≤ 0.2 × B         ← COST SP TẶNG TỐI ĐA = 20% BILL</div>
+
+<h3>3 bậc bill + SP tặng (cost SP = 30-40% giá bán)</h3>
+<table>
+<tr><th>Bậc</th><th>Bill Relax</th><th>Cost SP tối đa</th><th>Giá bán SP</th><th>Gói SP cận date</th></tr>
+<tr><td><span class="badge b-gr">Cơ bản</span></td><td>150-250K</td><td>≤ 50K</td><td>150-200K</td><td>1 dầu gội L'Orsia / sáp nhỏ / serum mẫu</td></tr>
+<tr><td><span class="badge b-or">Trung</span></td><td>250-400K</td><td>≤ 80K</td><td>200-300K</td><td>1 dầu gội tea tree / serum dưỡng / tinh dầu</td></tr>
+<tr><td><span class="badge b-pu">Cao cấp</span></td><td>≥ 400K</td><td>≤ 120K</td><td>300-500K</td><td>1 kem tẩy tế bào chết / combo 2 SP cận date</td></tr>
+</table>
+
+<h3>Kiểm tra lãi/lỗ mẫu (bậc Trung)</h3>
+<div class="ok">
+<b>KH đang dùng Relax 150K → upgrade lên 300K (+150K bill)</b><br>
+• Margin thêm từ upgrade: 150K × 60% = <b>+90K</b><br>
+• Cost SP tặng: 80K<br>
+• <b>Lãi ròng thêm/KH: +10K</b> ✓ (có lời, không phải tặng bừa)
+</div>
+
+<h3>Phân 3 nhóm salon theo AOV Relax baseline</h3>
+<table>
+<tr><th>Nhóm</th><th>Tiêu chí AOV Relax</th><th>Số salon</th><th>Target AOV Relax</th><th>Bậc áp dụng</th></tr>
+<tr><td><b>S1 — CAO</b></td><td>≥ 140K</td><td>~15</td><td>145K → 170K (<b>+17%</b>)</td><td>Bậc Cao cấp</td></tr>
+<tr><td><b>S2 — TRUNG</b></td><td>100-140K</td><td>~30</td><td>118K → 140K (<b>+19%</b>)</td><td>Bậc Trung</td></tr>
+<tr><td><b>S3 — THẤP</b></td><td>&lt; 100K</td><td>~6</td><td>85K → 110K (<b>+29%</b>)</td><td>Bậc Cơ bản</td></tr>
+</table>
+
+<h3>Nhân sự — nới tiêu chí</h3>
+<ul>
+<li><b>Skinner/Stylist Relax:</b> Level 1+ điểm NL ≥ 3.5 (xếp loại B+), đã training massage cơ bản</li>
+<li><b>Lễ tân/Thu ngân:</b> Biết pitch combo tại quầy bill</li>
+<li><b>SM:</b> Check cost SP tặng/tuần không vượt 5% DTT salon</li>
+</ul>
+
+<h3>KPI</h3>
+<table>
+<tr><th>Chỉ số</th><th>Target</th><th>Kill Switch</th></tr>
+<tr><td>Tổng lượt (3 nhóm)</td><td>~1,030 lượt/T4</td><td>&lt; 400</td></tr>
+<tr><td>AOV Relax S1 (cao)</td><td>+17% (145→170K)</td><td>&lt; +5%</td></tr>
+<tr><td>AOV Relax S2 (trung)</td><td>+19% (118→140K)</td><td>&lt; +5%</td></tr>
+<tr><td>AOV Relax S3 (thấp)</td><td>+29% (85→110K)</td><td>&lt; +10%</td></tr>
+<tr><td><b>Lãi ròng/lượt CTKM</b></td><td>≥ +10K/lượt</td><td>Âm (lỗ)</td></tr>
+<tr><td>% tồn SP cận date 0-3T đã xả</td><td>≥ 80%</td><td>&lt; 40% sau 2 tuần</td></tr>
+<tr><td>CR Relax (bảo vệ)</td><td>Không drop</td><td>Drop &gt; 3pts</td></tr>
+</table>
+</div>
+
+<!-- CT3 -->
+<div class="c" id="ct3">
+<div class="ct-head">
+<h2>CT3 — Uốn tặng Bond / Nhuộm tặng Tím (LNG 60%, bill ngưỡng 700K)</h2>
+<div class="sub">Tính bill ngưỡng dựa LNG UND 60% và cost SP 140K</div>
+</div>
+
+<h3>Bài toán bill ngưỡng</h3>
+<div class="formula">LNG UND = 60% → Margin = 0.6 × Bill
+Cost SP tặng (Bond hoặc Tím) = 140,000đ
+Điều kiện Margin ≥ 40% bill (Rule v3):
+    0.6B − 140 ≥ 0.4B
+    0.2B ≥ 140
+    B ≥ 700,000đ           ← BILL NGƯỠNG TẶNG 1 SP
+
+Combo 2 SP (Bond + Tím, cost 280K):
+    0.6B − 280 ≥ 0.4B → B ≥ 1,400,000đ</div>
+
+<h3>3 gói CTKM</h3>
+<table>
+<tr><th>Gói</th><th>Điều kiện bill</th><th>Tặng</th><th>Cost 30Shine</th><th>Giá trị KH</th></tr>
+<tr><td><span class="badge b-or">Uốn chuẩn</span></td><td>Bill uốn ≥ 700K</td><td>Laborie Bond 300ml</td><td>140K</td><td>~450K</td></tr>
+<tr><td><span class="badge b-pu">Nhuộm chuẩn</span></td><td>Bill nhuộm ≥ 700K</td><td>Laborie Tím 300ml</td><td>140K</td><td>~400K</td></tr>
+<tr><td><span class="badge b-nv">Combo</span></td><td>Bill UND ≥ 1,400K</td><td>Bond + Tím</td><td>280K</td><td>~850K</td></tr>
+</table>
+
+<h3>Lãi/lỗ từng gói</h3>
+<table>
+<tr><th>Gói</th><th>Bill</th><th>Margin gốc (60%)</th><th>Cost SP</th><th>Margin sau</th><th>Margin Rate</th></tr>
+<tr><td>Uốn chuẩn</td><td>700K</td><td>420K</td><td>140K</td><td>280K</td><td><b>40.0%</b> ✓</td></tr>
+<tr><td>Uốn chuẩn</td><td>900K</td><td>540K</td><td>140K</td><td>400K</td><td><b>44.4%</b> ✓</td></tr>
+<tr><td>Nhuộm chuẩn</td><td>700K</td><td>420K</td><td>140K</td><td>280K</td><td><b>40.0%</b> ✓</td></tr>
+<tr><td>Combo</td><td>1,400K</td><td>840K</td><td>280K</td><td>560K</td><td><b>40.0%</b> ✓</td></tr>
+<tr><td>Combo</td><td>1,800K</td><td>1,080K</td><td>280K</td><td>800K</td><td><b>44.4%</b> ✓</td></tr>
+</table>
+
+<div class="note">
+<b>Khả thi với bill UND hiện tại:</b> BS UND trung bình hệ thống ~320K (max 426K). Bill ngưỡng 700K cao hơn baseline → <b>kích KH upgrade lên gói UND cao cấp</b> (nhuộm highlight, combo uốn+nhuộm+dưỡng), không chỉ dừng ở UND cơ bản.
+</div>
+
+<h3>Nới tiêu chí salon — ~40 salon triển khai</h3>
+<table>
+<tr><th>Tiêu chí</th><th>Trước</th><th>Sau (nới)</th></tr>
+<tr><td>Stylist</td><td>Cấp 3+ có cert Laborie</td><td><b>Level 2+ điểm NL ≥ 4.0 (xếp loại A)</b> + training Laborie 1 buổi</td></tr>
+<tr><td>Salon filter</td><td>UND &lt; 8%, AOV Relax &gt; 130K</td><td>Bỏ filter mix DTT. Mọi salon có ≥ 2 NV đủ tiêu chí</td></tr>
+<tr><td>Số salon</td><td>12</td><td><b>~40 salon</b></td></tr>
+</table>
+
+<h3>Mục tiêu AOV UND theo 3 nhóm salon</h3>
+<table>
+<tr><th>Nhóm</th><th>Đặc điểm</th><th>Số salon</th><th>AOV UND hiện</th><th>Target</th><th>Uplift</th></tr>
+<tr><td><b>UND-HIGH</b></td><td>CR UND ≥ 10%, BS UND ≥ 380K</td><td>~8</td><td>32K</td><td>45K</td><td><b>+40%</b></td></tr>
+<tr><td><b>UND-MID</b></td><td>CR UND 5-10%, BS UND 300-380K</td><td>~20</td><td>23K</td><td>32K</td><td><b>+40%</b></td></tr>
+<tr><td><b>UND-LOW</b></td><td>CR UND &lt; 5%, BS UND &lt; 300K</td><td>~12</td><td>13K</td><td>20K</td><td><b>+54%</b></td></tr>
+</table>
+
+<h3>Top 15 salon ưu tiên (BS UND đã cao, dễ upsell lên 700K+)</h3>
+<p>80 PL BD, 58 NVC NA, 68 LN NA, 401/1 NDT, 451 PVT, 304 NT TH, 290 QT TH, 236 DBT, 25 TD, 927 HG, 312 LVS, 1146 KVC, 8 CVL, 99 TSN, 80 TP TH</p>
+
+<h3>KPI</h3>
+<table>
+<tr><th>Chỉ số</th><th>Target</th><th>Kill Switch</th></tr>
+<tr><td>Số gói CTKM</td><td>3/salon/tuần × 40 × 4 = 480 gói</td><td>&lt; 200</td></tr>
+<tr><td>AOV UND-HIGH</td><td>+40% (32→45K)</td><td>&lt; +10%</td></tr>
+<tr><td>AOV UND-MID</td><td>+40% (23→32K)</td><td>&lt; +10%</td></tr>
+<tr><td>AOV UND-LOW</td><td>+54% (13→20K)</td><td>&lt; +15%</td></tr>
+<tr><td>Tỷ lệ upsell Combo (1.4M+)</td><td>≥ 15%</td><td>&lt; 5%</td></tr>
+<tr><td>Margin Rate sau KM</td><td>≥ 40%</td><td>&lt; 30%</td></tr>
+<tr><td>CR UND (bảo vệ)</td><td>Không drop</td><td>Drop &gt; 2pts</td></tr>
+</table>
+</div>
+
+<!-- Tổng kết -->
+<div class="c" id="summary">
+<div class="c-title">✅ Tóm tắt 3 CT v3</div>
+
+<table>
+<tr><th></th><th>CT1 Sáp Glanzen</th><th>CT2 Relax + SP cận date</th><th>CT3 UND + Laborie</th></tr>
+<tr><td><b>Mảng</b></td><td>SP tạo kiểu</td><td>Relax</td><td>UND</td></tr>
+<tr><td><b>Nhóm KH</b></td><td>Tầng A/B theo CRM</td><td>Theo 3 bậc bill Relax</td><td>KH upgrade bill ≥ 700K</td></tr>
+<tr><td><b>Salon</b></td><td>~30-40 salon</td><td>~50 salon chia 3 nhóm</td><td>~40 salon</td></tr>
+<tr><td><b>NV nới</b></td><td>Stylist L2+ NL ≥ 4.0</td><td>Skinner/Stylist L1+ NL ≥ 3.5</td><td>Stylist L2+ NL ≥ 4.0 + Laborie</td></tr>
+<tr><td><b>Target AOV</b></td><td>SP tạo kiểu +54%</td><td>Relax +17-29% theo nhóm</td><td>UND +40-54% theo nhóm</td></tr>
+<tr><td><b>CR bảo vệ</b></td><td>CR SP không drop &gt;2pts</td><td>CR Relax không drop &gt;3pts</td><td>CR UND không drop &gt;2pts</td></tr>
+<tr><td><b>Margin Rate</b></td><td>≥ 66%</td><td>≥ 40%</td><td>≥ 40%</td></tr>
+<tr><td><b>Target lượt</b></td><td>600 lượt</td><td>1,030 lượt</td><td>480 gói</td></tr>
+</table>
+
+<div class="ok">
+<b>Tổng cộng T4:</b> ~2,110 lượt CTKM / ~130 salon (overlap) | Tăng AOV tổng: Relax +20%, UND +45%, SP +54% | Bảo vệ CR không drop &gt; 3pts ở mọi mảng.
+</div>
+
+<div class="note">
+<b>Các câu hỏi cần sếp chốt:</b>
+<ol>
+<li>COGS Glanzen 75K chốt đúng chưa? (để tính margin Tầng A/B)</li>
+<li>Danh sách SP cận date dùng cho CT2 → có bảng mapping cost → giá bán đầy đủ chưa?</li>
+<li>Bill ngưỡng CT3 (700K / 1.4M) có phù hợp với định giá gói UND hiện tại?</li>
+<li>Điểm NL cut-off ≥ 4.0 (loại A) cho stylist có quá chặt? Có thể nới xuống B+ (≥ 3.5)?</li>
+<li>Thời gian chạy: T4 full tháng (đến 30/4) hay chạy 2 tuần thử rồi review?</li>
+</ol>
+</div>
+
+</div>
+
+<div class="footer">
+<p><b>Đề xuất CTKM T4/2026 — v3</b> | BP Thương mại | 2026-04-13</p>
+<p><a href="index.html">← Quay lại trang chính</a> | <a href="De_xuat_CTKM_T4_v2_ReDesign.md">Xem bản MD chi tiết</a></p>
+</div>
+
+</div>
+</body>
+</html>
