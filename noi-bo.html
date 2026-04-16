@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CTKM Tháng 4/2026 — Truyền Thông Nội Bộ</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B3A6B;--navy-light:#2a5290;--orange:#FF7A29;--red:#E63946;--green:#2d8a4e;--green-lt:#e6f4ea;--yellow:#FFD23F;--cream:#FFF8EC;--bg:#f4f6f9;--card:#fff;--text:#1a1a2e;--muted:#6b7280;--border:#e5e7eb;--shadow:0 2px 12px rgba(27,58,107,.08);--r:16px;--purple:#7b1fa2;--purple-lt:#f3e8ff}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Be Vietnam Pro',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;font-size:14px}
+
+.hdr{background:linear-gradient(135deg,var(--navy),var(--navy-light));color:#fff;padding:14px 24px;position:sticky;top:0;z-index:100;border-bottom:4px solid var(--orange);display:flex;align-items:center;justify-content:space-between}
+.hdr-left{display:flex;align-items:center;gap:12px}
+.logo{width:42px;height:42px;background:var(--orange);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;color:#fff}
+.hdr h1{font-size:17px;font-weight:700}.hdr .sub{font-size:11px;opacity:.75}
+.hdr-right{display:flex;gap:6px}
+.badge{padding:4px 12px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:.4px;color:#fff}
+.badge.or{background:var(--orange)}.badge.gr{background:var(--green)}.badge.nv{background:var(--navy-light)}
+
+.tabs{display:flex;background:#fff;border-bottom:2px solid var(--border);overflow-x:auto;position:sticky;top:74px;z-index:99;-webkit-overflow-scrolling:touch}
+.tab{padding:13px 18px;cursor:pointer;font-size:12px;font-weight:600;color:var(--muted);border:none;background:none;white-space:nowrap;border-bottom:3px solid transparent;transition:.2s}
+.tab:hover{color:var(--navy);background:#f8f9ff}.tab.active{color:var(--navy);border-bottom-color:var(--orange)}
+.tab .t-label{display:block;font-size:9px;font-weight:700;letter-spacing:.3px;text-transform:uppercase;opacity:.6;margin-bottom:2px}
+
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+.sec{display:none;padding:24px 0 48px}.sec.active{display:block}
+
+.c{background:var(--card);border-radius:var(--r);padding:24px;box-shadow:var(--shadow);margin-bottom:20px;border:1px solid var(--border)}
+.c-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--orange);display:flex;align-items:center;gap:8px}
+.c-title .ic{font-size:18px}
+
+.bn{border-radius:var(--r);padding:28px;margin-bottom:24px;color:#fff;position:relative;overflow:hidden}
+.bn::after{content:'CTKM';position:absolute;right:-20px;top:-10px;font-size:110px;font-weight:900;opacity:.06;transform:rotate(-12deg)}
+.bn.nv{background:linear-gradient(135deg,var(--navy),var(--navy-light))}
+.bn.or{background:linear-gradient(135deg,#e65100,var(--orange))}
+.bn.grn{background:linear-gradient(135deg,#1a5632,var(--green))}
+.bn.pur{background:linear-gradient(135deg,#4a148c,var(--purple))}
+.bn.dk{background:linear-gradient(135deg,#263238,#455a64)}
+.bn h2{font-size:20px;font-weight:800;margin-bottom:4px}.bn p{font-size:13px;opacity:.9}
+.bn .zone{display:inline-block;background:rgba(255,255,255,.2);padding:3px 12px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:.5px;margin-bottom:8px}
+.tags{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.tag{background:rgba(255,255,255,.15);padding:3px 11px;border-radius:20px;font-size:11px;font-weight:600}
+
+.kpi-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
+.kpi{background:#fff;border-radius:12px;padding:14px;text-align:center;border:1px solid var(--border);box-shadow:var(--shadow)}
+.kpi .v{font-size:24px;font-weight:800;color:var(--navy)}.kpi .l{font-size:11px;color:var(--muted);margin-top:3px}.kpi .t{font-size:10px;color:var(--green);font-weight:600;margin-top:3px}
+
+.sb{border-radius:12px;padding:14px 18px;margin:10px 0;font-size:13px;line-height:1.7;border-left:4px solid}
+.sb.nv{background:linear-gradient(135deg,#f0f4ff,#e8ecf4);border-left-color:var(--navy)}
+.sb.wr{background:linear-gradient(135deg,#fff8f0,#fef0e0);border-left-color:var(--orange)}
+.sb.dg{background:linear-gradient(135deg,#fff0f0,#fde8e8);border-left-color:var(--red)}
+.sb.ok{background:linear-gradient(135deg,#f0fff4,#e0f8e8);border-left-color:var(--green)}
+.sb.pp{background:linear-gradient(135deg,#f8f0ff,#f0e8ff);border-left-color:var(--purple)}
+.sb-label{font-size:10px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;margin-bottom:4px;display:block}
+.sb-label.nv{color:var(--navy)}.sb-label.or{color:var(--orange)}.sb-label.rd{color:var(--red)}.sb-label.gr{color:var(--green)}.sb-label.pp{color:var(--purple)}
+
+.flow{display:flex;flex-direction:column}.flow-step{display:flex;gap:14px;position:relative;padding-bottom:22px}
+.flow-step::before{content:'';position:absolute;left:18px;top:38px;bottom:0;width:2px;background:var(--border)}
+.flow-step:last-child::before{display:none}
+.flow-n{width:38px;height:38px;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;flex-shrink:0;z-index:1}
+.flow-c{flex:1}.flow-c h4{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:3px}.flow-c p{font-size:12px;color:var(--muted)}
+
+.tw{overflow-x:auto;margin:10px 0}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{background:var(--navy);color:#fff;padding:9px 12px;text-align:left;font-weight:600;white-space:nowrap}
+td{padding:8px 12px;border-bottom:1px solid var(--border)}
+tr:last-child td{border-bottom:none}tr:nth-child(even){background:#f8f9fc}
+.n{text-align:right;font-variant-numeric:tabular-nums}.hl{background:#fff3cd!important}
+.gd{color:var(--green);font-weight:700}.bd{color:var(--red);font-weight:700}
+
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+.cmp-box{border-radius:12px;padding:18px;text-align:center}
+.cmp-box.old{background:#fde8e8;border:2px solid var(--red)}.cmp-box.new{background:var(--green-lt);border:2px solid var(--green)}
+.cmp-box h4{font-size:13px;font-weight:700;margin-bottom:6px}.cmp-box .big{font-size:26px;font-weight:800}
+.cmp-box.old .big{color:var(--red)}.cmp-box.new .big{color:var(--green)}
+
+.pkg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.pkg{background:#fff;border-radius:var(--r);overflow:hidden;border:1px solid var(--border);transition:.2s;box-shadow:var(--shadow)}
+.pkg:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(27,58,107,.12)}
+.pkg.ct1{border-top:4px solid var(--orange)}
+.pkg.ct3{border-top:4px solid var(--red)}
+.pkg.ct4{border-top:4px solid var(--purple)}
+.pkg-hd{padding:14px 18px;display:flex;align-items:center;gap:12px}
+.pkg-em{font-size:34px}.pkg-nm h3{font-size:14px;font-weight:700}
+.pkg-nm .tier{font-size:10px;font-weight:700;letter-spacing:.4px}
+.pkg-nm .tier.or{color:var(--orange)}.pkg-nm .tier.pp{color:var(--purple)}
+.pkg-nm .tier.rd{color:var(--red)}
+.pkg-bd{padding:0 18px 16px;font-size:12px;line-height:1.6;color:var(--muted)}
+
+.chk-list{list-style:none;padding:0}
+.chk-list li{padding:6px 0;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:8px;font-size:12.5px}
+.chk-list li:last-child{border-bottom:none}
+.chk-list .ok{color:var(--green);font-weight:700;font-size:14px}.chk-list .no{color:var(--red);font-weight:700;font-size:14px}
+
+.script-box{background:#fff8ec;border-left:4px solid var(--orange);border-radius:10px;padding:14px 18px;margin:10px 0;font-size:13px;line-height:1.75}
+.script-box em{color:var(--navy);font-style:italic;font-weight:500}
+.script-box .lbl{display:inline-block;background:var(--orange);color:#fff;font-size:10px;font-weight:700;padding:2px 10px;border-radius:20px;letter-spacing:.3px;text-transform:uppercase;margin-bottom:6px}
+
+.sec-hdg{font-size:16px;font-weight:800;color:var(--navy);margin:28px 0 10px;padding:10px 14px;background:linear-gradient(90deg,#e8eefc,transparent);border-left:4px solid var(--orange);border-radius:0 8px 8px 0}
+.sec-hdg .n{display:inline-block;background:var(--orange);color:#fff;width:26px;height:26px;text-align:center;line-height:26px;border-radius:50%;font-weight:800;margin-right:8px;font-size:13px}
+
+.salon-chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.salon-chip{background:#f0f4ff;border:1px solid #c3d4ff;color:var(--navy);font-size:11px;padding:4px 10px;border-radius:20px;font-weight:600}
+.salon-chip.hl{background:var(--orange);color:#fff;border-color:var(--orange)}
+
+@media(max-width:768px){.hdr h1{font-size:14px}.tab{padding:11px 12px;font-size:11px}.cmp{grid-template-columns:1fr}.pkg-grid{grid-template-columns:1fr}.kpi-g{grid-template-columns:1fr 1fr}.bn h2{font-size:17px}}
+@media(max-width:480px){.hdr{padding:10px 14px}.wrap{padding:0 10px}.c{padding:16px}.tab{padding:9px 8px;font-size:10px}}
+@media print{.hdr,.tabs{position:static}.sec{display:block!important;page-break-before:always}}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-left">
+    <div class="logo">30</div>
+    <div><h1>CTKM Tháng 4/2026 — Truyền Thông Nội Bộ</h1><div class="sub">3 Chương trình: Glanzen · UND + Laborie · Combo 2→3 + Apteka</div></div>
+  </div>
+  <div class="hdr-right"><span class="badge or">CTKM T4</span><span class="badge gr">3 CT</span></div>
+</div>
+
+<div class="tabs" id="tabs">
+  <button class="tab active" onclick="go('s1')"><span class="t-label">Tổng quan</span>3 CTKM T4</button>
+  <button class="tab" onclick="go('s2')"><span class="t-label">Chi tiết</span>CT1: Sáp Glanzen</button>
+  <button class="tab" onclick="go('s3')"><span class="t-label">Chi tiết</span>CT3: UND + Laborie</button>
+  <button class="tab" onclick="go('s4')"><span class="t-label">Chi tiết</span>CT4: Combo 2→3 + Apteka</button>
+  <button class="tab" onclick="go('s5')"><span class="t-label">Quản lý</span>Đo lường & Theo dõi</button>
+</div>
+
+<div class="wrap">
+
+<!-- ===================== S1: TỔNG QUAN ===================== -->
+<div class="sec active" id="s1">
+<div class="bn nv">
+  <div class="zone">CTKM THÁNG 4/2026</div>
+  <h2>3 Chương trình mũi nhọn — Đánh vào đúng tệp khách, salon, thời điểm</h2>
+  <p>CT1 giữ share sáp Glanzen khi 2 SKU hết hàng · CT3 kích UND post-Tết qua Laborie · CT4 pilot upgrade Shinecombo 2 → Combo 3 qua quà Apteka.</p>
+  <div class="tags"><span class="tag">CT1: Glanzen × Cắt</span><span class="tag">CT3: UND + Laborie</span><span class="tag">CT4: Combo 2→3 + Apteka (pilot)</span></div>
+</div>
+
+<div class="kpi-g" style="margin-bottom:22px">
+  <div class="kpi"><div class="v">3</div><div class="l">Chương trình</div><div class="t">CT1 · CT3 · CT4</div></div>
+  <div class="kpi"><div class="v">~58</div><div class="l">Salon tham gia</div><div class="t">CT1 40-50 · CT3 40 · CT4 18</div></div>
+  <div class="kpi"><div class="v">1,580</div><div class="l">Tổng số lượt CTKM T4</div><div class="t">CT1 600 + CT3 480 + CT4 500</div></div>
+  <div class="kpi"><div class="v">~245M</div><div class="l">Lợi nhuận gộp tăng thêm</div><div class="t">Tổng 3 CT (ước tính)</div></div>
+  <div class="kpi"><div class="v">16-30/4</div><div class="l">Pilot CT4</div><div class="t">15 ngày · 500 Apteka</div></div>
+</div>
+
+<!-- 3 CT CARDS -->
+<div class="c">
+  <div class="c-title"><span class="ic">📦</span> 3 Chương trình triển khai</div>
+  <div class="pkg-grid">
+
+    <div class="pkg ct1">
+      <div class="pkg-hd">
+        <div class="pkg-em">💈</div>
+        <div class="pkg-nm"><div class="tier or">CT1 · SP TẠO KIỂU</div><h3>Sáp Glanzen Prime Sandalwood</h3></div>
+      </div>
+      <div class="pkg-bd">
+        Giảm 10% (Tầng A) / 20% (Tầng B) theo DV khách đang dùng, lấp khoảng trống 199-259K do Clay Wax + Prime Floral hết hàng.
+        <div style="margin-top:10px;padding:8px;background:#fff8ec;border-radius:8px;font-size:11.5px">
+          <strong>AOV SP tạo kiểu:</strong> 6.5K → 9K (+38%)<br>
+          <strong>Lượt CTKM:</strong> 600/tháng · <strong>40-50 salon</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg ct3">
+      <div class="pkg-hd">
+        <div class="pkg-em">🎨</div>
+        <div class="pkg-nm"><div class="tier rd">CT3 · AOV UND</div><h3>UND tặng Laborie Bond/Tím</h3></div>
+      </div>
+      <div class="pkg-bd">
+        Uốn ≥630K tặng Laborie Bond · Nhuộm ≥630K tặng Laborie Tím · Gói Uốn cao cấp + Dưỡng được chọn 1 SP.
+        <div style="margin-top:10px;padding:8px;background:#fff0f0;border-radius:8px;font-size:11.5px">
+          <strong>AOV UND:</strong> +9% HIGH · +17% MID · +31% LOW<br>
+          <strong>Lượt CTKM:</strong> 480/tháng · <strong>~40 salon</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg ct4">
+      <div class="pkg-hd">
+        <div class="pkg-em">✨</div>
+        <div class="pkg-nm"><div class="tier pp">CT4 · PILOT 15 NGÀY</div><h3>Combo 2 → Combo 3 + Apteka</h3></div>
+      </div>
+      <div class="pkg-bd">
+        Bill Relax có Combo 3 trở lên (≥230K) được tặng Apteka Tẩy da chết trị giá 200K. Chỉ 18 salon, 500 chai.
+        <div style="margin-top:10px;padding:8px;background:#f8f0ff;border-radius:8px;font-size:11.5px">
+          <strong>AOV Relax 18 salon:</strong> 129K → 131K pilot (+1.5%)<br>
+          <strong>Lượt CTKM:</strong> 500 trong 15 ngày · <strong>18 salon</strong>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- LỘ TRÌNH -->
+<div class="c">
+  <div class="c-title"><span class="ic">🗓️</span> Lộ trình triển khai T4</div>
+  <div class="flow">
+    <div class="flow-step">
+      <div class="flow-n" style="background:var(--navy)">1</div>
+      <div class="flow-c">
+        <h4>Tuần 2 (8-14/4) — Brief & chuẩn bị</h4>
+        <p>SM brief NV salon · Training 15-20 phút/CT · Setup POS auto-detect tầng & điều kiện · Nhận hàng Apteka về kho 18 salon</p>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-n" style="background:var(--orange)">2</div>
+      <div class="flow-c">
+        <h4>Tuần 3 (15/4) — Khởi động CT1 + CT3 full, CT4 pilot</h4>
+        <p>CT1 Glanzen & CT3 UND Laborie áp trên toàn 40-50 salon · CT4 pilot 18 salon bắt đầu từ 16/4</p>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-n" style="background:var(--red)">3</div>
+      <div class="flow-c">
+        <h4>Tuần 3-4 — Theo dõi daily</h4>
+        <p>SM daily check số lượt CTKM & tồn Apteka · COE check AOV mỗi 3 ngày · Kill switch nếu lệch chỉ tiêu</p>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-n" style="background:var(--green)">4</div>
+      <div class="flow-c">
+        <h4>30/4 — Chốt pilot CT4 & review</h4>
+        <p>Đánh giá 7 KPI CT4 → quyết định scale T5 với 1,500-2,000 Apteka · CT1 & CT3 tiếp tục T5</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /s1 -->
+
+
+<!-- ===================== S2: CT1 GLANZEN CHI TIẾT ===================== -->
+<div class="sec" id="s2">
+<div class="bn or">
+  <div class="zone">CT1 · SP TẠO KIỂU</div>
+  <h2>💈 Sáp Glanzen Prime Sandalwood — Bù khoảng trống 199-259K</h2>
+  <p>Giảm 10-20% theo tầng DV khách đang dùng · Mục tiêu giữ share sáp trong thương hiệu</p>
+</div>
+
+<!-- 1. BỐI CẢNH -->
+<div class="sec-hdg"><span class="n">1</span>Bối cảnh</div>
+<div class="c">
+  <div class="sb wr">
+    <span class="sb-label or">Tình huống</span>
+    2 SKU sáp chủ lực trong phân khúc 199-259K hết hàng: <strong>Glanzen Clay Wax (199K)</strong> và <strong>Glanzen Prime Floral (259K)</strong>. Khách quen dùng sáp ở mức giá này không có lựa chọn thay thế trong thương hiệu.
+  </div>
+  <div class="sb dg">
+    <span class="sb-label rd">Rủi ro nếu không làm</span>
+    Khách hàng sẽ (a) giảm cấp về sáp giá thấp hơn → rớt giá trị bill SP tạo kiểu, hoặc (b) chuyển sang brand khác (Dcash, Glueman, By Vilain...) → mất share wallet dài hạn. Một khi KH quen brand khác, rất khó kéo về.
+  </div>
+  <div class="sb ok">
+    <span class="sb-label gr">Giải pháp CT1</span>
+    <strong>Glanzen Prime Sandalwood (279K)</strong> đã có sẵn, giảm 10-20% → giá thực <strong>223-251K</strong> — lấp đúng phân khúc hụt. KH có option trong cùng thương hiệu → không mất share.
+  </div>
+</div>
+
+<!-- 2. INSIGHT KH -->
+<div class="sec-hdg"><span class="n">2</span>Insight khách hàng</div>
+<div class="c">
+  <ul class="chk-list">
+    <li><span class="ok">◆</span><div><strong>KH mua sáp theo thói quen phân khúc giá</strong> — khi không tìm được SP quen, sẽ chọn SP thay thế có giá gần nhất trong cửa hàng (200-260K).</div></li>
+    <li><span class="ok">◆</span><div><strong>Khoảnh khắc quyết định mua là sau cắt</strong> — KH vừa thấy tóc mình đẹp, stylist vừa demo sản phẩm → dễ convert gấp 3-4 lần so với tư vấn không demo.</div></li>
+    <li><span class="ok">◆</span><div><strong>KH loyal (chi bill DV ≥193K) chi cao hơn KH trial</strong> — họ sẵn sàng thử SP mới nếu có ưu đãi rõ ràng, không cần "dụ".</div></li>
+    <li><span class="ok">◆</span><div><strong>KH "chi nhẹ" (bill DV &lt;193K)</strong> nhạy giá hơn, ưu đãi 10% vừa đủ hấp dẫn để trial lần đầu, không bị cảm giác "hớ" vì giảm sâu.</div></li>
+  </ul>
+</div>
+
+<!-- 3. MỤC TIÊU KINH DOANH -->
+<div class="sec-hdg"><span class="n">3</span>Mục tiêu kinh doanh</div>
+<div class="c">
+  <div class="kpi-g">
+    <div class="kpi"><div class="v">6.5K → 9K</div><div class="l">AOV SP tạo kiểu</div><div class="t">+38% (~+2.5K/KH)</div></div>
+    <div class="kpi"><div class="v">2% → 3%</div><div class="l">CR SP tạo kiểu</div><div class="t">+1pt (realistic)</div></div>
+    <div class="kpi"><div class="v">+237K</div><div class="l">Bill size SP khi CTKM</div><div class="t">TB/lượt (Tầng A+B)</div></div>
+    <div class="kpi"><div class="v">600</div><div class="l">Lượt CTKM/tháng</div><div class="t">5/salon/tuần × 30 × 4</div></div>
+    <div class="kpi"><div class="v">~94M</div><div class="l">Lợi nhuận gộp tăng thêm</div><div class="t">DT 142M × 66% LNG</div></div>
+  </div>
+  <div class="sb nv" style="margin-top:14px">
+    <span class="sb-label nv">Tính khả thi</span>
+    30-50 salon × ~1,500 KH/tháng = 45,000+ KH ảnh hưởng. Base DT SP tạo kiểu ~290M. CT1 thêm <strong>600 lượt × 237K = +142M DT</strong> (+49%). Cộng halo (SP tạo kiểu khác tăng nhẹ do trưng bày + trải nghiệm): AOV tăng thực tế ~+38%. Nếu lượt CTKM tăng 2× (1,200 lượt) → đạt stretch +54%.
+  </div>
+  <div class="sb wr">
+    <span class="sb-label or">Lưu ý</span>
+    Không tính mục tiêu AOV riêng cho Tầng A/B — mục tiêu đo ở level SP tạo kiểu tổng salon. POS auto-split tầng để kiểm soát margin nội bộ.
+  </div>
+</div>
+
+<!-- 4. CƠ CHẾ CTKM -->
+<div class="sec-hdg"><span class="n">4</span>Cơ chế CTKM</div>
+<div class="c">
+  <div class="tw">
+    <table>
+      <thead>
+        <tr><th>Tầng</th><th>Nhóm KH (DV đang dùng)</th><th>Mức giảm</th><th>Giá bán</th><th>% KH ước lượng</th><th>Cơ sở chọn tầng</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>A</strong></td><td>KH dùng Cắt xả / Shinecombo 1 (bill DV &lt; 193K)</td><td class="n">10%</td><td class="n gd">251,100đ</td><td class="n">30%</td><td>KH chi nhẹ → ưu đãi nhẹ, đủ trial</td></tr>
+        <tr><td><strong>B</strong></td><td>KH dùng Shinecombo 2 trở lên (bill DV ≥ 193K)</td><td class="n">20%</td><td class="n gd">223,200đ</td><td class="n">70%</td><td>KH loyal → giảm sâu để cross-sell mạnh</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="sb ok">
+    <span class="sb-label gr">Nhận diện tự động</span>
+    POS auto-detect DV trong cùng bill — <strong>NV không phải nhớ/chọn tầng</strong>. KH chỉ thấy 1 giá cuối ở hóa đơn. Training 15 phút cho thu ngân.
+  </div>
+  <div class="sb nv">
+    <span class="sb-label nv">Quy tắc áp dụng</span>
+    Áp dụng cho SP Glanzen Prime Sandalwood 279K, bán kèm DV trong cùng bill. Không áp dụng khi mua đơn SP không kèm DV. Không chồng CTKM khác.
+  </div>
+</div>
+
+<!-- 5. SALON & NHÂN SỰ -->
+<div class="sec-hdg"><span class="n">5</span>Salon & Nhân sự triển khai</div>
+<div class="c">
+  <div class="kpi-g" style="grid-template-columns:repeat(3,1fr)">
+    <div class="kpi"><div class="v">40-50</div><div class="l">Salon tham gia</div></div>
+    <div class="kpi"><div class="v">L2+ điểm NL ≥3.5</div><div class="l">Stylist đủ tiêu chí</div></div>
+    <div class="kpi"><div class="v">≥3</div><div class="l">Stylist/salon cần có</div></div>
+  </div>
+
+  <div class="sb pp" style="margin-top:14px">
+    <span class="sb-label pp">Phân vai nhân sự</span>
+    <strong>Stylist:</strong> vuốt sáp + demo trên tóc KH sau cắt → giới thiệu mua<br>
+    <strong>Thu ngân:</strong> POS auto-detect tầng → áp đúng giá · training 15 phút<br>
+    <strong>SM:</strong> Monitor AOV SP tạo kiểu + CR SP mỗi 3 ngày · Feedback stylist hàng tuần
+  </div>
+
+  <div style="margin-top:14px"><strong style="font-size:13px;color:var(--navy)">Top 20 salon ưu tiên (AOV SP tạo kiểu &lt;6K — cần kéo lên):</strong></div>
+  <div class="salon-chips">
+    <span class="salon-chip hl">236 DBT</span><span class="salon-chip hl">39 HBT</span><span class="salon-chip hl">190 HB</span>
+    <span class="salon-chip">341 XVNT</span><span class="salon-chip">363 LNQ TN</span><span class="salon-chip">7 DTP LA</span>
+    <span class="salon-chip">730 TL10</span><span class="salon-chip">304 NT TH</span><span class="salon-chip">90 NH</span>
+    <span class="salon-chip">595 BT TH</span><span class="salon-chip">168 NVC</span><span class="salon-chip">25 TD</span>
+    <span class="salon-chip">575 AC</span><span class="salon-chip">8 CVL</span><span class="salon-chip">290 QT TH</span>
+    <span class="salon-chip">148 TD</span><span class="salon-chip">50BT4 NPC LD</span><span class="salon-chip">99 TSN</span>
+    <span class="salon-chip">420 HTP</span><span class="salon-chip">202 DC</span>
+  </div>
+</div>
+
+<!-- 6. KỊCH BẢN -->
+<div class="sec-hdg"><span class="n">6</span>Kịch bản bán hàng triển khai</div>
+<div class="c">
+  <div class="script-box">
+    <span class="lbl">Bước 1 · Sau cắt — Demo sáp</span><br>
+    <em>"Em vừa vuốt sáp Glanzen Prime tạo kiểu cho anh — anh thấy giữ form không? Sáp thế hệ mới, giữ nếp tự nhiên cả ngày, không bết."</em>
+  </div>
+
+  <div class="script-box">
+    <span class="lbl">Bước 2 · Thu ngân — Áp giá theo tầng (POS tự detect)</span><br>
+    <strong>Tầng A:</strong> <em>"Anh mua lại sáp này hôm nay được giảm 10% — còn 251K."</em><br>
+    <strong>Tầng B:</strong> <em>"Hôm nay mua thử sáp Glanzen được giảm 20% — chỉ còn 223K."</em>
+  </div>
+
+  <div class="script-box">
+    <span class="lbl">Bước 3 · Nếu KH từ chối</span><br>
+    <em>"Dạ không sao anh. Kiểu tóc mới đẹp lắm, anh cứ dùng thử vài ngày xem thích không."</em><br>
+    <span style="color:var(--red);font-weight:600;font-size:12px">→ Không ép. KH đã được trial → lần sau dễ convert hơn. KHÔNG tặng mẫu nhỏ.</span>
+  </div>
+
+  <div class="sb dg">
+    <span class="sb-label rd">Nguyên tắc</span>
+    <strong>Không chèo kéo, không ép.</strong> Stylist chỉ demo + giới thiệu 1 lần. Thu ngân chốt giá lúc thanh toán. Khách tự quyết định.
+  </div>
+</div>
+
+</div><!-- /s2 -->
+
+
+<!-- ===================== S3: CT3 UND + LABORIE ===================== -->
+<div class="sec" id="s3">
+<div class="bn" style="background:linear-gradient(135deg,#8b0000,var(--red))">
+  <div class="zone">CT3 · AOV UND</div>
+  <h2>🎨 UND tặng Laborie Bond / Tím — Kích cầu UND post-Tết</h2>
+  <p>Uốn / Nhuộm bill ≥630K hoặc gói Uốn cao cấp + Dưỡng → tặng 1 SP Laborie trị giá tương đương 400-450K</p>
+</div>
+
+<!-- 1. BỐI CẢNH -->
+<div class="sec-hdg"><span class="n">1</span>Bối cảnh</div>
+<div class="c">
+  <div class="sb dg">
+    <span class="sb-label rd">Tình huống nghiêm trọng</span>
+    Ngành UND tháng 3/2026 đã giảm <strong>-75% so với cùng kỳ</strong> — KH post-Tết ngại chi cho UND (DV chi phí lớn, tần suất thấp). Nếu không kích cầu ngay T4, UND tiếp tục rơi trong Q2.
+  </div>
+  <div class="sb wr">
+    <span class="sb-label or">Khó khăn của KH UND</span>
+    Sau UND, tóc KH qua hóa chất → cần phục hồi/giữ màu. Nhưng KH không chủ động mua SP chăm tóc chuyên sâu — hoặc không biết mua gì, hoặc thấy "thêm chi phí". Kết quả: tóc KH nhanh xuống sắc → họ quay lại UND ít hơn.
+  </div>
+  <div class="sb ok">
+    <span class="sb-label gr">Giải pháp CT3</span>
+    Tặng <strong>Laborie Bond/Tím 300ml</strong> (cost 140K, trị giá KH 400-450K) cho KH UND bill ≥630K hoặc chọn gói Uốn cao cấp + Dưỡng. KH có SP chuyên sâu → tóc đẹp lâu hơn → quay lại UND nhanh hơn.
+  </div>
+</div>
+
+<!-- 2. INSIGHT KH -->
+<div class="sec-hdg"><span class="n">2</span>Insight khách hàng</div>
+<div class="c">
+  <ul class="chk-list">
+    <li><span class="ok">◆</span><div><strong>Nhu cầu thật sau UND</strong>: tóc vừa qua hóa chất = CẦN phục hồi. Đây không phải "upsell giả" — đây là nhu cầu vật lý của tóc.</div></li>
+    <li><span class="ok">◆</span><div><strong>KH không tự tìm SP chăm tóc</strong>: 80% KH UND không dùng SP phục hồi tại nhà. Lý do: không biết chọn gì, không thấy cần, giá cao.</div></li>
+    <li><span class="ok">◆</span><div><strong>Tặng SP kèm ngưỡng bill kích thích upgrade</strong>: KH sẽ cân nhắc từ Uốn cơ bản lên Uốn + Dưỡng/Nhuộm highlight nếu "lên tí là được quà".</div></li>
+    <li><span class="ok">◆</span><div><strong>3 nhóm salon = 3 tệp KH khác nhau</strong>: HIGH đã quen chi cao → kỳ vọng bill ≥630K khả thi. LOW ngại chi → cần push mạnh hơn, uplift AOV kỳ vọng lớn nhất.</div></li>
+    <li><span class="ok">◆</span><div><strong>Tần suất UND thấp (2-3 tháng/lần)</strong> → nếu CTKM tốt, KH sẽ lên lịch sớm hơn (từ 3 tháng xuống 2.5 tháng) = tăng frequency.</div></li>
+  </ul>
+</div>
+
+<!-- 3. MỤC TIÊU KINH DOANH -->
+<div class="sec-hdg"><span class="n">3</span>Mục tiêu kinh doanh</div>
+<div class="c">
+  <div class="c-title"><span class="ic">📊</span> AOV UND theo 3 nhóm salon</div>
+  <div class="tw">
+    <table>
+      <thead>
+        <tr><th>Nhóm salon</th><th>Số salon</th><th>AOV UND hiện tại</th><th>AOV mục tiêu</th><th>Uplift</th><th>Cách đo</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>UND-HIGH</strong></td><td class="n">16</td><td class="n">≥30K</td><td class="n gd">35K</td><td class="n gd">+9%</td><td>Tăng % upgrade gói cao cấp</td></tr>
+        <tr><td><strong>UND-MID</strong></td><td class="n">23</td><td class="n">20-30K</td><td class="n gd">27K</td><td class="n gd">+17%</td><td>Nhiều KH đạt bill 630K nhờ Laborie</td></tr>
+        <tr><td><strong>UND-LOW</strong></td><td class="n">18</td><td class="n">&lt;20K</td><td class="n gd">17K</td><td class="n gd">+31%</td><td>Base thấp → dễ uplift %</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="kpi-g" style="margin-top:14px">
+    <div class="kpi"><div class="v">380K → 405K</div><div class="l">Bill size UND TB</div><div class="t">+7% (thực tế)</div></div>
+    <div class="kpi"><div class="v">Giữ CR UND</div><div class="l">CR UND (bảo vệ)</div><div class="t">Không drop &gt;2pts</div></div>
+    <div class="kpi"><div class="v">≥20%</div><div class="l">Tỷ lệ upsell gói Uốn cao cấp + Dưỡng</div></div>
+    <div class="kpi"><div class="v">480</div><div class="l">Gói CTKM/tháng</div><div class="t">3/salon/tuần × 40 × 4</div></div>
+    <div class="kpi"><div class="v">~115M</div><div class="l">Lợi nhuận gộp tăng thêm</div><div class="t">Sau trừ cost Laborie</div></div>
+  </div>
+
+  <div class="sb nv" style="margin-top:14px">
+    <span class="sb-label nv">Vì sao target AOV khác nhau?</span>
+    Thực tế chỉ ~8% KH UND qualify gói CTKM (12 gói/salon/tháng / 150 KH UND/salon). Nhóm LOW base 13K nên mỗi gói CTKM kéo AOV lên mạnh (+31%). Nhóm HIGH base 32K nên cùng số gói kéo ít hơn (+9%). Muốn đạt stretch cần tăng gói CTKM 3-4× — cần staff brief kỹ + SMS re-targeting KH UND cũ.
+  </div>
+</div>
+
+<!-- 4. CƠ CHẾ CTKM -->
+<div class="sec-hdg"><span class="n">4</span>Cơ chế CTKM</div>
+<div class="c">
+  <div class="c-title"><span class="ic">🎁</span> 3 gói CTKM UND</div>
+  <div class="tw">
+    <table>
+      <thead>
+        <tr><th>Gói</th><th>Điều kiện</th><th>Tặng</th><th>Trị giá cảm nhận KH</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Uốn chuẩn</strong></td><td>Bill uốn ≥ 630K</td><td>Laborie Bond 300ml</td><td class="n gd">~450K</td></tr>
+        <tr><td><strong>Nhuộm chuẩn</strong></td><td>Bill nhuộm ≥ 630K</td><td>Laborie Tím 300ml</td><td class="n gd">~400K</td></tr>
+        <tr><td><strong>Uốn cao cấp + Dưỡng</strong></td><td>Gói Uốn cao cấp (K-Perm, Milano, Premium) + DV Dưỡng phục hồi — mọi bill</td><td>Laborie Bond HOẶC Tím (KH chọn)</td><td class="n gd">~450K</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sb wr">
+    <span class="sb-label or">Vì sao chốt bill ngưỡng 630K (hạ từ 700K)?</span>
+    Bill UND trung bình hệ thống ~320K. Ngưỡng 700K trước đây quá cao với KH UND bình quân. Phân tích bill T3 cho thấy mốc 1.4M+ hầu như không có KH đạt → bỏ. Mốc 630K + gói Uốn cao cấp + Dưỡng = phù hợp với nhóm KH có khả năng chi & muốn chăm tóc kỹ.
+  </div>
+  <div class="sb ok">
+    <span class="sb-label gr">Ưu điểm cơ chế 3 gói</span>
+    Mở nhiều cửa: KH không qualify bill 630K nhưng chọn gói Uốn cao cấp + Dưỡng vẫn được quà. KH chọn Nhuộm highlight bình thường bill ≥630K cũng được quà. → Coverage rộng hơn mà margin vẫn an toàn.
+  </div>
+</div>
+
+<!-- 5. SALON & NHÂN SỰ -->
+<div class="sec-hdg"><span class="n">5</span>Salon & Nhân sự triển khai</div>
+<div class="c">
+  <div class="kpi-g" style="grid-template-columns:repeat(3,1fr)">
+    <div class="kpi"><div class="v">~40</div><div class="l">Salon tham gia</div></div>
+    <div class="kpi"><div class="v">L2+ NL ≥4.0</div><div class="l">Stylist UND đủ tiêu chí</div></div>
+    <div class="kpi"><div class="v">≥2</div><div class="l">Stylist UND/salon cần có</div></div>
+  </div>
+
+  <div class="sb pp" style="margin-top:14px">
+    <span class="sb-label pp">Phân vai nhân sự</span>
+    <strong>Stylist UND:</strong> Xếp loại A (NL ≥4.0) · Training Laborie 1 buổi (nhận biết tình trạng tóc, cách dùng SP demo)<br>
+    <strong>Tư vấn quầy:</strong> Biết phân loại bill &lt;630K / ≥630K / gói cao cấp → bật đúng gói (training 20 phút)<br>
+    <strong>SM:</strong> Monitor % KH qualify gói CTKM / tổng KH UND, tỷ lệ upsell gói Uốn cao cấp + Dưỡng
+  </div>
+
+  <div style="margin-top:14px"><strong style="font-size:13px;color:var(--navy)">Top 15 salon ưu tiên (BS UND cao, dễ upsell):</strong></div>
+  <div class="salon-chips">
+    <span class="salon-chip hl">80 PL BD</span><span class="salon-chip hl">58 NVC NA</span><span class="salon-chip hl">68 LN NA</span>
+    <span class="salon-chip">401/1 NDT</span><span class="salon-chip">451 PVT</span><span class="salon-chip">304 NT TH</span>
+    <span class="salon-chip">290 QT TH</span><span class="salon-chip">236 DBT</span><span class="salon-chip">25 TD</span>
+    <span class="salon-chip">927 HG</span><span class="salon-chip">312 LVS</span><span class="salon-chip">1146 KVC</span>
+    <span class="salon-chip">8 CVL</span><span class="salon-chip">99 TSN</span><span class="salon-chip">80 TP TH</span>
+  </div>
+
+  <div style="margin-top:14px"><strong style="font-size:13px;color:var(--navy)">Phân 3 nhóm salon đầy đủ:</strong></div>
+  <div class="sb nv">
+    <span class="sb-label nv">Nhóm UND-HIGH (16 salon · AOV ≥30K)</span>
+    1146 KVC · 25 TD · 304 NT TH · 312 LVS · 382 NT · 10 TP · 1180 QT · 50BT4 NPC LD · 186 DTH · 237 NTT · 290 QT TH · 173 TN · 202 DC · 80 PL BD · 927 HG · 99 TSN
+  </div>
+  <div class="sb wr">
+    <span class="sb-label or">Nhóm UND-MID (23 salon · AOV 20-30K)</span>
+    32 NAT · 168 NVC · 55A NVL · 255 NAN · 341 XVNT · 451 PVT · 76 PVH · 103 TN · 109 TQH · 116 TK · 12 LDT · 346 KT · 8 CVL · 90 NH · 145 THT · 11 PKT · 483 TN · 58 NVC NA · 236 DBT · 264 LLQ · 401/1 NDT · 420 HTP · 65 CD
+  </div>
+  <div class="sb dg">
+    <span class="sb-label rd">Nhóm UND-LOW (18 salon · AOV &lt;20K — PRIORITY UPLIFT)</span>
+    29 HB · 708 LTT · 730 TL10 · 190 HB · 80 TP TH · 148 TD · 68 LN NA · 36 N1 BD · 362 NGT BN · 39 HBT · 62 LH · 113 THD AG · 186 QT · 363 LNQ TN · 7 DTP LA · 1371 PVT · 595 BT TH · 4 LQD BN
+  </div>
+</div>
+
+<!-- 6. KỊCH BẢN -->
+<div class="sec-hdg"><span class="n">6</span>Kịch bản bán hàng triển khai</div>
+<div class="c">
+  <div class="script-box">
+    <span class="lbl">Bước 1 · Trước làm UND — Tư vấn upgrade bill</span><br>
+    <em>"Anh đang chọn nhuộm/uốn cơ bản bill X. Hôm nay em có chương trình: bill từ 630K tặng luôn Laborie Bond/Tím trị giá 400-450K để giữ màu & phục hồi. Anh thử nâng lên gói cao cấp / highlight em làm kỹ hơn nhé?"</em>
+  </div>
+
+  <div class="script-box">
+    <span class="lbl">Bước 1b · Nếu KH không đạt bill 630K — Gợi ý gói Uốn cao cấp + Dưỡng</span><br>
+    <em>"Em có gói Uốn cao cấp + Dưỡng phục hồi dành riêng cho KH muốn giữ tóc lâu, bill không cần 630K vẫn được tặng 1 chai Laborie. Anh muốn em tư vấn thêm không?"</em>
+  </div>
+
+  <div class="script-box">
+    <span class="lbl">Bước 2 · Sau làm UND — Demo Laborie</span><br>
+    <em>"Tóc anh vừa nhuộm/uốn, em thoa Laborie Tím/Bond vào cho mềm mượt luôn. Anh thấy mịn không? Hôm nay anh qualify được tặng chai này mang về dùng."</em>
+  </div>
+
+  <div class="script-box">
+    <span class="lbl">Bước 3 · Nếu KH từ chối upgrade</span><br>
+    <em>"Dạ không sao anh, gói cơ bản em vẫn làm đẹp cho anh. Lần sau có dịp anh thử gói cao cấp nhé."</em><br>
+    <span style="color:var(--red);font-weight:600;font-size:12px">→ Không ép upgrade. Giữ trải nghiệm tốt. KH rời quầy hài lòng &gt; KH bị ép mà không hài lòng.</span>
+  </div>
+</div>
+
+</div><!-- /s3 -->
+
+
+<!-- ===================== S4: CT4 COMBO 2→3 + APTEKA ===================== -->
+<div class="sec" id="s4">
+<div class="bn pur">
+  <div class="zone">CT4 · PILOT 15 NGÀY</div>
+  <h2>✨ Upgrade Shinecombo 2 → Combo 3 — Tặng Apteka Tẩy da chết</h2>
+  <p>Bill Relax chọn Combo 3 trở lên (≥230K) được tặng Apteka trị giá 200K · 16-30/4 · 500 chai · 18 salon</p>
+</div>
+
+<!-- 1. BỐI CẢNH -->
+<div class="sec-hdg"><span class="n">1</span>Bối cảnh</div>
+<div class="c">
+  <div class="sb nv">
+    <span class="sb-label nv">Pool lớn nhất chưa được khai thác</span>
+    <strong>Shinecombo 2 (bill 193K) = 8,821 gói / 13 ngày</strong> = chiếm 26% volume Relax chuỗi. Extrapolate: ~20,300 gói/tháng. Đây là pool cross-sell/upsell tự nhiên LỚN NHẤT mà các CT khác chưa chạm tới.
+  </div>
+  <div class="sb wr">
+    <span class="sb-label or">Gap giá Shinecombo 2 → Combo 3</span>
+    Chỉ chênh lệch <strong>+39K đến +107K</strong> giữa SC2 (193K) và Combo 3 các loại (232K-300K). Khoảng cách này nhỏ — nếu có "lý do" (món quà, trải nghiệm tốt hơn), KH sẵn sàng upgrade.
+  </div>
+  <div class="sb ok">
+    <span class="sb-label gr">Cơ hội từ tồn kho Apteka cận date</span>
+    Apteka Tẩy da chết (cost 37K, giá niêm yết 200K) còn tồn 500 chai cận date 0-3 tháng. Nếu không xả, sẽ mất trắng cost. Dùng làm quà upgrade = biến cost sunk thành động lực upgrade.
+  </div>
+</div>
+
+<!-- 2. INSIGHT KH -->
+<div class="sec-hdg"><span class="n">2</span>Insight khách hàng</div>
+<div class="c">
+  <ul class="chk-list">
+    <li><span class="ok">◆</span><div><strong>KH SC2 chọn theo thói quen</strong>: 60% là KH quen, mặc định chọn SC2 vì "thấy đủ", không biết Combo 3 tốt hơn nhiều ra sao.</div></li>
+    <li><span class="ok">◆</span><div><strong>Ngưỡng tâm lý chi thêm ~50-100K</strong>: KH chi SC2 sẵn sàng "thêm chút" nếu thấy giá trị rõ ràng — một món quà 200K + trải nghiệm DV cao cấp là sự kiện đổi hành vi dễ.</div></li>
+    <li><span class="ok">◆</span><div><strong>Apteka Tẩy da chết hấp dẫn KH nam</strong>: nam ngày càng quan tâm chăm da, SP skincare cao cấp 200K mang về = quà giá trị thật (không phải mẫu nhỏ).</div></li>
+    <li><span class="ok">◆</span><div><strong>Trải nghiệm Combo 3 = cú hích đổi hành vi</strong>: KH thử Combo 3 1 lần, cảm nhận massage da mặt kỹ hơn, relax sâu hơn → có xu hướng giữ Combo 3 các lần sau (repeat).</div></li>
+    <li><span class="ok">◆</span><div><strong>18 salon top có tỷ lệ SC2 cao hơn TB</strong>: AOV Relax 129K (cao hơn median chuỗi 120K) → pool upgrade dồi dào, KH quen chi cao hơn → dễ convert.</div></li>
+  </ul>
+</div>
+
+<!-- 3. MỤC TIÊU KINH DOANH -->
+<div class="sec-hdg"><span class="n">3</span>Mục tiêu kinh doanh</div>
+<div class="c">
+  <div class="c-title"><span class="ic">🎯</span> Mục tiêu pilot 15 ngày (16-30/4)</div>
+  <div class="kpi-g">
+    <div class="kpi"><div class="v">129K → 131K</div><div class="l">AOV Relax 18 salon</div><div class="t">+1.5% pilot</div></div>
+    <div class="kpi"><div class="v">500/1,800</div><div class="l">Tỷ lệ upgrade SC2 → Combo 3</div><div class="t">~27.8% pool đơn lẻ</div></div>
+    <div class="kpi"><div class="v">+70K</div><div class="l">Bill size tăng/lượt upgrade</div><div class="t">SC2 193K → Combo 3 ~263K</div></div>
+    <div class="kpi"><div class="v">Giữ CR Relax</div><div class="l">CR Relax (bảo vệ)</div><div class="t">Không drop &gt;3pts</div></div>
+    <div class="kpi"><div class="v">500</div><div class="l">Lượt CTKM (15 ngày)</div><div class="t">~28/salon · ~1.8/ngày</div></div>
+    <div class="kpi"><div class="v">~27M</div><div class="l">Lợi nhuận gộp tăng thêm</div><div class="t">DT +45M × 60% LNG</div></div>
+  </div>
+
+  <div class="sb pp" style="margin-top:14px">
+    <span class="sb-label pp">Mục tiêu chính của pilot KHÔNG phải tiền</span>
+    15 ngày quá ngắn để thấy halo hay AOV nhảy mạnh. Giá trị chính: <strong>(1)</strong> đo tỷ lệ KH accept upgrade SC2 → Combo 3 khi có quà; <strong>(2)</strong> đo repeat rate KH upgrade trong 30 ngày tiếp theo (họ có giữ Combo 3 không?); <strong>(3)</strong> kiểm chứng vận hành POS + brief stylist có OK.<br>
+    Kết quả tốt → request 1,500-2,000 Apteka cho T5, scale full tháng, mục tiêu AOV Relax <strong>129K → 134K (+3.5%)</strong>.
+  </div>
+
+  <div class="c-title" style="margin-top:20px"><span class="ic">📈</span> Pool KH & công thức tính</div>
+  <div class="tw">
+    <table>
+      <thead>
+        <tr><th>Nhóm KH</th><th>Volume 15 ngày (18 salon)</th><th>Trạng thái</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Shinecombo 2 toàn 18 salon (~45% chuỗi)</td><td class="n">~4,500 KH</td><td>Base pool lớn nhất</td></tr>
+        <tr><td>SC2 đã có add-on (LRT, dưỡng sinh)</td><td class="n">~2,700 (60%)</td><td>Không qualify (bill ≥263K sẵn)</td></tr>
+        <tr class="hl"><td><strong>SC2 đơn lẻ 193K — POOL CHÍNH</strong></td><td class="n"><strong>~1,800 (40%)</strong></td><td><strong>POOL cần upgrade</strong></td></tr>
+        <tr><td><strong>Target: 500 KH upgrade</strong></td><td class="n gd"><strong>500 / 1,800 = 27.8%</strong></td><td><strong>SC2 → Combo 3 + Apteka</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 4. CƠ CHẾ CTKM -->
+<div class="sec-hdg"><span class="n">4</span>Cơ chế CTKM</div>
+<div class="c">
+  <div class="sb ok">
+    <span class="sb-label gr">Điều kiện áp dụng</span>
+    Mọi bill Relax chứa ít nhất 1 DV thuộc danh mục <strong>Combo 3 trở lên (giá ≥230K)</strong> → được tặng 1 chai Apteka Tẩy da chết 200K. Không giới hạn thêm DV/SP khác trong bill.
+  </div>
+
+  <div class="c-title"><span class="ic">🎁</span> Các gói DV qualify</div>
+  <div class="tw">
+    <table>
+      <thead>
+        <tr><th>DV qualify</th><th>Giá gói</th><th>Chênh lệch vs SC2 (193K)</th><th>Tặng</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Gội Combo 3 Chăm da</td><td class="n">232K</td><td class="n gd">+39K</td><td>Apteka Tẩy da chết 200K</td></tr>
+        <tr><td>Cắt Gội Combo 3 Chăm da (flagship)</td><td class="n">300K</td><td class="n gd">+107K</td><td>Apteka</td></tr>
+        <tr><td>Cắt Gội Combo 3 Dưỡng sinh</td><td class="n">303K</td><td class="n gd">+110K</td><td>Apteka</td></tr>
+        <tr><td>Combo 3 First Class</td><td class="n">308K</td><td class="n gd">+115K</td><td>Apteka</td></tr>
+        <tr><td>Gội Combo 4</td><td class="n">281K</td><td class="n gd">+88K</td><td>Apteka</td></tr>
+        <tr><td>Combo 4</td><td class="n">389K</td><td class="n gd">+196K</td><td>Apteka</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sb wr">
+    <span class="sb-label or">Ràng buộc supply</span>
+    Chỉ có <strong>500 chai Apteka</strong> cho 15 ngày cuối T4 tại 18 salon. TB ~28 chai/salon/15 ngày (~1.8/ngày). <strong>SM phải daily check tồn Apteka</strong>, không cho phép tặng vượt định mức. Hết Apteka = kết thúc CTKM (hoặc chờ supply T5).
+  </div>
+  <div class="sb nv">
+    <span class="sb-label nv">Quy tắc áp dụng</span>
+    Mỗi KH chỉ nhận 1 chai/lần. Không áp dụng chồng CTKM khác. POS auto-detect Combo 3+ trong bill và in phiếu tặng Apteka.
+  </div>
+</div>
+
+<!-- 5. SALON & NHÂN SỰ -->
+<div class="sec-hdg"><span class="n">5</span>Salon & Nhân sự triển khai</div>
+<div class="c">
+  <div class="kpi-g" style="grid-template-columns:repeat(3,1fr)">
+    <div class="kpi"><div class="v">18</div><div class="l">Salon pilot</div><div class="t">Không chạy ngoài danh sách</div></div>
+    <div class="kpi"><div class="v">~28</div><div class="l">Apteka/salon trong 15 ngày</div></div>
+    <div class="kpi"><div class="v">L1+ NL ≥3.5</div><div class="l">Skinner/Stylist đủ tiêu chí</div></div>
+  </div>
+
+  <div class="sb pp" style="margin-top:14px">
+    <span class="sb-label pp">Phân vai nhân sự</span>
+    <strong>Lễ tân / Tư vấn quầy:</strong> Gợi ý upgrade SC2 → Combo 3 ngay khi KH đăng ký DV · Brief 15 phút về cơ chế tặng Apteka<br>
+    <strong>Skinner / Stylist:</strong> Làm DV Combo 3+ chuẩn chất lượng · Demo giá trị massage/da mặt kỹ hơn so với SC2<br>
+    <strong>Thu ngân:</strong> POS auto-detect Combo 3+ → in phiếu tặng Apteka · Kiểm tồn Apteka cuối ngày<br>
+    <strong>SM:</strong> Daily check tỷ lệ upgrade + tồn Apteka · Weekly review SC2 share
+  </div>
+
+  <div style="margin-top:14px"><strong style="font-size:13px;color:var(--navy)">18 salon pilot chốt (không chạy ngoài):</strong></div>
+  <div class="salon-chips">
+    <span class="salon-chip hl">10 TP</span><span class="salon-chip hl">103 TN</span><span class="salon-chip hl">116 TK</span>
+    <span class="salon-chip hl">1371 PVT</span><span class="salon-chip hl">145 THT</span><span class="salon-chip hl">168 NVC</span>
+    <span class="salon-chip hl">202 DC</span><span class="salon-chip hl">237 NTT</span><span class="salon-chip hl">25 TD</span>
+    <span class="salon-chip hl">29 HB</span><span class="salon-chip hl">312 LVS</span><span class="salon-chip hl">382 NT</span>
+    <span class="salon-chip hl">575 AC</span><span class="salon-chip hl">76 PVH</span><span class="salon-chip hl">8 CVL</span>
+    <span class="salon-chip hl">90 NH</span><span class="salon-chip hl">927 HG</span><span class="salon-chip hl">99 TSN</span>
+  </div>
+
+  <div class="c-title" style="margin-top:20px"><span class="ic">📋</span> Baseline 18 salon (T4 13 ngày đầu)</div>
+  <div class="tw">
+    <table>
+      <thead>
+        <tr><th>Salon</th><th>KH 13d</th><th>AOV Relax</th><th>Salon</th><th>KH 13d</th><th>AOV Relax</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>10 TP</td><td class="n">933</td><td class="n">136K</td><td>29 HB</td><td class="n">907</td><td class="n">126K</td></tr>
+        <tr><td>103 TN</td><td class="n">2,093</td><td class="n">111K</td><td>312 LVS</td><td class="n">1,347</td><td class="n">123K</td></tr>
+        <tr><td>116 TK</td><td class="n">1,555</td><td class="n">137K</td><td>382 NT</td><td class="n">1,597</td><td class="n">141K</td></tr>
+        <tr><td>1371 PVT</td><td class="n">491</td><td class="n">148K</td><td>575 AC</td><td class="n">946</td><td class="n gd">149K</td></tr>
+        <tr><td>145 THT</td><td class="n">1,638</td><td class="n">134K</td><td>76 PVH</td><td class="n">591</td><td class="n">118K</td></tr>
+        <tr><td>168 NVC</td><td class="n">1,299</td><td class="n">144K</td><td>8 CVL</td><td class="n">1,072</td><td class="n bd">103K</td></tr>
+        <tr><td>202 DC</td><td class="n">820</td><td class="n">117K</td><td>90 NH</td><td class="n">628</td><td class="n">128K</td></tr>
+        <tr><td>237 NTT</td><td class="n">1,694</td><td class="n">105K</td><td>927 HG</td><td class="n">1,411</td><td class="n">145K</td></tr>
+        <tr><td>25 TD</td><td class="n">1,183</td><td class="n">142K</td><td>99 TSN</td><td class="n">1,398</td><td class="n">125K</td></tr>
+        <tr class="hl"><td colspan="2"><strong>Tổng 18 salon (13d)</strong></td><td class="n"><strong>21,603 KH</strong></td><td><strong>DT Relax (13d)</strong></td><td colspan="2" class="n"><strong>2,779M</strong></td></tr>
+        <tr class="hl"><td colspan="5"><strong>AOV Relax weighted (baseline CT4)</strong></td><td class="n gd"><strong>129K</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 6. KỊCH BẢN -->
+<div class="sec-hdg"><span class="n">6</span>Kịch bản bán hàng triển khai</div>
+<div class="c">
+  <div class="script-box">
+    <span class="lbl">Bước 1 · Lễ tân khi KH đăng ký DV</span><br>
+    <em>"Anh chọn Shinecombo 2 hay hôm nay em gợi ý lên Combo 3 Chăm da? Chỉ thêm 107K — được massage da mặt kỹ hơn + 30Shine tặng chai Apteka Tẩy da chết trị giá 200K mang về. Tính ra anh nhận được giá trị gần 300K mà chỉ chi thêm 107K."</em>
+  </div>
+
+  <div class="script-box">
+    <span class="lbl">Bước 2 · KH còn phân vân</span><br>
+    <em>"Apteka này là SP skincare cao cấp, dùng 1-2 lần/tuần da mịn hơn. Em cũng muốn anh thử trải nghiệm Combo 3 — massage da mặt kỹ hơn, relax sâu hơn. Hôm nay có ưu đãi nên em mới giới thiệu."</em>
+  </div>
+
+  <div class="script-box">
+    <span class="lbl">Bước 3 · Skinner trong quá trình làm DV</span><br>
+    <em>"Anh đang làm Combo 3 Chăm da, em massage kỹ hơn phần tuyến da dầu và dưỡng sâu — đây là điểm khác Combo 2. Anh thấy relax hơn không?"</em>
+  </div>
+
+  <div class="script-box">
+    <span class="lbl">Bước 4 · Thu ngân trao Apteka</span><br>
+    <em>"Đây là chai Apteka anh được tặng, giá trị 200K. Anh dùng tẩy da chết 1-2 lần/tuần nhé, hiệu quả tốt nhất sau 2-3 tuần."</em>
+  </div>
+
+  <div class="script-box">
+    <span class="lbl">Bước 5 · Nếu KH từ chối upgrade</span><br>
+    <em>"Dạ không sao, anh dùng Shinecombo 2 như thường em vẫn phục vụ chu đáo. Lần sau có dịp anh thử Combo 3 nhé."</em><br>
+    <span style="color:var(--red);font-weight:600;font-size:12px">→ Không ép. KH thoải mái. Pilot đo đúng hành vi — KH tự nguyện upgrade mới có data tốt.</span>
+  </div>
+</div>
+
+</div><!-- /s4 -->
+
+
+<!-- ===================== S5: ĐO LƯỜNG & THEO DÕI ===================== -->
+<div class="sec" id="s5">
+<div class="bn grn">
+  <div class="zone">QUẢN LÝ & ĐO LƯỜNG</div>
+  <h2>📊 Đo lường, theo dõi & Kill Switch 3 CTKM T4</h2>
+  <p>Daily / Weekly / End-of-month · Ai làm gì · Kill switch khi nào · Công cụ báo cáo</p>
+</div>
+
+<div class="c">
+  <div class="c-title"><span class="ic">⏱️</span> Chu kỳ đo lường</div>
+  <div class="tw">
+    <table>
+      <thead>
+        <tr><th>Chu kỳ</th><th>Người phụ trách</th><th>Nội dung</th><th>Công cụ</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Daily</strong></td><td>SM salon</td><td>Số lượt CTKM/salon · Tồn Apteka (CT4) · Note phản ứng KH</td><td>POS export + Daily report form</td></tr>
+        <tr><td><strong>3 ngày</strong></td><td>COE</td><td>AOV SP tạo kiểu (CT1) · AOV UND (CT3) · AOV Relax 18 salon (CT4)</td><td>Dashboard salon x ngành hàng</td></tr>
+        <tr><td><strong>Weekly</strong></td><td>COE + SM vùng</td><td>Full KPI checklist · Meeting 30p review + feedback từ stylist</td><td>Weekly report template</td></tr>
+        <tr><td><strong>End of T4</strong></td><td>COE + BOD</td><td>ROI thực tế · Quyết định scale T5 (CT4 pilot) · Điều chỉnh CT1/CT3</td><td>Final report + Board review</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="c">
+  <div class="c-title"><span class="ic">📏</span> KPI tổng hợp 3 CTKM</div>
+  <div class="tw">
+    <table>
+      <thead>
+        <tr><th>Chỉ số</th><th>CT1 Glanzen</th><th>CT3 UND+Laborie</th><th>CT4 Combo 2→3 + Apteka</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Số lượt CTKM</strong></td>
+          <td class="n">600/tháng</td>
+          <td class="n">480/tháng</td>
+          <td class="n">500/15 ngày</td>
+        </tr>
+        <tr>
+          <td><strong>AOV target</strong></td>
+          <td class="n gd">+38% SP tạo kiểu</td>
+          <td class="n gd">+9% / +17% / +31% (UND)</td>
+          <td class="n gd">+1.5% Relax (pilot)</td>
+        </tr>
+        <tr>
+          <td><strong>CR target (bảo vệ)</strong></td>
+          <td>Giữ CR SP tổng không drop</td>
+          <td>Giữ CR UND không drop &gt;2pts</td>
+          <td>Giữ CR Relax không drop &gt;3pts</td>
+        </tr>
+        <tr>
+          <td><strong>Bill size tăng</strong></td>
+          <td class="n">+237K/lượt</td>
+          <td class="n">+25K TB UND (+7%)</td>
+          <td class="n">+70K/lượt upgrade</td>
+        </tr>
+        <tr>
+          <td><strong>Lợi nhuận gộp tăng</strong></td>
+          <td class="n gd">~94M</td>
+          <td class="n gd">~115M</td>
+          <td class="n gd">~27M (pilot)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="sb ok" style="margin-top:14px">
+    <span class="sb-label gr">Tổng lợi nhuận gộp tăng thêm T4 (ước tính 3 CT)</span>
+    <strong style="font-size:18px;color:var(--green)">~236 triệu</strong> (CT1 94M + CT3 115M + CT4 27M pilot). CT4 scale T5 full tháng có thể đóng góp thêm ~150-200M/tháng.
+  </div>
+</div>
+
+<div class="c">
+  <div class="c-title"><span class="ic">🚨</span> Kill Switch — Khi nào dừng/điều chỉnh</div>
+  <div class="tw">
+    <table>
+      <thead>
+        <tr><th>Chương trình</th><th>Điều kiện kill</th><th>Hành động</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>CT1 Glanzen</strong></td>
+          <td>Lượt CTKM &lt;50% target sau 2 tuần · HOẶC CR SP tổng drop &gt;2pts</td>
+          <td>Review brief stylist · Tăng push · Nếu kéo không lên → giảm salon tham gia</td>
+        </tr>
+        <tr>
+          <td><strong>CT3 UND+Laborie</strong></td>
+          <td>Gói CTKM &lt;200/tháng · HOẶC CR UND drop &gt;2pts · HOẶC tỷ lệ upsell Uốn CC &lt;5%</td>
+          <td>Điều chỉnh bill ngưỡng · Review salon LOW · Tăng training</td>
+        </tr>
+        <tr>
+          <td><strong>CT4 Combo 2→3</strong></td>
+          <td>Tỷ lệ upgrade &lt;12% pool · HOẶC Apteka tặng &lt;200/15 ngày · HOẶC CR Relax drop &gt;3pts</td>
+          <td>Stop pilot · KHÔNG scale T5 · Rút kinh nghiệm cơ chế khác</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="c">
+  <div class="c-title"><span class="ic">✅</span> Checklist chuẩn bị trước 15/4</div>
+  <ul class="chk-list">
+    <li><span class="ok">□</span><div><strong>SM brief toàn bộ NV salon</strong> về 3 CTKM (1 buổi offline / salon, 30 phút)</div></li>
+    <li><span class="ok">□</span><div><strong>Training stylist / skinner / thu ngân</strong> theo kịch bản bán hàng từng CT</div></li>
+    <li><span class="ok">□</span><div><strong>Setup POS</strong>: auto-detect tầng A/B CT1, bill ngưỡng 630K CT3, Combo 3+ CT4 → in phiếu tặng</div></li>
+    <li><span class="ok">□</span><div><strong>Chuẩn bị hàng</strong>: Glanzen Sandalwood về 40-50 salon · Laborie Bond/Tím về 40 salon · Apteka 500 chai về 18 salon</div></li>
+    <li><span class="ok">□</span><div><strong>Voucher / tem CTKM</strong> in sẵn (nếu cần)</div></li>
+    <li><span class="ok">□</span><div><strong>Dashboard theo dõi</strong> set sẵn 3 CT · Daily report form phát cho SM</div></li>
+    <li><span class="ok">□</span><div><strong>Meeting daily 5 phút</strong> đầu ca cho salon 18 pilot CT4 (tránh quên)</div></li>
+  </ul>
+</div>
+
+</div><!-- /s5 -->
+
+</div><!-- /wrap -->
+
+<script>
+function go(id){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  const idx=['s1','s2','s3','s4','s5'].indexOf(id);
+  if(idx>=0){document.querySelectorAll('.tab')[idx].classList.add('active')}
+  window.scrollTo({top:0,behavior:'smooth'})
+}
+</script>
+</body>
+</html>
