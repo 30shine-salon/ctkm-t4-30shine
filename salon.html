@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CTKM Tháng 4/2026 — Triển khai Salon</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B3A6B;--navy-light:#2a5290;--orange:#FF7A29;--red:#E63946;--green:#2d8a4e;--green-lt:#e6f4ea;--yellow:#FFD23F;--cream:#FFF8EC;--bg:#f4f6f9;--card:#fff;--text:#1a1a2e;--muted:#6b7280;--border:#e5e7eb;--shadow:0 2px 12px rgba(27,58,107,.08);--r:16px;--purple:#7b1fa2;--purple-lt:#f3e8ff}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Be Vietnam Pro',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;font-size:14px}
+
+.hdr{background:linear-gradient(135deg,var(--navy),var(--navy-light));color:#fff;padding:14px 24px;position:sticky;top:0;z-index:100;border-bottom:4px solid var(--orange);display:flex;align-items:center;justify-content:space-between}
+.hdr-left{display:flex;align-items:center;gap:12px}
+.logo{width:42px;height:42px;background:var(--orange);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;color:#fff}
+.hdr h1{font-size:17px;font-weight:700}.hdr .sub{font-size:11px;opacity:.75}
+.hdr-right{display:flex;gap:6px}
+.badge{padding:4px 12px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:.4px;color:#fff}
+.badge.or{background:var(--orange)}.badge.gr{background:var(--green)}.badge.nv{background:var(--navy-light)}
+
+.tabs{display:flex;background:#fff;border-bottom:2px solid var(--border);overflow-x:auto;position:sticky;top:74px;z-index:99;-webkit-overflow-scrolling:touch}
+.tab{padding:13px 18px;cursor:pointer;font-size:12px;font-weight:600;color:var(--muted);border:none;background:none;white-space:nowrap;border-bottom:3px solid transparent;transition:.2s}
+.tab:hover{color:var(--navy);background:#f8f9ff}.tab.active{color:var(--navy);border-bottom-color:var(--orange)}
+.tab .t-label{display:block;font-size:9px;font-weight:700;letter-spacing:.3px;text-transform:uppercase;opacity:.6;margin-bottom:2px}
+
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+.sec{display:none;padding:24px 0 48px}.sec.active{display:block}
+
+.c{background:var(--card);border-radius:var(--r);padding:24px;box-shadow:var(--shadow);margin-bottom:20px;border:1px solid var(--border)}
+.c-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--orange);display:flex;align-items:center;gap:8px}
+.c-title .ic{font-size:18px}
+
+.bn{border-radius:var(--r);padding:28px;margin-bottom:24px;color:#fff;position:relative;overflow:hidden}
+.bn::after{content:'CTKM';position:absolute;right:-20px;top:-10px;font-size:110px;font-weight:900;opacity:.06;transform:rotate(-12deg)}
+.bn.nv{background:linear-gradient(135deg,var(--navy),var(--navy-light))}
+.bn.or{background:linear-gradient(135deg,#e65100,var(--orange))}
+.bn.grn{background:linear-gradient(135deg,#1a5632,var(--green))}
+.bn.pur{background:linear-gradient(135deg,#4a148c,var(--purple))}
+.bn.dk{background:linear-gradient(135deg,#263238,#455a64)}
+.bn h2{font-size:20px;font-weight:800;margin-bottom:4px}.bn p{font-size:13px;opacity:.9}
+.bn .zone{display:inline-block;background:rgba(255,255,255,.2);padding:3px 12px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:.5px;margin-bottom:8px}
+.tags{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.tag{background:rgba(255,255,255,.15);padding:3px 11px;border-radius:20px;font-size:11px;font-weight:600}
+
+.kpi-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
+.kpi{background:#fff;border-radius:12px;padding:14px;text-align:center;border:1px solid var(--border);box-shadow:var(--shadow)}
+.kpi .v{font-size:24px;font-weight:800;color:var(--navy)}.kpi .l{font-size:11px;color:var(--muted);margin-top:3px}.kpi .t{font-size:10px;color:var(--green);font-weight:600;margin-top:3px}
+
+.sb{border-radius:12px;padding:14px 18px;margin:10px 0;font-size:13px;line-height:1.7;border-left:4px solid}
+.sb.nv{background:linear-gradient(135deg,#f0f4ff,#e8ecf4);border-left-color:var(--navy)}
+.sb.wr{background:linear-gradient(135deg,#fff8f0,#fef0e0);border-left-color:var(--orange)}
+.sb.dg{background:linear-gradient(135deg,#fff0f0,#fde8e8);border-left-color:var(--red)}
+.sb.ok{background:linear-gradient(135deg,#f0fff4,#e0f8e8);border-left-color:var(--green)}
+.sb.pp{background:linear-gradient(135deg,#f8f0ff,#f0e8ff);border-left-color:var(--purple)}
+.sb-label{font-size:10px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;margin-bottom:4px;display:block}
+.sb-label.nv{color:var(--navy)}.sb-label.or{color:var(--orange)}.sb-label.rd{color:var(--red)}.sb-label.gr{color:var(--green)}.sb-label.pp{color:var(--purple)}
+
+.flow{display:flex;flex-direction:column}.flow-step{display:flex;gap:14px;position:relative;padding-bottom:22px}
+.flow-step::before{content:'';position:absolute;left:18px;top:38px;bottom:0;width:2px;background:var(--border)}
+.flow-step:last-child::before{display:none}
+.flow-n{width:38px;height:38px;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;flex-shrink:0;z-index:1}
+.flow-c{flex:1}.flow-c h4{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:3px}.flow-c p{font-size:12px;color:var(--muted)}
+
+.tw{overflow-x:auto;margin:10px 0}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th{background:var(--navy);color:#fff;padding:9px 12px;text-align:left;font-weight:600;white-space:nowrap}
+td{padding:8px 12px;border-bottom:1px solid var(--border)}
+tr:last-child td{border-bottom:none}tr:nth-child(even){background:#f8f9fc}
+.n{text-align:right;font-variant-numeric:tabular-nums}.hl{background:#fff3cd!important}
+.gd{color:var(--green);font-weight:700}.bd{color:var(--red);font-weight:700}
+
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+.cmp-box{border-radius:12px;padding:18px;text-align:center}
+.cmp-box.old{background:#fde8e8;border:2px solid var(--red)}.cmp-box.new{background:var(--green-lt);border:2px solid var(--green)}
+.cmp-box h4{font-size:13px;font-weight:700;margin-bottom:6px}.cmp-box .big{font-size:26px;font-weight:800}
+.cmp-box.old .big{color:var(--red)}.cmp-box.new .big{color:var(--green)}
+
+.pkg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.pkg{background:#fff;border-radius:var(--r);overflow:hidden;border:1px solid var(--border);transition:.2s;box-shadow:var(--shadow)}
+.pkg:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(27,58,107,.12)}
+.pkg.ct1{border-top:4px solid var(--orange)}
+.pkg.ct3{border-top:4px solid var(--red)}
+.pkg.ct4{border-top:4px solid var(--purple)}
+.pkg-hd{padding:14px 18px;display:flex;align-items:center;gap:12px}
+.pkg-em{font-size:34px}.pkg-nm h3{font-size:14px;font-weight:700}
+.pkg-nm .tier{font-size:10px;font-weight:700;letter-spacing:.4px}
+.pkg-nm .tier.or{color:var(--orange)}.pkg-nm .tier.pp{color:var(--purple)}
+.pkg-nm .tier.rd{color:var(--red)}
+.pkg-bd{padding:0 18px 16px;font-size:12px;line-height:1.6;color:var(--muted)}
+
+.chk-list{list-style:none;padding:0}
+.chk-list li{padding:6px 0;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:8px;font-size:12.5px}
+.chk-list li:last-child{border-bottom:none}
+.chk-list .ok{color:var(--green);font-weight:700;font-size:14px}.chk-list .no{color:var(--red);font-weight:700;font-size:14px}
+
+.script-box{background:#fff8ec;border-left:4px solid var(--orange);border-radius:10px;padding:14px 18px;margin:10px 0;font-size:13px;line-height:1.75}
+.script-box em{color:var(--navy);font-style:italic;font-weight:500}
+.script-box .lbl{display:inline-block;background:var(--orange);color:#fff;font-size:10px;font-weight:700;padding:2px 10px;border-radius:20px;letter-spacing:.3px;text-transform:uppercase;margin-bottom:6px}
+
+.sec-hdg{font-size:16px;font-weight:800;color:var(--navy);margin:28px 0 10px;padding:10px 14px;background:linear-gradient(90deg,#e8eefc,transparent);border-left:4px solid var(--orange);border-radius:0 8px 8px 0}
+.sec-hdg .n{display:inline-block;background:var(--orange);color:#fff;width:26px;height:26px;text-align:center;line-height:26px;border-radius:50%;font-weight:800;margin-right:8px;font-size:13px}
+
+.salon-chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.salon-chip{background:#f0f4ff;border:1px solid #c3d4ff;color:var(--navy);font-size:11px;padding:4px 10px;border-radius:20px;font-weight:600}
+.salon-chip.hl{background:var(--yellow);color:var(--navy);border-color:var(--yellow);font-weight:700}
+
+@media(max-width:768px){.hdr h1{font-size:14px}.tab{padding:11px 12px;font-size:11px}.cmp{grid-template-columns:1fr}.pkg-grid{grid-template-columns:1fr}.kpi-g{grid-template-columns:1fr 1fr}.bn h2{font-size:17px}}
+@media(max-width:480px){.hdr{padding:10px 14px}.wrap{padding:0 10px}.c{padding:16px}.tab{padding:9px 8px;font-size:10px}}
+@media print{.hdr,.tabs{position:static}.sec{display:block!important;page-break-before:always}}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-left">
+    <div class="logo">30</div>
+    <div><h1>CTKM Tháng 4/2026 — Truyền Thông Nội Bộ</h1><div class="sub">3 Chương trình: Glanzen · UND + Laborie · Combo 2→3 + Apteka</div></div>
+  </div>
+  <div class="hdr-right"><span class="badge or">CTKM T4</span><span class="badge gr">3 CT</span></div>
+</div>
+
+<div class="tabs" id="tabs">
+  <button class="tab active" onclick="go('s2')"><span class="t-label">Chi tiết</span>CTKM Sáp Glanzen</button>
+  <button class="tab" onclick="go('s3')"><span class="t-label">Chi tiết</span>CTKM UND Bill 630K tặng Laborie</button>
+  <button class="tab" onclick="go('s4')"><span class="t-label">Chi tiết</span>CTKM Upsale Combo 3 tặng Apteka</button>
+  <button class="tab" onclick="go('s6')"><span class="t-label">Salon</span>Kịch bản bán hàng</button>
+  <button class="tab" onclick="go('s5')"><span class="t-label">Quản lý</span>Đo lường & Theo dõi</button>
+</div>
+
+<div class="wrap">
+
+<!-- ===================== S1: TỔNG QUAN ===================== -->
+<div class="sec" id="s1" style="display:none">
+<div class="bn nv" style="text-align:center;padding:40px 28px">
+  <div class="zone">CTKM THÁNG 4/2026</div>
+  <div style="font-size:clamp(22px,5vw,40px);font-weight:900;line-height:1.2;letter-spacing:-.5px;margin:12px 0 10px;text-shadow:0 2px 8px rgba(0,0,0,.25)">ĐẠI LỄ BỪNG KHÍ THẾ<br>DIỆN MẠO BẬT PHONG ĐỘ</div>
+  <p style="margin-top:18px;font-size:14px;opacity:.9">3 Chương trình mũi nhọn · CTKM Sáp Glanzen · CTKM UND Bill 630K tặng Laborie · CTKM Upsale Combo 3 tặng Apteka (thí điểm)</p>
+  <div class="tags" style="justify-content:center">
+    <span class="tag">CTKM Sáp Glanzen</span>
+    <span class="tag">CTKM UND Bill 630K tặng Laborie</span>
+    <span class="tag">CTKM Upsale Combo 3 tặng Apteka</span>
+  </div>
+</div>
+
+<div class="kpi-g" style="margin-bottom:14px">
+  <div class="kpi"><div class="v">3</div><div class="l">Chương trình</div><div class="t">Glanzen · UND Laborie · Combo 3 Apteka</div></div>
+  <div class="kpi"><div class="v">58</div><div class="l">Salon tham gia</div><div class="t">Glanzen & UND toàn chuỗi · Combo 3 chọn 18</div></div>
+  <div class="kpi"><div class="v">~370M</div><div class="l">Lợi nhuận gộp tăng thêm</div><div class="t">Tổng 3 CTKM (ước tính)</div></div>
+  <div class="kpi" style="border:2px solid var(--red)"><div class="v" style="color:var(--red)">1 CT/bill</div><div class="l">Chỉ áp dụng 1 CTKM cùng lúc</div><div class="t">Không chồng các CT với nhau</div></div>
+</div>
+
+<!-- AOV TỔNG THỂ 30SHINE -->
+<div class="c" style="border:2px solid var(--orange);background:linear-gradient(135deg,#fff8ec,#fff)">
+  <div class="c-title"><span class="ic">🎯</span> Mục tiêu AOV tổng thể — Tổng tăng AOV 3 chương trình</div>
+  <div class="tw">
+    <table>
+      <thead>
+        <tr><th>Chương trình</th><th>Ngành hàng tác động</th><th>AOV nền</th><th>AOV mục tiêu</th><th>Mức tăng AOV</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>CTKM Sáp Glanzen</strong></td>
+          <td>AOV SP tạo kiểu</td>
+          <td class="n">6.5K</td>
+          <td class="n gd">9K</td>
+          <td class="n gd">+2.5K (+38%)</td>
+        </tr>
+        <tr>
+          <td><strong>CTKM UND Bill 630K tặng Laborie</strong></td>
+          <td>AOV UND (weighted 58 salon)</td>
+          <td class="n">26K</td>
+          <td class="n gd">29K</td>
+          <td class="n gd">+3K (+12%)</td>
+        </tr>
+        <tr>
+          <td><strong>CTKM Upsale Combo 3 tặng Apteka</strong></td>
+          <td>AOV Relax (18 salon thí điểm)</td>
+          <td class="n">129K</td>
+          <td class="n gd">131K</td>
+          <td class="n gd">+2K (+1.5%)</td>
+        </tr>
+        <tr class="hl">
+          <td colspan="4"><strong>Tổng tăng AOV (cộng tác động 3 ngành hàng lên toàn KH 30Shine)</strong></td>
+          <td class="n gd"><strong>~+7.5K/KH</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="sb ok" style="margin-top:10px">
+    <span class="sb-label gr">Cách hiểu</span>
+    Mỗi CTKM tác động lên 1 ngành hàng (SP tạo kiểu · UND · Relax) = 1 phần của AOV toàn KH 30Shine (AOV = DT chuỗi / KH chuỗi). <strong>Cộng đóng góp 3 CTKM → AOV toàn KH 30Shine tăng ~+7.5K/KH trong tháng 4.</strong> <strong style="color:var(--red)">Lưu ý: chỉ áp dụng 1 CTKM cùng lúc trên 1 bill, không chồng các chương trình với nhau.</strong>
+  </div>
+</div>
+
+<!-- 3 CT CARDS -->
+<div class="c">
+  <div class="c-title"><span class="ic">📦</span> 3 Chương trình triển khai</div>
+  <div class="pkg-grid">
+
+    <div class="pkg ct1">
+      <div class="pkg-hd">
+        <div class="pkg-em">💈</div>
+        <div class="pkg-nm"><div class="tier or">CTKM · SÁP GLANZEN</div><h3>Sáp Glanzen Prime (Sandar Wood)</h3></div>
+      </div>
+      <div class="pkg-bd">
+        Giảm 10% (Tầng A) / 20% (Tầng B) theo DV khách đang dùng, lấp khoảng trống 199-259K do Clay Wax + Prime Floral hết hàng.
+        <div style="margin-top:10px;padding:8px;background:#fff8ec;border-radius:8px;font-size:11.5px">
+          <strong>AOV SP tạo kiểu:</strong> 6.5K → 9K (+38%)<br>
+          <strong>Phạm vi:</strong> <strong>Toàn chuỗi 58 salon</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg ct3">
+      <div class="pkg-hd">
+        <div class="pkg-em">🎨</div>
+        <div class="pkg-nm"><div class="tier rd">CTKM · UND BILL 630K TẶNG LABORIE</div><h3>UND tặng Dầu gội Laborie Bond / Tím Giữ Màu</h3></div>
+      </div>
+      <div class="pkg-bd">
+        Uốn ≥630K tặng Dầu gội Laborie Bond · Nhuộm ≥630K tặng Dầu gội Laborie Tím Giữ Màu · Gói Uốn cao cấp + Dưỡng được chọn 1 SP.
+        <div style="margin-top:10px;padding:8px;background:#fff0f0;border-radius:8px;font-size:11.5px">
+          <strong>Billsize UND:</strong> 382K → 432K (+13%) · Uốn +17% · Nhuộm +10%<br>
+          <strong>Phạm vi:</strong> <strong>Toàn chuỗi 58 salon</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg ct4">
+      <div class="pkg-hd">
+        <div class="pkg-em">✨</div>
+        <div class="pkg-nm"><div class="tier pp">CTKM · UPSALE COMBO 3 TẶNG APTEKA</div><h3>Upsale Combo 3 tặng Apteka (thí điểm 15 ngày)</h3></div>
+      </div>
+      <div class="pkg-bd">
+        Bill Relax có Combo 3 trở lên (≥230K) được tặng Apteka Tẩy da chết trị giá 130K. Chỉ 18 salon, 500 chai.
+        <div style="margin-top:10px;padding:8px;background:#f8f0ff;border-radius:8px;font-size:11.5px">
+          <strong>AOV Relax 18 salon:</strong> 129K → 131K thí điểm (+1.5%)<br>
+          <strong>Phạm vi:</strong> <strong>18 salon · 15 ngày · 500 Apteka</strong>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- /s1 -->
+
+
+<!-- ===================== S2: CT1 GLANZEN CHI TIẾT ===================== -->
+<div class="sec active" id="s2">
+<div class="bn or">
+  <div class="zone">CTKM · SÁP GLANZEN</div>
+  <h2>💈 CTKM Sáp Glanzen — Glanzen Prime (Sandar Wood)</h2>
+  <p>Giảm 10-20% theo tầng DV khách đang dùng · Bù khoảng trống 199-259K · Mục tiêu giữ thị phần sáp trong thương hiệu</p>
+</div>
+
+<!-- 1. BỐI CẢNH -->
+<div class="sec-hdg"><span class="n">1</span>Bối cảnh</div>
+<div class="c">
+  <div class="sb wr">
+    <span class="sb-label or">Tình huống</span>
+    2 SKU sáp chủ lực trong phân khúc 199-259K hết hàng: <strong>Glanzen Clay Wax (199K)</strong> và <strong>Glanzen Prime Floral (259K)</strong>. Khách quen dùng sáp ở mức giá này không có lựa chọn thay thế trong thương hiệu.
+  </div>
+  <div class="sb dg">
+    <span class="sb-label rd">Rủi ro nếu không làm</span>
+    Khách hàng sẽ (a) giảm cấp về sáp giá thấp hơn → rớt giá trị bill SP tạo kiểu, hoặc (b) chuyển sang thương hiệu khác (Dcash, Glueman, By Vilain...) → mất thị phần chi tiêu dài hạn. Một khi KH quen thương hiệu khác, rất khó kéo về.
+  </div>
+  <div class="sb ok">
+    <span class="sb-label gr">Giải pháp</span>
+    <strong>Glanzen Prime (Sandar Wood) (279K)</strong> đã có sẵn, giảm 10-20% → giá thực <strong>223-251K</strong> — lấp đúng phân khúc hụt. KH có lựa chọn trong cùng thương hiệu → không mất thị phần.
+  </div>
+</div>
+
+<!-- 2. INSIGHT KH -->
+<div class="sec-hdg"><span class="n">2</span>Insight khách hàng</div>
+<div class="c">
+  <ul class="chk-list">
+    <li><span class="ok">◆</span><div><strong>KH mua sáp theo thói quen phân khúc giá</strong> — khi không tìm được SP quen, sẽ chọn SP thay thế có giá gần nhất trong cửa hàng (200-260K).</div></li>
+    <li><span class="ok">◆</span><div><strong>Khoảnh khắc quyết định mua là sau cắt</strong> — KH vừa thấy tóc mình đẹp, stylist vừa thử sản phẩm trên tóc → dễ chốt đơn gấp 3-4 lần so với tư vấn không thử.</div></li>
+    <li><span class="ok">◆</span><div><strong>KH thân thiết (chi bill DV ≥193K) chi cao hơn KH mới thử</strong> — họ sẵn sàng thử SP mới nếu có ưu đãi rõ ràng, không cần "dụ".</div></li>
+    <li><span class="ok">◆</span><div><strong>KH "chi nhẹ" (bill DV &lt;193K)</strong> nhạy giá hơn, ưu đãi 10% vừa đủ hấp dẫn để mua thử lần đầu, không bị cảm giác "hớ" vì giảm sâu.</div></li>
+  </ul>
+</div>
+
+<!-- 3. MỤC TIÊU KINH DOANH -->
+<div class="sec-hdg"><span class="n">3</span>Mục tiêu kinh doanh</div>
+<div class="c">
+  <div class="kpi-g">
+    <div class="kpi"><div class="v">6.5K → 9K</div><div class="l">AOV SP tạo kiểu</div><div class="t">+38%</div></div>
+    <div class="kpi"><div class="v">2% → 3%</div><div class="l">CR SP tạo kiểu</div><div class="t">+1 điểm</div></div>
+  </div>
+  <div class="sb wr" style="margin-top:14px">
+    <span class="sb-label or">Lưu ý</span>
+    Không tính mục tiêu AOV riêng cho Tầng A/B — mục tiêu đo ở cấp SP tạo kiểu tổng salon. POS tự chia tầng để kiểm soát nội bộ.
+  </div>
+</div>
+
+<!-- 4. CƠ CHẾ CTKM -->
+<div class="sec-hdg"><span class="n">4</span>Cơ chế CTKM</div>
+<div class="c">
+  <div class="tw">
+    <table>
+      <thead>
+        <tr><th>Tầng</th><th>Nhóm KH (DV đang dùng)</th><th>Mức giảm</th><th>Giá bán</th><th>% KH ước lượng</th><th>Cơ sở chọn tầng</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>A</strong></td><td>KH dùng Cắt xả / Shinecombo 1 (bill DV &lt; 193K)</td><td class="n">10%</td><td class="n gd">251,100đ</td><td class="n">30%</td><td>KH chi nhẹ → ưu đãi nhẹ, đủ mua thử</td></tr>
+        <tr><td><strong>B</strong></td><td>KH dùng Shinecombo 2 trở lên (bill DV ≥ 193K)</td><td class="n">20%</td><td class="n gd">223,200đ</td><td class="n">70%</td><td>KH loyal → giảm sâu để cross-sell mạnh</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="sb ok">
+    <span class="sb-label gr">Nhận diện tự động</span>
+    POS tự nhận diện DV trong cùng bill — <strong>NV không phải nhớ/chọn tầng</strong>. KH chỉ thấy 1 giá cuối ở hóa đơn. Đào tạo 15 phút cho chuyên viên tư vấn.
+  </div>
+  <div class="sb nv">
+    <span class="sb-label nv">Quy tắc áp dụng</span>
+    Áp dụng cho SP Glanzen Prime (Sandar Wood) 279K, bán kèm DV trong cùng bill. Không áp dụng khi mua đơn SP không kèm DV. Không chồng CTKM khác.
+  </div>
+</div>
+
+<!-- 5. SALON & NHÂN SỰ -->
+<div class="sec-hdg"><span class="n">5</span>Salon & Nhân sự triển khai</div>
+<div class="c">
+  <div class="kpi-g" style="grid-template-columns:repeat(2,1fr)">
+    <div class="kpi"><div class="v">Toàn chuỗi</div><div class="l">Phạm vi áp dụng</div><div class="t">58 salon</div></div>
+    <div class="kpi"><div class="v">Mọi Stylist</div><div class="l">Ai cũng chào được</div><div class="t">Không giới hạn level / điểm NL</div></div>
+  </div>
+
+  <div class="sb pp" style="margin-top:14px">
+    <span class="sb-label pp">Phân vai nhân sự</span>
+    <strong>Stylist:</strong> vuốt sáp + thử trên tóc KH sau cắt → giới thiệu mua<br>
+    <strong>Chuyên viên tư vấn:</strong> POS tự nhận diện tầng → áp đúng giá · đào tạo 15 phút<br>
+    <strong>SM:</strong> Theo dõi AOV SP tạo kiểu + CR SP mỗi 3 ngày · Lấy phản hồi stylist hàng tuần
+  </div>
+
+  <div class="sb wr" style="margin-top:10px">
+    <span class="sb-label or">Lưu ý phân công trong salon</span>
+    <strong>Ưu tiên stylist có level cao + điểm kỹ năng tốt</strong> đứng đầu chào sáp Glanzen cho KH mới/KH khó tính — giúp chốt đơn mượt, tránh giảm CR bán SP và tránh phản hồi tiêu cực từ KH ("bị ép mua", "stylist tư vấn không chuyên"). NV mới / điểm kỹ năng thấp học từ demo thật trên ghế, tuần 2-3 mới đứng chào chính.
+  </div>
+</div>
+
+<!-- 6. KỊCH BẢN -->
+<div class="sec-hdg"><span class="n">6</span>Kịch bản bán hàng triển khai</div>
+<div class="c">
+  <div class="script-box">
+    <span class="lbl">Bước 1 · Nhận diện KH đang dùng Clay Wax / Prime Floral (quan trọng)</span><br>
+    <em>"Em thấy anh đang sử dụng sáp Glanzen Clay / Floral — bên em đang hết những sản phẩm này, nhưng có sản phẩm Hương gỗ mới (Sandar Wood) mới về, cải tiến hơn hẳn bản cũ mà có CT giảm giá cho anh. Anh không cần chi thêm quá nhiều so với sản phẩm anh đang dùng."</em>
+  </div>
+
+  <div class="script-box">
+    <span class="lbl">Bước 2 · Sau cắt — Thử sáp trên tóc</span><br>
+    <em>"Em vừa vuốt sáp Glanzen Prime (Sandar Wood) tạo kiểu cho anh — anh thấy giữ form không? Sáp thế hệ mới, giữ nếp tự nhiên cả ngày, không bết."</em>
+  </div>
+
+  <div class="script-box">
+    <span class="lbl">Bước 3 · Chuyên viên tư vấn — Áp giá theo tầng</span><br>
+    <strong>Tầng A:</strong> <em>"Anh mua lại sáp này hôm nay được giảm 10% — còn 251K."</em><br>
+    <strong>Tầng B:</strong> <em>"Hôm nay mua thử sáp Glanzen được giảm 20% — chỉ còn 223K."</em>
+  </div>
+
+  <div class="script-box">
+    <span class="lbl">Bước 4 · Nếu KH từ chối</span><br>
+    <em>"Dạ không sao anh. Kiểu tóc mới đẹp lắm, anh cứ dùng thử vài ngày xem thích không."</em><br>
+    <span style="color:var(--red);font-weight:600;font-size:12px">→ Không ép. KH đã được thử SP trên tóc → lần sau dễ chốt hơn. KHÔNG tặng mẫu nhỏ.</span>
+  </div>
+
+  <div class="sb dg">
+    <span class="sb-label rd">Nguyên tắc</span>
+    <strong>Không chèo kéo, không ép.</strong> Stylist chỉ thử trên tóc + giới thiệu 1 lần. Chuyên viên tư vấn chốt giá lúc thanh toán. Khách tự quyết định.
+  </div>
+</div>
+
+</div><!-- /s2 -->
+
+
+<!-- ===================== S3: CT3 UND + LABORIE ===================== -->
+<div class="sec" id="s3">
+<div class="bn" style="background:linear-gradient(135deg,#8b0000,var(--red))">
+  <div class="zone">CTKM · UND BILL 630K TẶNG LABORIE</div>
+  <h2>🎨 CTKM UND Bill 630K tặng Laborie — Dầu gội Laborie Bond / Tím Giữ Màu</h2>
+  <p>Uốn / Nhuộm bill ≥630K hoặc gói Uốn cao cấp + Dưỡng → tặng 1 chai Dầu gội Laborie trị giá cảm nhận 400-450K</p>
+</div>
+
+<!-- 1. BỐI CẢNH -->
+<div class="sec-hdg"><span class="n">1</span>Bối cảnh</div>
+<div class="c">
+  <div class="sb nv">
+    <span class="sb-label nv">Thời điểm & cơ hội</span>
+    Dịp lễ Tết, khách hàng thường có nhu cầu uốn nhuộm để đi chơi, đi du lịch. <strong>Bán thêm gói Uốn cho khách hàng cũ đã từng uốn dịp Tết</strong> dễ hơn nhiều so với thu hút khách hàng Uốn mới — họ đã quen DV, đã có số điện thoại, đã hài lòng kết quả. Khách hàng <strong>chỉ cần bỏ ra thêm 146K dịch vụ Dưỡng</strong> là có thể nhận được 1 sản phẩm cao cấp trị giá 400K.
+  </div>
+  <div class="sb pp">
+    <span class="sb-label pp">Billsize UND hiện tại — ngưỡng 630K nằm trong tầm với</span>
+    <div class="kpi-g" style="margin-top:8px;grid-template-columns:repeat(3,1fr)">
+      <div class="kpi"><div class="v">469K</div><div class="l">Billsize Uốn trung bình</div></div>
+      <div class="kpi"><div class="v">336K</div><div class="l">Billsize Nhuộm trung bình</div></div>
+      <div class="kpi"><div class="v">62%</div><div class="l">KH Uốn có bill ≥500K</div></div>
+    </div>
+    <div style="margin-top:10px">
+      Uốn đã ở 469K — chỉ cần nâng thêm 1 DV Dưỡng / phụ trợ là chạm 630K. <strong>62% KH Uốn đã có bill ≥500K</strong> → tệp tiềm năng đạt 630K rất lớn, không cần ép bán thêm gắt gao. Nhuộm nền thấp hơn (336K) → đây là nhóm cần tư vấn tích cực hơn, hoặc mở cửa qua gói Uốn cao cấp + Dưỡng cho KH Nhuộm dùng thêm Dưỡng.
+    </div>
+  </div>
+  <div class="sb wr">
+    <span class="sb-label or">Khó khăn của KH UND</span>
+    Sau UND, tóc KH qua hóa chất → cần phục hồi/giữ màu. Nhưng KH không chủ động mua SP chăm tóc chuyên sâu — hoặc không biết mua gì, hoặc thấy "thêm chi phí". Kết quả: tóc KH nhanh xuống sắc → họ quay lại UND ít hơn.
+  </div>
+  <div class="sb ok">
+    <span class="sb-label gr">Giải pháp</span>
+    Tặng <strong>Dầu gội Laborie Bond</strong> (cho KH Uốn) hoặc <strong>Dầu gội Laborie Tím Giữ Màu</strong> (cho KH Nhuộm), dung tích 300ml (chi phí 140K, trị giá cảm nhận 400-450K) cho KH UND bill ≥630K hoặc chọn gói Uốn cao cấp + Dưỡng. KH có SP chuyên sâu → tóc đẹp lâu hơn → quay lại UND nhanh hơn. Quà trị giá gấp 3 lần chi phí → đủ sức hút mà vẫn an toàn lợi nhuận.
+  </div>
+</div>
+
+<!-- 2. INSIGHT KH -->
+<div class="sec-hdg"><span class="n">2</span>Insight khách hàng</div>
+<div class="c">
+  <ul class="chk-list">
+    <li><span class="ok">◆</span><div><strong>KH cũ đã uốn dịp Tết là tệp dễ bán nhất</strong>: salon có sẵn số điện thoại, KH đã quen DV và NV → chỉ cần nhắn tin / gọi lại mời dịp lễ T4 là có tỷ lệ quay lại cao hơn nhiều so với tìm KH mới.</div></li>
+    <li><span class="ok">◆</span><div><strong>Nhu cầu đi chơi, đi du lịch sau Tết</strong>: T4 có nhiều dịp lễ (30/4-1/5, dịp du lịch hè sớm) → KH muốn tóc đẹp, sẵn sàng chi thêm nếu thấy xứng.</div></li>
+    <li><span class="ok">◆</span><div><strong>Nhu cầu thật sau UND</strong>: tóc vừa qua hóa chất = CẦN phục hồi. Đây không phải "gợi ý bán thêm giả" — là nhu cầu vật lý của tóc.</div></li>
+    <li><span class="ok">◆</span><div><strong>KH không tự tìm SP chăm tóc</strong>: 80% KH UND không dùng SP phục hồi tại nhà. Lý do: không biết chọn gì, không thấy cần, giá cao.</div></li>
+    <li><span class="ok">◆</span><div><strong>Tặng SP kèm ngưỡng bill kích thích nâng gói</strong>: KH sẽ cân nhắc từ Uốn cơ bản lên Uốn + Dưỡng / Nhuộm nhấn nếu "lên tí là được quà".</div></li>
+    <li><span class="ok">◆</span><div><strong>3 nhóm salon = 3 tệp KH khác nhau</strong>: nhóm Cao đã quen chi cao → kỳ vọng bill ≥630K dễ đạt. Nhóm Thấp ngại chi → cần đẩy mạnh tư vấn, kỳ vọng tăng AOV lớn nhất.</div></li>
+    <li><span class="ok">◆</span><div><strong>Tần suất UND thấp (2-3 tháng/lần)</strong> → nếu CTKM tốt, KH sẽ lên lịch sớm hơn (từ 3 tháng xuống 2.5 tháng) = tăng số lượt.</div></li>
+  </ul>
+</div>
+
+<!-- 3. MỤC TIÊU KINH DOANH -->
+<div class="sec-hdg"><span class="n">3</span>Mục tiêu kinh doanh</div>
+<div class="c">
+  <div class="c-title"><span class="ic">📊</span> Phân nhóm salon theo AOV UND (DT UND / KH)</div>
+  <div class="tw">
+    <table>
+      <thead>
+        <tr><th>Nhóm salon</th><th>Số salon</th><th>AOV UND (nền)</th><th>AOV UND (mục tiêu)</th><th>Mức tăng</th><th>Cách đẩy</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>UND Nhóm Cao</strong></td><td class="n">17</td><td class="n">≥30K</td><td class="n gd">35K</td><td class="n gd">+9%</td><td>Tăng % nâng gói cao cấp</td></tr>
+        <tr><td><strong>UND Nhóm Trung</strong></td><td class="n">23</td><td class="n">20-30K</td><td class="n gd">27K</td><td class="n gd">+17%</td><td>Nhiều KH đạt bill 630K nhờ Laborie</td></tr>
+        <tr><td><strong>UND Nhóm Thấp</strong></td><td class="n">18</td><td class="n">&lt;20K</td><td class="n gd">17K</td><td class="n gd">+31%</td><td>Nền thấp → dễ tăng %</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div style="font-size:11.5px;color:var(--muted);margin-top:6px;font-style:italic">
+    Ghi chú định nghĩa 30Shine: <strong>AOV = DT ngành hàng / Tổng KH salon</strong> (đo cấp salon). <strong>Billsize = DT / số bill của KH dùng DV đó</strong> (bill size bình quân trên KH thực dùng — xem bảng bên dưới).
+  </div>
+
+  <div class="c-title" style="margin-top:20px"><span class="ic">🎯</span> Billsize mục tiêu theo ngành UND</div>
+  <div class="kpi-g">
+    <div class="kpi"><div class="v">469K → 547K</div><div class="l">Billsize Uốn</div><div class="t gd">+17%</div></div>
+    <div class="kpi"><div class="v">336K → 370K</div><div class="l">Billsize Nhuộm</div><div class="t gd">+10%</div></div>
+    <div class="kpi"><div class="v">~382K → ~432K</div><div class="l">Billsize UND (mixed)</div><div class="t gd">+13%</div></div>
+    <div class="kpi"><div class="v">Giữ CR UND</div><div class="l">CR UND (bảo vệ)</div><div class="t">Không giảm &gt;2 điểm</div></div>
+  </div>
+
+  <div class="sb pp" style="margin-top:14px">
+    <span class="sb-label pp">Công thức tính Billsize Uốn mục tiêu</span>
+    Dữ liệu T4: <strong>62% KH Uốn đã có bill ≥500K</strong>. Mục tiêu CTKM: đẩy nhóm này lên 630K+ nhờ ngưỡng tặng Dầu gội Laborie Bond.<br>
+    <strong>Giả định:</strong> 60% KH Uốn (conservative) nâng bill từ 500K → 630K = <strong>+130K/KH</strong><br>
+    <strong>Tác động Billsize Uốn:</strong> 60% × 130K = <strong>+78K</strong> bình quân toàn tệp → Billsize Uốn: <strong>469K + 78K = 547K (+17%)</strong><br>
+    <strong>Billsize Nhuộm</strong> tăng nhẹ (+10%) qua route "Nhuộm + Dưỡng" để đủ điều kiện tặng Dầu gội Laborie Tím Giữ Màu — Nhuộm nền 336K, vượt ngưỡng 500K ít → uplift nhỏ hơn Uốn.<br>
+    <strong>Billsize UND mixed</strong> (tỷ trọng ~35% Uốn + ~65% Nhuộm): 382K → ~432K (+13%).
+  </div>
+</div>
+
+<!-- 4. CƠ CHẾ CTKM -->
+<div class="sec-hdg"><span class="n">4</span>Cơ chế CTKM</div>
+<div class="c">
+  <div class="c-title"><span class="ic">🎁</span> 3 gói CTKM UND</div>
+  <div class="tw">
+    <table>
+      <thead>
+        <tr><th>Gói</th><th>Điều kiện</th><th>Tặng</th><th>Trị giá cảm nhận KH</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Uốn chuẩn</strong></td><td>Bill uốn ≥ 630K</td><td>Dầu gội Laborie Bond 300ml</td><td class="n gd">~450K</td></tr>
+        <tr><td><strong>Nhuộm chuẩn</strong></td><td>Bill nhuộm ≥ 630K</td><td>Dầu gội Laborie Tím Giữ Màu 300ml</td><td class="n gd">~400K</td></tr>
+        <tr><td><strong>Uốn cao cấp + Dưỡng</strong></td><td>Gói Uốn cao cấp (K-Perm, Milano, Premium) + DV Dưỡng phục hồi — mọi bill</td><td>Dầu gội Laborie Bond HOẶC Tím Giữ Màu (KH chọn)</td><td class="n gd">~450K</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sb wr">
+    <span class="sb-label or">Vì sao chốt bill ngưỡng 630K (hạ từ 700K)?</span>
+    Bill UND trung bình hệ thống ~320K. Ngưỡng 700K trước đây quá cao với KH UND bình quân. Phân tích bill T3 cho thấy mốc 1.4M+ hầu như không có KH đạt → bỏ. Mốc 630K + gói Uốn cao cấp + Dưỡng = phù hợp với nhóm KH có khả năng chi & muốn chăm tóc kỹ.
+  </div>
+  <div class="sb ok">
+    <span class="sb-label gr">Ưu điểm cơ chế 3 gói</span>
+    Mở nhiều cửa: KH không đạt bill 630K nhưng chọn gói Uốn cao cấp + Dưỡng vẫn được quà. KH chọn Nhuộm highlight bình thường bill ≥630K cũng được quà. → Phạm vi áp dụng rộng hơn mà lợi nhuận vẫn an toàn.
+  </div>
+</div>
+
+<!-- 5. SALON & NHÂN SỰ -->
+<div class="sec-hdg"><span class="n">5</span>Salon & Nhân sự triển khai</div>
+<div class="c">
+  <div class="kpi-g" style="grid-template-columns:repeat(2,1fr)">
+    <div class="kpi"><div class="v">Toàn chuỗi</div><div class="l">Phạm vi áp dụng</div><div class="t">58 salon</div></div>
+    <div class="kpi"><div class="v">Mọi Stylist UND</div><div class="l">Ai cũng chào được</div><div class="t">Không giới hạn level / điểm NL</div></div>
+  </div>
+
+  <div class="sb pp" style="margin-top:14px">
+    <span class="sb-label pp">Phân vai nhân sự</span>
+    <strong>Stylist UND:</strong> Đào tạo Laborie 1 buổi (nhận biết tình trạng tóc, cách thử SP lên tóc cho KH)<br>
+    <strong>Tư vấn quầy:</strong> Biết phân loại bill &lt;630K / ≥630K / gói cao cấp → bật đúng gói (đào tạo 20 phút)<br>
+    <strong>SM:</strong> Theo dõi % KH đạt điều kiện gói CTKM / tổng KH UND, tỷ lệ nâng gói Uốn cao cấp + Dưỡng
+  </div>
+
+  <div class="sb wr" style="margin-top:10px">
+    <span class="sb-label or">Lưu ý phân công trong salon</span>
+    <strong>Ưu tiên stylist UND có level cao + điểm kỹ năng tốt</strong> đứng đầu chào gói CTKM cho KH bill &lt;630K — giúp tư vấn nâng gói mượt, không bị KH cảm giác "bị ép upsell". Tránh giảm CR UND và tránh phản hồi tiêu cực. Stylist mới / NL thấp học cách tư vấn + thử Laborie từ đồng nghiệp, sau 1-2 tuần mới chào chính.
+  </div>
+
+  <div style="margin-top:14px"><strong style="font-size:13px;color:var(--navy)">Phân 3 nhóm đầy đủ 58 salon:</strong></div>
+  <div class="sb nv">
+    <span class="sb-label nv">Nhóm Cao (17 salon · AOV UND ≥30K)</span>
+    1146 KVC · 25 TD · 304 NT TH · 312 LVS · 382 NT · 10 TP · 1180 QT · 50BT4 NPC LD · 186 DTH · 237 NTT · 290 QT TH · 173 TN · 202 DC · 80 PL BD · 927 HG · 99 TSN · 575 AC
+  </div>
+  <div class="sb wr">
+    <span class="sb-label or">Nhóm Trung (23 salon · AOV UND 20-30K)</span>
+    32 NAT · 168 NVC · 55A NVL · 255 NAN · 341 XVNT · 451 PVT · 76 PVH · 103 TN · 109 TQH · 116 TK · 12 LDT · 346 KT · 8 CVL · 90 NH · 145 THT · 11 PKT · 483 TN · 58 NVC NA · 236 DBT · 264 LLQ · 401/1 NDT · 420 HTP · 65 CD
+  </div>
+  <div class="sb dg">
+    <span class="sb-label rd">Nhóm Thấp (18 salon · AOV UND &lt;20K — ưu tiên đẩy AOV)</span>
+    29 HB · 708 LTT · 730 TL10 · 190 HB · 80 TP TH · 148 TD · 68 LN NA · 36 N1 BD · 362 NGT BN · 39 HBT · 62 LH · 113 THD AG · 186 QT · 363 LNQ TN · 7 DTP LA · 1371 PVT · 595 BT TH · 4 LQD BN
+  </div>
+</div>
+
+<!-- 6. KỊCH BẢN -->
+<div class="sec-hdg"><span class="n">6</span>Kịch bản bán hàng triển khai</div>
+<div class="c">
+  <div class="script-box">
+    <span class="lbl">Bước 1 · Trước làm UND — Tư vấn nâng mức bill</span><br>
+    <em>"Anh đang chọn nhuộm/uốn cơ bản bill X. Hôm nay em có chương trình: bill từ 630K tặng luôn Dầu gội Laborie Bond (cho Uốn) hoặc Dầu gội Laborie Tím Giữ Màu (cho Nhuộm) trị giá 400-450K để giữ màu & phục hồi. Anh thử nâng lên gói cao cấp / highlight em làm kỹ hơn nhé?"</em>
+  </div>
+
+  <div class="script-box">
+    <span class="lbl">Bước 1b · Nếu KH không đạt bill 630K — Gợi ý gói Uốn cao cấp + Dưỡng</span><br>
+    <em>"Em có gói Uốn cao cấp + Dưỡng phục hồi dành riêng cho KH muốn giữ tóc lâu, bill không cần 630K vẫn được tặng 1 chai Dầu gội Laborie. Anh muốn em tư vấn thêm không?"</em>
+  </div>
+
+  <div class="script-box">
+    <span class="lbl">Bước 1c · Chốt KH bằng DV Dưỡng 146K (kịch bản đẩy cao cấp + Dưỡng)</span><br>
+    <em>"Anh chỉ cần thêm dịch vụ Dưỡng 146K là được tặng Dầu gội Laborie Bond / Dầu gội Laborie Tím Giữ Màu bên em trị giá 400K. Tính ra vừa Dưỡng bảo vệ tóc, vừa được tặng sản phẩm giá trị — quá hời cho anh chơi lễ ạ."</em>
+  </div>
+
+  <div class="script-box">
+    <span class="lbl">Bước 2 · Sau làm UND — Thử Laborie lên tóc</span><br>
+    <em>"Tóc anh vừa nhuộm/uốn, em thoa Dầu gội Laborie Tím Giữ Màu / Bond vào cho mềm mượt luôn. Anh thấy mịn không? Hôm nay anh đủ điều kiện được tặng chai này mang về dùng."</em>
+  </div>
+
+  <div class="script-box">
+    <span class="lbl">Bước 3 · Nếu KH từ chối nâng gói</span><br>
+    <em>"Dạ không sao anh, gói cơ bản em vẫn làm đẹp cho anh. Lần sau có dịp anh thử gói cao cấp nhé."</em><br>
+    <span style="color:var(--red);font-weight:600;font-size:12px">→ Không ép nâng gói. Giữ trải nghiệm tốt. KH rời quầy hài lòng &gt; KH bị ép mà không hài lòng.</span>
+  </div>
+</div>
+
+</div><!-- /s3 -->
+
+
+<!-- ===================== S4: CT4 COMBO 2→3 + APTEKA ===================== -->
+<div class="sec" id="s4">
+<div class="bn pur">
+  <div class="zone">CTKM · UPSALE COMBO 3 TẶNG APTEKA</div>
+  <h2>✨ CTKM Upsale Combo 3 tặng Apteka — Thí điểm 15 ngày</h2>
+  <p>Bill Relax chọn Combo 3 trở lên (≥230K) được tặng Apteka trị giá 130K · 16-30/4 · 500 chai · 18 salon</p>
+</div>
+
+<!-- 1. BỐI CẢNH -->
+<div class="sec-hdg"><span class="n">1</span>Bối cảnh</div>
+<div class="c">
+  <div class="sb nv">
+    <span class="sb-label nv">Pool lớn nhất chưa được khai thác</span>
+    <strong>Shinecombo 2 (bill 193K) = 8,821 gói / 13 ngày</strong> = chiếm 26% sản lượng Relax chuỗi. Ước tính: ~20,300 gói/tháng. Đây là tệp bán chéo/nâng gói tự nhiên LỚN NHẤT mà các CT khác chưa chạm tới.
+  </div>
+  <div class="sb wr">
+    <span class="sb-label or">Gap giá Shinecombo 2 → Combo 3</span>
+    Chỉ chênh lệch <strong>+39K đến +107K</strong> giữa SC2 (193K) và Combo 3 các loại (232K-300K). Khoảng cách này nhỏ — nếu có "lý do" (món quà, trải nghiệm tốt hơn), KH sẵn sàng nâng gói.
+  </div>
+  <div class="sb ok">
+    <span class="sb-label gr">Apteka Tẩy da chết — quà tặng giá trị cao, chi phí thấp</span>
+    Apteka Tẩy da chết trị giá <strong>130K</strong> — SP chăm da cao cấp, giá trị cảm nhận KH cao. Tặng kèm gói Combo 3 trở lên giúp KH có lý do nâng gói rõ ràng, margin của gói Combo 3 vẫn an toàn → đây là <strong>đòn bẩy nâng gói hiệu quả nhất</strong> trong 3 CTKM T4.
+  </div>
+</div>
+
+<!-- 2. INSIGHT KH -->
+<div class="sec-hdg"><span class="n">2</span>Insight khách hàng</div>
+<div class="c">
+  <ul class="chk-list">
+    <li><span class="ok">◆</span><div><strong>KH SC2 chọn theo thói quen</strong>: 60% là KH quen, mặc định chọn SC2 vì "thấy đủ", không biết Combo 3 tốt hơn nhiều ra sao.</div></li>
+    <li><span class="ok">◆</span><div><strong>Ngưỡng tâm lý chi thêm ~50-100K</strong>: KH chi SC2 sẵn sàng "thêm chút" nếu thấy giá trị rõ ràng — một món quà 130K + trải nghiệm DV cao cấp là sự kiện đổi hành vi dễ.</div></li>
+    <li><span class="ok">◆</span><div><strong>Apteka Tẩy da chết hấp dẫn KH nam</strong>: nam ngày càng quan tâm chăm sóc da, SP chăm da cao cấp 130K mang về = quà giá trị thật (không phải mẫu nhỏ).</div></li>
+    <li><span class="ok">◆</span><div><strong>Trải nghiệm Combo 3 = cú hích đổi hành vi</strong>: KH thử Combo 3 1 lần, cảm nhận massage da mặt kỹ hơn, thư giãn sâu hơn → có xu hướng giữ Combo 3 các lần sau.</div></li>
+    <li><span class="ok">◆</span><div><strong>18 salon top có tỷ lệ SC2 cao hơn trung bình</strong>: AOV Relax 129K (cao hơn mức trung vị chuỗi 120K) → tệp nâng gói dồi dào, KH quen chi cao hơn → dễ chốt đơn.</div></li>
+  </ul>
+</div>
+
+<!-- 3. MỤC TIÊU KINH DOANH -->
+<div class="sec-hdg"><span class="n">3</span>Mục tiêu kinh doanh</div>
+<div class="c">
+  <div class="c-title"><span class="ic">🎯</span> Mục tiêu thí điểm 15 ngày (16-30/4)</div>
+  <div class="kpi-g">
+    <div class="kpi"><div class="v">129K → 131K</div><div class="l">AOV Relax 18 salon</div><div class="t">+1.5% thí điểm</div></div>
+    <div class="kpi"><div class="v">500/1,800</div><div class="l">Tỷ lệ nâng gói SC2 → Combo 3</div><div class="t">~27.8% tệp đơn lẻ</div></div>
+    <div class="kpi"><div class="v">+70K</div><div class="l">Bill size tăng mỗi lần nâng gói</div><div class="t">SC2 193K → Combo 3 ~263K</div></div>
+    <div class="kpi"><div class="v">Giữ CR Relax</div><div class="l">CR Relax (bảo vệ)</div><div class="t">Không giảm &gt;3 điểm</div></div>
+  </div>
+
+  <div class="c-title" style="margin-top:20px"><span class="ic">📈</span> Tệp khách hàng & cách tính</div>
+  <div class="tw">
+    <table>
+      <thead>
+        <tr><th>Nhóm KH</th><th>Volume 15 ngày (18 salon)</th><th>Trạng thái</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Shinecombo 2 toàn 18 salon (~45% chuỗi)</td><td class="n">~4,500 KH</td><td>Tệp nền lớn nhất</td></tr>
+        <tr><td>SC2 đã có thêm gói (LRT, dưỡng sinh)</td><td class="n">~2,700 (60%)</td><td>Không đủ điều kiện (bill ≥263K sẵn)</td></tr>
+        <tr class="hl"><td><strong>SC2 đơn lẻ 193K — TỆP CHÍNH</strong></td><td class="n"><strong>~1,800 (40%)</strong></td><td><strong>Tệp cần nâng gói</strong></td></tr>
+        <tr><td><strong>Mục tiêu: 500 KH nâng gói</strong></td><td class="n gd"><strong>500 / 1,800 = 27.8%</strong></td><td><strong>SC2 → Combo 3 + Apteka</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 4. CƠ CHẾ CTKM -->
+<div class="sec-hdg"><span class="n">4</span>Cơ chế CTKM</div>
+<div class="c">
+  <div class="sb ok">
+    <span class="sb-label gr">Điều kiện áp dụng</span>
+    Mọi bill Relax chứa ít nhất 1 DV thuộc danh mục <strong>Combo 3 trở lên (giá ≥230K)</strong> → được tặng 1 chai Apteka Tẩy da chết 130K. Không giới hạn thêm DV/SP khác trong bill.
+  </div>
+
+  <div class="c-title"><span class="ic">🎁</span> Các gói DV đủ điều kiện</div>
+  <div class="tw">
+    <table>
+      <thead>
+        <tr><th>DV đủ điều kiện</th><th>Giá gói</th><th>Chênh lệch so với SC2 (193K)</th><th>Tặng</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Cắt Gội Combo 3 Chăm da (chủ lực)</td><td class="n">300K</td><td class="n gd">+107K</td><td>Apteka Tẩy da chết 130K</td></tr>
+        <tr><td>Combo 3 First Class</td><td class="n">308K</td><td class="n gd">+115K</td><td>Apteka</td></tr>
+        <tr><td>Combo 4</td><td class="n">389K</td><td class="n gd">+196K</td><td>Apteka</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sb nv">
+    <span class="sb-label nv">Quy tắc áp dụng</span>
+    Mỗi KH chỉ nhận 1 chai/lần. Không áp dụng chồng CTKM khác. POS tự nhận diện Combo 3 trở lên trong bill và in phiếu tặng Apteka.
+  </div>
+</div>
+
+<!-- 5. SALON & NHÂN SỰ -->
+<div class="sec-hdg"><span class="n">5</span>Salon & Nhân sự triển khai</div>
+<div class="c">
+  <div class="kpi-g" style="grid-template-columns:repeat(2,1fr)">
+    <div class="kpi"><div class="v">18</div><div class="l">Salon thí điểm</div><div class="t">Không chạy ngoài danh sách</div></div>
+    <div class="kpi"><div class="v">500</div><div class="l">Tổng Apteka 15 ngày</div><div class="t">Phân bổ linh hoạt theo volume upgrade thật</div></div>
+  </div>
+
+  <div class="sb nv" style="margin-top:14px">
+    <span class="sb-label nv">Tiêu chí chọn 18 salon thí điểm</span>
+    <strong>① Top salon có Shinecombo 2 cao:</strong> 18 salon nằm trong top có sản lượng SC2 ≥1.5× trung bình chuỗi (13 ngày đầu T4). Đây là tệp pool nâng gói lớn nhất — đặt CTKM tại đây có số lượt chạy cao, không lãng phí Apteka.<br>
+    <strong>② Năng lực nhân sự tư vấn đạt:</strong> salon có ≥2 Skinner/Stylist level 1 trở lên, điểm kỹ năng tư vấn bán thêm gói ≥3.5 (theo đánh giá gần nhất). Đảm bảo việc upsell SC2 → Combo 3 được làm mượt, tránh giảm CR Relax và phản hồi tiêu cực.<br>
+    <strong>③ Vận hành ổn định:</strong> salon không đang trong giai đoạn thay SM / tái cấu trúc / hiệu suất bất thường — đảm bảo số liệu thí điểm đáng tin để quyết định mở rộng T5.
+  </div>
+
+  <div class="sb pp" style="margin-top:10px">
+    <span class="sb-label pp">Phân vai nhân sự</span>
+    <strong>Lễ tân / Tư vấn quầy:</strong> Gợi ý nâng gói SC2 → Combo 3 ngay khi KH đăng ký DV · Phổ biến 15 phút về cơ chế tặng Apteka<br>
+    <strong>Skinner / Stylist:</strong> Làm DV Combo 3 chuẩn chất lượng · Cho KH cảm nhận giá trị massage / da mặt kỹ hơn so với SC2<br>
+    <strong>Chuyên viên tư vấn:</strong> POS tự nhận diện Combo 3 → in phiếu tặng Apteka · Kiểm tồn Apteka cuối ngày<br>
+    <strong>SM:</strong> Hàng ngày kiểm tra tỷ lệ nâng gói + tồn Apteka · Hàng tuần rà soát tỷ trọng SC2
+  </div>
+
+  <div class="sb wr" style="margin-top:10px">
+    <span class="sb-label or">Lưu ý phân công trong salon</span>
+    <strong>Ưu tiên Skinner / Stylist có level cao + điểm kỹ năng tốt</strong> chào gói Combo 3 cho KH SC2 — tránh KH cảm giác "bị ép nâng gói", giúp giữ CR Relax và giảm phản hồi tiêu cực. NV mới / điểm thấp làm DV Combo 3 nhưng chưa chào chính.
+  </div>
+
+  <div style="margin-top:14px"><strong style="font-size:13px;color:var(--navy)">18 salon thí điểm chốt (không chạy ngoài):</strong></div>
+  <div class="salon-chips">
+    <span class="salon-chip hl">10 TP</span><span class="salon-chip hl">103 TN</span><span class="salon-chip hl">116 TK</span>
+    <span class="salon-chip hl">1371 PVT</span><span class="salon-chip hl">145 THT</span><span class="salon-chip hl">168 NVC</span>
+    <span class="salon-chip hl">202 DC</span><span class="salon-chip hl">237 NTT</span><span class="salon-chip hl">25 TD</span>
+    <span class="salon-chip hl">29 HB</span><span class="salon-chip hl">312 LVS</span><span class="salon-chip hl">382 NT</span>
+    <span class="salon-chip hl">575 AC</span><span class="salon-chip hl">76 PVH</span><span class="salon-chip hl">8 CVL</span>
+    <span class="salon-chip hl">90 NH</span><span class="salon-chip hl">927 HG</span><span class="salon-chip hl">99 TSN</span>
+  </div>
+
+  <div class="c-title" style="margin-top:20px"><span class="ic">📋</span> Số liệu nền 18 salon (T4 — 13 ngày đầu)</div>
+  <div class="tw">
+    <table>
+      <thead>
+        <tr><th>Salon</th><th>KH 13d</th><th>AOV Relax</th><th>Salon</th><th>KH 13d</th><th>AOV Relax</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>10 TP</td><td class="n">933</td><td class="n">136K</td><td>29 HB</td><td class="n">907</td><td class="n">126K</td></tr>
+        <tr><td>103 TN</td><td class="n">2,093</td><td class="n">111K</td><td>312 LVS</td><td class="n">1,347</td><td class="n">123K</td></tr>
+        <tr><td>116 TK</td><td class="n">1,555</td><td class="n">137K</td><td>382 NT</td><td class="n">1,597</td><td class="n">141K</td></tr>
+        <tr><td>1371 PVT</td><td class="n">491</td><td class="n">148K</td><td>575 AC</td><td class="n">946</td><td class="n gd">149K</td></tr>
+        <tr><td>145 THT</td><td class="n">1,638</td><td class="n">134K</td><td>76 PVH</td><td class="n">591</td><td class="n">118K</td></tr>
+        <tr><td>168 NVC</td><td class="n">1,299</td><td class="n">144K</td><td>8 CVL</td><td class="n">1,072</td><td class="n bd">103K</td></tr>
+        <tr><td>202 DC</td><td class="n">820</td><td class="n">117K</td><td>90 NH</td><td class="n">628</td><td class="n">128K</td></tr>
+        <tr><td>237 NTT</td><td class="n">1,694</td><td class="n">105K</td><td>927 HG</td><td class="n">1,411</td><td class="n">145K</td></tr>
+        <tr><td>25 TD</td><td class="n">1,183</td><td class="n">142K</td><td>99 TSN</td><td class="n">1,398</td><td class="n">125K</td></tr>
+        <tr class="hl"><td colspan="2"><strong>Tổng 18 salon (13d)</strong></td><td class="n"><strong>21,603 KH</strong></td><td><strong>DT Relax (13d)</strong></td><td colspan="2" class="n"><strong>2,779M</strong></td></tr>
+        <tr class="hl"><td colspan="5"><strong>AOV Relax trung bình có trọng số (nền 18 salon)</strong></td><td class="n gd"><strong>129K</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- 6. KỊCH BẢN -->
+<div class="sec-hdg"><span class="n">6</span>Kịch bản bán hàng triển khai</div>
+<div class="c">
+  <div class="script-box">
+    <span class="lbl">Bước 1 · Lễ tân khi KH đăng ký DV</span><br>
+    <em>"Anh chọn Shinecombo 2 hay hôm nay em gợi ý lên Combo 3 Chăm da? Chỉ thêm 107K — được massage da mặt kỹ hơn + 30Shine tặng chai Apteka Tẩy da chết trị giá 130K mang về. Tính ra anh nhận được giá trị gần 300K mà chỉ chi thêm 107K."</em>
+  </div>
+
+  <div class="script-box">
+    <span class="lbl">Bước 2 · KH còn phân vân</span><br>
+    <em>"Apteka này là SP chăm da cao cấp, dùng 1-2 lần/tuần da mịn hơn. Em cũng muốn anh thử trải nghiệm Combo 3 — massage da mặt kỹ hơn, thư giãn sâu hơn. Hôm nay có ưu đãi nên em mới giới thiệu."</em>
+  </div>
+
+  <div class="script-box">
+    <span class="lbl">Bước 3 · Skinner trong quá trình làm DV</span><br>
+    <em>"Anh đang làm Combo 3 Chăm da, em massage kỹ hơn phần tuyến da dầu và dưỡng sâu — đây là điểm khác Combo 2. Anh thấy thư giãn hơn không?"</em>
+  </div>
+
+  <div class="script-box">
+    <span class="lbl">Bước 4 · Chuyên viên tư vấn trao Apteka</span><br>
+    <em>"Đây là chai Apteka anh được tặng, trị giá 130K. Anh dùng tẩy da chết 1-2 lần/tuần nhé, hiệu quả tốt nhất sau 2-3 tuần."</em>
+  </div>
+
+  <div class="script-box">
+    <span class="lbl">Bước 5 · Nếu KH từ chối nâng gói</span><br>
+    <em>"Dạ không sao, anh dùng Shinecombo 2 như thường em vẫn phục vụ chu đáo. Lần sau có dịp anh thử Combo 3 nhé."</em><br>
+    <span style="color:var(--red);font-weight:600;font-size:12px">→ Không ép. KH thoải mái. Thí điểm đo đúng hành vi — KH tự nguyện nâng gói mới có số liệu tốt.</span>
+  </div>
+</div>
+
+</div><!-- /s4 -->
+
+
+<!-- ===================== S6: KỊCH BẢN BÁN HÀNG ===================== -->
+<div class="sec" id="s6">
+<div class="bn dk">
+  <div class="zone">KỊCH BẢN BÁN HÀNG</div>
+  <h2>🎤 Kịch bản bán hàng — Tổng hợp 3 CTKM T4</h2>
+  <p>Kịch bản chuẩn cho Stylist · Skinner · Chuyên viên tư vấn · Lễ tân</p>
+</div>
+
+<!-- CTKM SÁP GLANZEN -->
+<div class="c">
+  <div class="c-title"><span class="ic">💈</span> CTKM Sáp Glanzen — Kịch bản bán hàng</div>
+
+  <div class="script-box">
+    <span class="lbl">Bước 1 · Nhận diện KH đang dùng Glanzen Clay / Floral</span><br>
+    <em>"Em thấy anh đang sử dụng sáp Glanzen Clay / Floral — bên em đang hết những sản phẩm này, nhưng có sản phẩm Hương gỗ mới (Sandar Wood) mới về, cải tiến hơn hẳn bản cũ mà có chương trình giảm giá cho anh. Anh không cần chi thêm quá nhiều so với sản phẩm anh đang dùng."</em>
+  </div>
+
+  <div class="script-box">
+    <span class="lbl">Bước 2 · Sau cắt — Thử sáp trên tóc</span><br>
+    <em>"Em vừa vuốt sáp Glanzen Prime (Sandar Wood) tạo kiểu cho anh — anh thấy giữ form không? Sáp thế hệ mới, giữ nếp tự nhiên cả ngày, không bết."</em>
+  </div>
+
+  <div class="script-box">
+    <span class="lbl">Bước 3 · Chuyên viên tư vấn — Áp giá theo tầng</span><br>
+    <strong>Tầng A:</strong> <em>"Anh mua lại sáp này hôm nay được giảm 10% — còn 251K."</em><br>
+    <strong>Tầng B:</strong> <em>"Hôm nay mua thử sáp Glanzen được giảm 20% — chỉ còn 223K."</em>
+  </div>
+
+  <div class="script-box">
+    <span class="lbl">Bước 4 · Nếu KH từ chối</span><br>
+    <em>"Dạ không sao anh. Kiểu tóc mới đẹp lắm, anh cứ dùng thử vài ngày xem thích không."</em><br>
+    <span style="color:var(--red);font-weight:600;font-size:12px">→ Không ép. KH đã được thử SP trên tóc → lần sau dễ chốt hơn. KHÔNG tặng mẫu nhỏ.</span>
+  </div>
+</div>
+
+<!-- CTKM UND BILL 630K TẶNG LABORIE -->
+<div class="c">
+  <div class="c-title"><span class="ic">🎨</span> CTKM UND Bill 630K tặng Laborie — Kịch bản bán hàng</div>
+
+  <div class="script-box">
+    <span class="lbl">Bước 1 · Trước làm UND — Tư vấn nâng mức bill</span><br>
+    <em>"Anh đang chọn nhuộm/uốn cơ bản bill X. Hôm nay em có chương trình: bill từ 630K tặng luôn Dầu gội Laborie Bond (cho Uốn) hoặc Dầu gội Laborie Tím Giữ Màu (cho Nhuộm) trị giá 400-450K để giữ màu & phục hồi. Anh thử nâng lên gói cao cấp / highlight em làm kỹ hơn nhé?"</em>
+  </div>
+
+  <div class="script-box">
+    <span class="lbl">Bước 1b · KH không đạt bill 630K — Gợi ý Uốn cao cấp + Dưỡng</span><br>
+    <em>"Em có gói Uốn cao cấp + Dưỡng phục hồi dành riêng cho KH muốn giữ tóc lâu, bill không cần 630K vẫn được tặng 1 chai Dầu gội Laborie. Anh muốn em tư vấn thêm không?"</em>
+  </div>
+
+  <div class="script-box">
+    <span class="lbl">Bước 1c · Chốt bằng DV Dưỡng 146K</span><br>
+    <em>"Anh chỉ cần thêm dịch vụ Dưỡng 146K là được tặng Dầu gội Laborie Bond / Dầu gội Laborie Tím Giữ Màu bên em trị giá 400K. Tính ra vừa Dưỡng bảo vệ tóc, vừa được tặng sản phẩm giá trị — quá hời cho anh chơi lễ ạ."</em>
+  </div>
+
+  <div class="script-box">
+    <span class="lbl">Bước 2 · Sau làm UND — Thử Laborie lên tóc</span><br>
+    <em>"Tóc anh vừa nhuộm/uốn, em thoa Dầu gội Laborie Tím Giữ Màu / Bond vào cho mềm mượt luôn. Anh thấy mịn không? Hôm nay anh đủ điều kiện được tặng chai này mang về dùng."</em>
+  </div>
+
+  <div class="script-box">
+    <span class="lbl">Bước 3 · Nếu KH từ chối nâng gói</span><br>
+    <em>"Dạ không sao anh, gói cơ bản em vẫn làm đẹp cho anh. Lần sau có dịp anh thử gói cao cấp nhé."</em><br>
+    <span style="color:var(--red);font-weight:600;font-size:12px">→ Không ép nâng gói. Giữ trải nghiệm tốt. KH rời quầy hài lòng &gt; KH bị ép mà không hài lòng.</span>
+  </div>
+</div>
+
+<!-- CTKM UPSALE COMBO 3 TẶNG APTEKA -->
+<div class="c">
+  <div class="c-title"><span class="ic">✨</span> CTKM Upsale Combo 3 tặng Apteka — Kịch bản bán hàng</div>
+
+  <div class="script-box">
+    <span class="lbl">Bước 1 · Lễ tân khi KH đăng ký DV</span><br>
+    <em>"Anh chọn Shinecombo 2 hay hôm nay em gợi ý lên Combo 3 Chăm da? Chỉ thêm 107K — được massage da mặt kỹ hơn + 30Shine tặng chai Apteka Tẩy da chết trị giá 130K mang về. Tính ra anh nhận được giá trị gần 300K mà chỉ chi thêm 107K."</em>
+  </div>
+
+  <div class="script-box">
+    <span class="lbl">Bước 2 · KH còn phân vân</span><br>
+    <em>"Apteka này là SP chăm da cao cấp, dùng 1-2 lần/tuần da mịn hơn. Em cũng muốn anh thử trải nghiệm Combo 3 — massage da mặt kỹ hơn, thư giãn sâu hơn. Hôm nay có ưu đãi nên em mới giới thiệu."</em>
+  </div>
+
+  <div class="script-box">
+    <span class="lbl">Bước 3 · Skinner trong quá trình làm DV</span><br>
+    <em>"Anh đang làm Combo 3 Chăm da, em massage kỹ hơn phần tuyến da dầu và dưỡng sâu — đây là điểm khác Combo 2. Anh thấy thư giãn hơn không?"</em>
+  </div>
+
+  <div class="script-box">
+    <span class="lbl">Bước 4 · Chuyên viên tư vấn trao Apteka</span><br>
+    <em>"Đây là chai Apteka anh được tặng, trị giá 130K. Anh dùng tẩy da chết 1-2 lần/tuần nhé, hiệu quả tốt nhất sau 2-3 tuần."</em>
+  </div>
+
+  <div class="script-box">
+    <span class="lbl">Bước 5 · Nếu KH từ chối nâng gói</span><br>
+    <em>"Dạ không sao, anh dùng Shinecombo 2 như thường em vẫn phục vụ chu đáo. Lần sau có dịp anh thử Combo 3 nhé."</em><br>
+    <span style="color:var(--red);font-weight:600;font-size:12px">→ Không ép. KH thoải mái.</span>
+  </div>
+</div>
+
+<div class="sb dg" style="margin-top:10px">
+  <span class="sb-label rd">Nguyên tắc chung</span>
+  <strong>Không chèo kéo, không ép mua.</strong> Stylist / Skinner thử SP + giới thiệu 1 lần. Chuyên viên tư vấn chốt giá lúc thanh toán. Khách tự quyết định. <strong>Chỉ áp dụng 1 CTKM cùng lúc trên 1 bill.</strong>
+</div>
+
+</div><!-- /s6 -->
+
+
+<!-- ===================== S5: ĐO LƯỜNG & THEO DÕI ===================== -->
+<div class="sec" id="s5">
+<div class="bn grn">
+  <div class="zone">QUẢN LÝ & ĐO LƯỜNG</div>
+  <h2>📊 Đo lường, theo dõi & Ngưỡng dừng 3 CTKM T4</h2>
+  <p>Vị trí đo duy nhất: Ngành hàng · Chỉ số đo: số lượt chạy · Lãi/lỗ gói mục tiêu so với kỳ trước · Đo đến từng salon</p>
+</div>
+
+<div class="c">
+  <div class="c-title"><span class="ic">⏱️</span> Vị trí đo & chỉ số đo</div>
+  <div class="sb nv">
+    <span class="sb-label nv">Vị trí duy nhất chịu trách nhiệm đo</span>
+    <strong>Ngành hàng</strong> là đầu mối duy nhất đo lường 3 CTKM T4. SM/GĐKV không tự đo riêng — chỉ nhận báo cáo từ Ngành hàng và phản hồi số liệu về vận hành tại salon mình.
+  </div>
+
+  <div class="tw" style="margin-top:14px">
+    <table>
+      <thead>
+        <tr><th>Chỉ số đo</th><th>Cách đo</th><th>Phạm vi đo</th><th>Tần suất</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>① Số lượt chạy</strong></td>
+          <td>Số bill áp CTKM / CT / ngày · Đối chiếu với số lượt mục tiêu theo CT</td>
+          <td>Từng salon (và tổng chuỗi)</td>
+          <td>Daily rollup, báo cáo weekly</td>
+        </tr>
+        <tr>
+          <td><strong>② Lãi/lỗ các gói mục tiêu so với kỳ trước</strong></td>
+          <td>Lợi nhuận gộp các DV/SP mục tiêu T4 <strong>so với T3</strong>. Glanzen: SP tạo kiểu. UND Laborie: UND (Uốn/Nhuộm/Dưỡng). Combo 3 Apteka: Relax Combo 2 & Combo 3+</td>
+          <td>Từng salon (và tổng chuỗi)</td>
+          <td>Weekly, chốt cuối T4</td>
+        </tr>
+        <tr>
+          <td><strong>③ CR các ngành hàng (bảo vệ)</strong></td>
+          <td>CR SP / CR UND / CR Relax so với T3 — đảm bảo CTKM không làm giảm CR</td>
+          <td>Từng salon</td>
+          <td>Weekly</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sb ok" style="margin-top:10px">
+    <span class="sb-label gr">Nguyên tắc đo</span>
+    Không đo theo role (SM / COE / NV) — tất cả báo cáo do Ngành hàng phát hành. Không phát sinh mẫu báo cáo thủ công ở cấp salon. <strong>Tất cả chỉ số đo từ hệ thống POS, xuống đến từng salon</strong> để SM/GĐKV đối chiếu vận hành thực tế.
+  </div>
+</div>
+
+<div class="c">
+  <div class="c-title"><span class="ic">📏</span> KPI tổng hợp 3 CTKM</div>
+  <div class="tw">
+    <table>
+      <thead>
+        <tr><th>Chỉ số</th><th>CTKM Sáp Glanzen</th><th>CTKM UND Bill 630K tặng Laborie</th><th>CTKM Upsale Combo 3 tặng Apteka</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Phạm vi</strong></td>
+          <td class="n">Toàn chuỗi 58 salon</td>
+          <td class="n">Toàn chuỗi 58 salon</td>
+          <td class="n">18 salon · 15 ngày</td>
+        </tr>
+        <tr>
+          <td><strong>AOV mục tiêu</strong></td>
+          <td class="n gd">+38% SP tạo kiểu</td>
+          <td class="n gd">AOV UND (per-capita): Cao 35K · Trung 27K · Thấp 17K<br>Billsize UND 382K → 432K (+13%) · Uốn 547K · Nhuộm 370K</td>
+          <td class="n gd">+1.5% Relax (thí điểm)</td>
+        </tr>
+        <tr>
+          <td><strong>CR mục tiêu (bảo vệ)</strong></td>
+          <td>Giữ CR SP tổng không giảm</td>
+          <td>Giữ CR UND không giảm &gt;2 điểm</td>
+          <td>Giữ CR Relax không giảm &gt;3 điểm</td>
+        </tr>
+        <tr>
+          <td><strong>Bill size tăng</strong></td>
+          <td class="n">+237K/lượt</td>
+          <td class="n">+130K/KH Uốn qua ngưỡng 630K (Billsize)</td>
+          <td class="n">+70K/lượt nâng gói</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="c">
+  <div class="c-title"><span class="ic">🚨</span> Ngưỡng dừng — Khi nào dừng/điều chỉnh</div>
+  <div class="tw">
+    <table>
+      <thead>
+        <tr><th>Chương trình</th><th>Điều kiện dừng</th><th>Hành động</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>CTKM Sáp Glanzen</strong></td>
+          <td>AOV SP tạo kiểu không tăng sau 2 tuần · HOẶC CR SP tổng giảm &gt;2 điểm</td>
+          <td>Xem lại phổ biến cho stylist · Đẩy mạnh tư vấn · Nếu kéo không lên → giảm salon tham gia</td>
+        </tr>
+        <tr>
+          <td><strong>CTKM UND Bill 630K tặng Laborie</strong></td>
+          <td>AOV UND không tăng sau 2 tuần · HOẶC CR UND giảm &gt;2 điểm · HOẶC tỷ lệ nâng gói Uốn cao cấp &lt;5%</td>
+          <td>Điều chỉnh bill ngưỡng · Rà soát salon Nhóm Thấp · Tăng đào tạo</td>
+        </tr>
+        <tr>
+          <td><strong>CTKM Upsale Combo 3 tặng Apteka</strong></td>
+          <td>Tỷ lệ nâng gói &lt;12% tệp · HOẶC Apteka tặng &lt;200/15 ngày · HOẶC CR Relax giảm &gt;3 điểm</td>
+          <td>Dừng thí điểm · KHÔNG mở rộng T5 · Rút kinh nghiệm cơ chế khác</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="c">
+  <div class="c-title"><span class="ic">✅</span> Checklist chuẩn bị trước 15/4</div>
+  <ul class="chk-list">
+    <li><span class="ok">□</span><div><strong>SM phổ biến toàn bộ NV salon</strong> về 3 CTKM (1 buổi trực tiếp / salon, 30 phút)</div></li>
+    <li><span class="ok">□</span><div><strong>Đào tạo stylist / skinner / chuyên viên tư vấn</strong> theo kịch bản bán hàng từng CTKM</div></li>
+    <li><span class="ok">□</span><div><strong>Chuẩn bị hàng</strong>: Glanzen Prime (Sandar Wood) về 58 salon · Dầu gội Laborie Bond & Dầu gội Laborie Tím Giữ Màu về 58 salon · Apteka 500 chai về 18 salon</div></li>
+    <li><span class="ok">□</span><div><strong>Bảng điều khiển theo dõi</strong> từ Ngành hàng phát hành · Bao phủ cả 3 CT, đo đến salon</div></li>
+    <li><span class="ok">□</span><div><strong>Họp 5 phút đầu ca</strong> hàng ngày cho 18 salon thí điểm Combo 3 Apteka (tránh quên)</div></li>
+    <li><span class="ok">□</span>
+      <div>
+        <strong>Kế hoạch truyền thông khách hàng</strong> — triển khai đồng bộ 2 nhóm kênh:
+        <div style="margin-top:8px;display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <div style="padding:10px 14px;background:#f0f4ff;border-radius:8px;font-size:12px;line-height:1.75">
+            <div style="font-weight:700;color:var(--navy);margin-bottom:6px;letter-spacing:.3px">🌐 ONLINE</div>
+            + Banner web &amp; app<br>
+            + Post social (ads): ảnh chương trình, ảnh tóc đẹp, không khí cửa hàng...<br>
+            + Noti app<br>
+            + Zalo OA
+          </div>
+          <div style="padding:10px 14px;background:#fff8ec;border-radius:8px;font-size:12px;line-height:1.75">
+            <div style="font-weight:700;color:var(--navy);margin-bottom:6px;letter-spacing:.3px">🏪 OFFLINE</div>
+            + Kịch bản Sale sup hướng dẫn nhân sự<br>
+            + Màn hình LED tại salon<br>
+            + Wifi marketing
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+</div><!-- /s5 -->
+
+</div><!-- /wrap -->
+
+<script>
+function go(id){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  const idx=['s2','s3','s4','s6','s5'].indexOf(id);
+  if(idx>=0){document.querySelectorAll('.tab')[idx].classList.add('active')}
+  window.scrollTo({top:0,behavior:'smooth'})
+}
+</script>
+</body>
+</html>
