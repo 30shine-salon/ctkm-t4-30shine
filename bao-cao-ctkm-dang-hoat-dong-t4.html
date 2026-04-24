@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Báo cáo Rà soát CTKM đang hoạt động — Tháng 4/2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B3A6B;--navy-light:#2a5290;--orange:#FF7A29;--red:#E63946;--green:#2d8a4e;--green-lt:#e6f4ea;--yellow:#FFD23F;--cream:#FFF8EC;--bg:#f4f6f9;--card:#fff;--text:#1a1a2e;--muted:#6b7280;--border:#e5e7eb;--shadow:0 2px 12px rgba(27,58,107,.08);--r:14px;--purple:#7b1fa2}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Be Vietnam Pro',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:14px}
+.hdr{background:linear-gradient(135deg,var(--navy),var(--navy-light));color:#fff;padding:16px 24px;position:sticky;top:0;z-index:100;border-bottom:4px solid var(--orange);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.hdr-left{display:flex;align-items:center;gap:14px}
+.logo{width:46px;height:46px;background:var(--orange);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:800;color:#fff}
+.hdr h1{font-size:18px;font-weight:700}.hdr .sub{font-size:11px;opacity:.85;margin-top:2px}
+.hdr-right{display:flex;gap:6px;align-items:center}
+.badge{padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.4px;color:#fff}
+.badge.or{background:var(--orange)}.badge.gr{background:var(--green)}
+.wrap{max-width:1200px;margin:0 auto;padding:20px 16px 60px}
+.kpi-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:20px}
+.kpi{background:#fff;border-radius:12px;padding:16px;text-align:center;border:1px solid var(--border);box-shadow:var(--shadow);border-top:3px solid var(--navy)}
+.kpi.or{border-top-color:var(--orange)}.kpi.rd{border-top-color:var(--red)}
+.kpi.gr{border-top-color:var(--green)}.kpi.pp{border-top-color:var(--purple)}
+.kpi .v{font-size:28px;font-weight:800;color:var(--navy);line-height:1}
+.kpi .l{font-size:11px;color:var(--muted);margin-top:6px;font-weight:500}
+.intro{background:linear-gradient(135deg,#fff8ec,#fff2d9);border-left:4px solid var(--orange);border-radius:12px;padding:16px 20px;margin-bottom:22px;font-size:13px;line-height:1.7}
+.intro b{color:var(--navy)}.intro ul{margin:6px 0 0 20px}
+.sec-hdg{display:flex;align-items:center;justify-content:space-between;margin:28px 0 12px;padding:0;gap:10px;flex-wrap:wrap}
+.cat-badge{display:inline-flex;align-items:center;font-size:14px;font-weight:800;color:#fff;padding:8px 16px;border-radius:10px;letter-spacing:.2px}
+.cat-or{background:linear-gradient(135deg,#e65100,var(--orange))}
+.cat-nv{background:linear-gradient(135deg,var(--navy),var(--navy-light))}
+.cat-pur{background:linear-gradient(135deg,#4a148c,var(--purple))}
+.cat-grn{background:linear-gradient(135deg,#1a5632,var(--green))}
+.cat-dk{background:linear-gradient(135deg,#37474f,#607d8b)}
+.cat-cnt{font-size:12px;color:var(--muted);font-weight:600}
+.camp-card{background:#fff;border-radius:12px;padding:14px 16px;margin-bottom:10px;border:1px solid var(--border);box-shadow:0 1px 4px rgba(0,0,0,.04);transition:.15s}
+.camp-card:hover{box-shadow:0 4px 14px rgba(27,58,107,.1);border-color:#d0d7e2}
+.camp-card.ending-soon{border-left:4px solid var(--red);background:linear-gradient(90deg,#fff8f8,#fff)}
+.camp-head{display:flex;align-items:flex-start;gap:10px;margin-bottom:6px}
+.camp-code{background:var(--navy);color:#fff;font-size:11px;font-weight:700;padding:3px 9px;border-radius:6px;font-family:ui-monospace,monospace;flex-shrink:0;letter-spacing:.3px}
+.camp-name{flex:1;font-size:13.5px;font-weight:600;color:var(--text);line-height:1.45}
+.dl-badge{font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;flex-shrink:0;white-space:nowrap}
+.dl-exp{background:#e5e7eb;color:#6b7280}
+.dl-today{background:var(--red);color:#fff;animation:pulse 1.5s infinite}
+.dl-soon{background:#fee;color:var(--red);border:1px solid #fcc}
+.dl-mid{background:#fff3cd;color:#856404}
+.dl-long{background:var(--green-lt);color:var(--green)}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}
+.camp-meta{display:flex;flex-wrap:wrap;gap:4px 18px;font-size:12px;color:var(--muted);padding-left:2px;margin-bottom:6px}
+.camp-meta .mi b{color:var(--text);font-weight:600}
+.salon-det{margin-top:6px}
+.salon-det summary{cursor:pointer;font-size:11.5px;color:var(--navy);font-weight:600;padding:3px 0;user-select:none;list-style:none}
+.salon-det summary::-webkit-details-marker{display:none}
+.salon-det summary:hover{color:var(--orange)}
+.salon-det[open] summary{margin-bottom:6px}
+.salon-list{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px;padding:6px 0}
+.salon-chip{background:#f0f4ff;border:1px solid #d5deef;color:var(--navy);font-size:11px;padding:2px 8px;border-radius:12px;font-weight:500;line-height:1.6}
+.salon-chip b{color:var(--orange);font-weight:700;margin-left:2px}
+.salon-chip.more{background:#f3e8ff;border-color:#e6d4ff;color:var(--purple)}
+@media print{.hdr{position:static}.camp-card{break-inside:avoid}.salon-det{display:none}body{font-size:11px}}
+@media(max-width:640px){.hdr h1{font-size:15px}.camp-head{flex-wrap:wrap}.kpi .v{font-size:22px}}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div class="hdr-left">
+    <div class="logo">30</div>
+    <div>
+      <h1>Rà soát CTKM đang hoạt động — Tháng 4/2026</h1>
+      <div class="sub">Cập nhật: 24/04/2026 · Dùng cho nhân sự Salon theo dõi</div>
+    </div>
+  </div>
+  <div class="hdr-right">
+    <span class="badge or">45 CTKM</span>
+    <span class="badge gr">59 Salon</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="kpi-g">
+    <div class="kpi"><div class="v">45</div><div class="l">CTKM đang áp dụng</div></div>
+    <div class="kpi or"><div class="v">59</div><div class="l">Salon có phát sinh áp dụng</div></div>
+    <div class="kpi rd"><div class="v">13</div><div class="l">Sắp hết hạn (≤ 10 ngày)</div></div>
+    <div class="kpi gr"><div class="v">2,449</div><div class="l">Tổng lượt khách đã áp dụng</div></div>
+  </div>
+
+  <div class="intro">
+    <b>Hướng dẫn đọc báo cáo:</b>
+    <ul>
+      <li>CTKM được nhóm theo <b>mức độ ưu tiên truyền thông</b> — Nhóm 1 (CTKM Trọng tâm T4) là nhóm salon phải thuộc kịch bản tư vấn.</li>
+      <li>Thẻ đỏ <span class="dl-badge dl-soon" style="margin:0 3px">Còn X ngày</span> = sắp hết hạn (≤ 7 ngày), cần tận dụng tối đa trước khi kết thúc.</li>
+      <li>Click <b>"Xem X salon đã áp dụng campaign tháng 4 ▾"</b> để mở danh sách chi tiết salon + số lượt đã dùng.</li>
+    </ul>
+  </div>
+
+  <!-- Category: T4 -->
+<div class="sec-hdg"><span class="cat-badge cat-or">CTKM Trọng tâm Tháng 4</span> <span class="cat-cnt">7 CTKM · 586 lượt dùng</span></div>
+<div class="camp-card ending-soon">
+  <div class="camp-head">
+    <div class="camp-code">#5041</div>
+    <div class="camp-name">KH sử dụng Combo 3, 4, Uốn, Nhuộm, bill từ 500k tặng tinh dầu Arren date ngắn</div>
+    <span class="dl-badge dl-soon">Còn 6 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 06/03/2026 → 30/04/2026</span>
+    <span class="mi"><b>Salon áp dụng:</b> 29</span>
+    <span class="mi"><b>Đã dùng:</b> 268 lượt</span>
+  </div>
+  <details class="salon-det"><summary>Xem 29 salon đã áp dụng campaign tháng 4 ▾</summary><div class="salon-list"><span class="salon-chip">25 TD <b>·39</b></span> <span class="salon-chip">927 HG <b>·36</b></span> <span class="salon-chip">575 AC <b>·21</b></span> <span class="salon-chip">708 LTT <b>·17</b></span> <span class="salon-chip">145 THT <b>·16</b></span> <span class="salon-chip">32 NAT <b>·15</b></span> <span class="salon-chip">103 TN <b>·12</b></span> <span class="salon-chip">362 NGT BN <b>·12</b></span> <span class="salon-chip">1180 QT <b>·11</b></span> <span class="salon-chip">264 LLQ <b>·11</b></span> <span class="salon-chip">109 TQH <b>·6</b></span> <span class="salon-chip">12 LDT <b>·6</b></span> <span class="salon-chip">255 NAN <b>·6</b></span> <span class="salon-chip">312 LVS <b>·6</b></span> <span class="salon-chip">29 HB <b>·5</b></span> <span class="salon-chip">39 HBT <b>·5</b></span> <span class="salon-chip">401/1 NDT <b>·5</b></span> <span class="salon-chip">80 PL BD <b>·5</b></span> <span class="salon-chip">99 TSN <b>·5</b></span> <span class="salon-chip">420 HTP <b>·4</b></span> <span class="salon-chip">483 TN <b>·4</b></span> <span class="salon-chip">55A NVL <b>·4</b></span> <span class="salon-chip">90 NH <b>·4</b></span> <span class="salon-chip">190 HB <b>·3</b></span> <span class="salon-chip">451 PVT <b>·3</b></span> <span class="salon-chip">76 PVH <b>·3</b></span> <span class="salon-chip">202 DC <b>·2</b></span> <span class="salon-chip">236 DBT <b>·1</b></span> <span class="salon-chip">341 XVNT <b>·1</b></span></div></details>
+</div>
+<div class="camp-card ending-soon">
+  <div class="camp-head">
+    <div class="camp-code">#5097</div>
+    <div class="camp-name">CTKM Tháng 4 - Upsale Combo 3 từ Combo 2 tặng Tẩy da chết Biotopcare Apteka</div>
+    <span class="dl-badge dl-mid">Còn 9 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 18/04/2026 → 03/05/2026</span>
+    <span class="mi"><b>Salon áp dụng:</b> 9</span>
+    <span class="mi"><b>Đã dùng:</b> 65 lượt</span>
+  </div>
+  <details class="salon-det"><summary>Xem 9 salon đã áp dụng campaign tháng 4 ▾</summary><div class="salon-list"><span class="salon-chip">103 TN <b>·18</b></span> <span class="salon-chip">237 NTT <b>·16</b></span> <span class="salon-chip">29 HB <b>·8</b></span> <span class="salon-chip">1371 PVT <b>·6</b></span> <span class="salon-chip">90 NH <b>·4</b></span> <span class="salon-chip">927 HG <b>·4</b></span> <span class="salon-chip">312 LVS <b>·3</b></span> <span class="salon-chip">575 AC <b>·3</b></span> <span class="salon-chip">99 TSN <b>·3</b></span></div></details>
+</div>
+<div class="camp-card ending-soon">
+  <div class="camp-head">
+    <div class="camp-code">#5094</div>
+    <div class="camp-name">CTKM Tháng 4 - Giảm 20% Sáp Glanzen Sandar Wood - Glanzen Limited cho khách sử dụng combo 2 trở lên</div>
+    <span class="dl-badge dl-mid">Còn 9 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 18/04/2026 → 03/05/2026</span>
+    <span class="mi"><b>Salon áp dụng:</b> 18</span>
+    <span class="mi"><b>Đã dùng:</b> 28 lượt</span>
+  </div>
+  <details class="salon-det"><summary>Xem 18 salon đã áp dụng campaign tháng 4 ▾</summary><div class="salon-list"><span class="salon-chip">80 PL BD <b>·4</b></span> <span class="salon-chip">109 TQH <b>·3</b></span> <span class="salon-chip">1146 KVC <b>·3</b></span> <span class="salon-chip">237 NTT <b>·2</b></span> <span class="salon-chip">29 HB <b>·2</b></span> <span class="salon-chip">382 NT <b>·2</b></span> <span class="salon-chip">116 TK <b>·1</b></span> <span class="salon-chip">145 THT <b>·1</b></span> <span class="salon-chip">186 DTH <b>·1</b></span> <span class="salon-chip">190 HB <b>·1</b></span> <span class="salon-chip">25 TD <b>·1</b></span> <span class="salon-chip">264 LLQ <b>·1</b></span> <span class="salon-chip">401/1 NDT <b>·1</b></span> <span class="salon-chip">483 TN <b>·1</b></span> <span class="salon-chip">50BT4 NPC LD <b>·1</b></span> <span class="salon-chip">55A NVL <b>·1</b></span> <span class="salon-chip">575 AC <b>·1</b></span> <span class="salon-chip">90 NH <b>·1</b></span></div></details>
+</div>
+<div class="camp-card ending-soon">
+  <div class="camp-head">
+    <div class="camp-code">#5095</div>
+    <div class="camp-name">CTKM Tháng 4 - Giảm 10% Sáp Glanzen Sandar Wood/Limitted cho khách Cắt xả, Shinecombo 1</div>
+    <span class="dl-badge dl-mid">Còn 9 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 18/04/2026 → 03/05/2026</span>
+    <span class="mi"><b>Salon áp dụng:</b> 16</span>
+    <span class="mi"><b>Đã dùng:</b> 24 lượt</span>
+  </div>
+  <details class="salon-det"><summary>Xem 16 salon đã áp dụng campaign tháng 4 ▾</summary><div class="salon-list"><span class="salon-chip">103 TN <b>·3</b></span> <span class="salon-chip">382 NT <b>·3</b></span> <span class="salon-chip">145 THT <b>·2</b></span> <span class="salon-chip">237 NTT <b>·2</b></span> <span class="salon-chip">341 XVNT <b>·2</b></span> <span class="salon-chip">8 CVL <b>·2</b></span> <span class="salon-chip">186 DTH <b>·1</b></span> <span class="salon-chip">25 TD <b>·1</b></span> <span class="salon-chip">264 LLQ <b>·1</b></span> <span class="salon-chip">312 LVS <b>·1</b></span> <span class="salon-chip">401/1 NDT <b>·1</b></span> <span class="salon-chip">483 TN <b>·1</b></span> <span class="salon-chip">595 BT TH <b>·1</b></span> <span class="salon-chip">62 LH <b>·1</b></span> <span class="salon-chip">65 CD <b>·1</b></span> <span class="salon-chip">80 PL BD <b>·1</b></span></div></details>
+</div>
+<div class="camp-card">
+  <div class="camp-head">
+    <div class="camp-code">#5101</div>
+    <div class="camp-name">CTKM T4 - Tặng Dầu gội Laborie Bond/Giữ Màu cho bill hóa chất từ 630k</div>
+    <span class="dl-badge dl-mid">Còn 11 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 21/04/2026 → 05/05/2026</span>
+    <span class="mi"><b>Salon áp dụng:</b> 14</span>
+    <span class="mi"><b>Đã dùng:</b> 28 lượt</span>
+  </div>
+  <details class="salon-det"><summary>Xem 14 salon đã áp dụng campaign tháng 4 ▾</summary><div class="salon-list"><span class="salon-chip">382 NT <b>·5</b></span> <span class="salon-chip">927 HG <b>·4</b></span> <span class="salon-chip">103 TN <b>·3</b></span> <span class="salon-chip">25 TD <b>·3</b></span> <span class="salon-chip">109 TQH <b>·2</b></span> <span class="salon-chip">116 TK <b>·2</b></span> <span class="salon-chip">168 NVC <b>·2</b></span> <span class="salon-chip">1180 QT <b>·1</b></span> <span class="salon-chip">145 THT <b>·1</b></span> <span class="salon-chip">186 QT <b>·1</b></span> <span class="salon-chip">290 QT TH <b>·1</b></span> <span class="salon-chip">39 HBT <b>·1</b></span> <span class="salon-chip">50BT4 NPC LD <b>·1</b></span> <span class="salon-chip">80 PL BD <b>·1</b></span></div></details>
+</div>
+<div class="camp-card">
+  <div class="camp-head">
+    <div class="camp-code">#5075</div>
+    <div class="camp-name">Tôi yêu 30Shine_Giảm ngay 30% SP tối đa 100K Q2 2026</div>
+    <span class="dl-badge dl-long">Còn 69 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 31/03/2026 → 02/07/2026</span>
+    <span class="mi"><b>Salon áp dụng:</b> 37</span>
+    <span class="mi"><b>Đã dùng:</b> 137 lượt</span>
+  </div>
+  <details class="salon-det"><summary>Xem 37 salon đã áp dụng campaign tháng 4 ▾</summary><div class="salon-list"><span class="salon-chip">145 THT <b>·19</b></span> <span class="salon-chip">103 TN <b>·15</b></span> <span class="salon-chip">8 CVL <b>·10</b></span> <span class="salon-chip">10 TP <b>·9</b></span> <span class="salon-chip">173 TN <b>·8</b></span> <span class="salon-chip">32 NAT <b>·6</b></span> <span class="salon-chip">927 HG <b>·6</b></span> <span class="salon-chip">12 LDT <b>·5</b></span> <span class="salon-chip">148 TD <b>·5</b></span> <span class="salon-chip">382 NT <b>·5</b></span> <span class="salon-chip">36 N1 BD <b>·4</b></span> <span class="salon-chip">362 NGT BN <b>·4</b></span> <span class="salon-chip">99 TSN <b>·4</b></span> <span class="salon-chip">Shop <b>·4</b></span> <span class="salon-chip">50BT4 NPC LD <b>·3</b></span> <span class="salon-chip">109 TQH <b>·2</b></span> <span class="salon-chip">116 TK <b>·2</b></span> <span class="salon-chip">168 NVC <b>·2</b></span> <span class="salon-chip">186 DTH <b>·2</b></span> <span class="salon-chip">190 HB <b>·2</b></span> <span class="salon-chip">25 TD <b>·2</b></span> <span class="salon-chip">264 LLQ <b>·2</b></span> <span class="salon-chip">575 AC <b>·2</b></span> <span class="salon-chip">11 PKT <b>·1</b></span> <span class="salon-chip">1180 QT <b>·1</b></span> <span class="salon-chip">186 QT <b>·1</b></span> <span class="salon-chip">202 DC <b>·1</b></span> <span class="salon-chip">236 DBT <b>·1</b></span> <span class="salon-chip">29 HB <b>·1</b></span> <span class="salon-chip">290 QT TH <b>·1</b></span> <span class="salon-chip">312 LVS <b>·1</b></span> <span class="salon-chip">39 HBT <b>·1</b></span> <span class="salon-chip">4 LQD BN <b>·1</b></span> <span class="salon-chip">401/1 NDT <b>·1</b></span> <span class="salon-chip">68 LN NA <b>·1</b></span> <span class="salon-chip">730 TL10 <b>·1</b></span> <span class="salon-chip">76 PVH <b>·1</b></span></div></details>
+</div>
+<div class="camp-card">
+  <div class="camp-head">
+    <div class="camp-code">#5073</div>
+    <div class="camp-name">Tôi yêu 30Shine_Giảm 30% all dịch vụ Q2 2026 - 30Shine</div>
+    <span class="dl-badge dl-long">Còn 69 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 01/04/2026 → 02/07/2026</span>
+    <span class="mi"><b>Salon áp dụng:</b> 20</span>
+    <span class="mi"><b>Đã dùng:</b> 36 lượt</span>
+  </div>
+  <details class="salon-det"><summary>Xem 20 salon đã áp dụng campaign tháng 4 ▾</summary><div class="salon-list"><span class="salon-chip">10 TP <b>·14</b></span> <span class="salon-chip">168 NVC <b>·2</b></span> <span class="salon-chip">362 NGT BN <b>·2</b></span> <span class="salon-chip">55A NVL <b>·2</b></span> <span class="salon-chip">103 TN <b>·1</b></span> <span class="salon-chip">1180 QT <b>·1</b></span> <span class="salon-chip">173 TN <b>·1</b></span> <span class="salon-chip">186 QT <b>·1</b></span> <span class="salon-chip">202 DC <b>·1</b></span> <span class="salon-chip">237 NTT <b>·1</b></span> <span class="salon-chip">264 LLQ <b>·1</b></span> <span class="salon-chip">29 HB <b>·1</b></span> <span class="salon-chip">39 HBT <b>·1</b></span> <span class="salon-chip">401/1 NDT <b>·1</b></span> <span class="salon-chip">483 TN <b>·1</b></span> <span class="salon-chip">50BT4 NPC LD <b>·1</b></span> <span class="salon-chip">575 AC <b>·1</b></span> <span class="salon-chip">76 PVH <b>·1</b></span> <span class="salon-chip">90 NH <b>·1</b></span> <span class="salon-chip">927 HG <b>·1</b></span></div></details>
+</div>
+<!-- Category: SP -->
+<div class="sec-hdg"><span class="cat-badge cat-nv">Khuyến mãi Sản phẩm</span> <span class="cat-cnt">3 CTKM · 7 lượt dùng</span></div>
+<div class="camp-card ending-soon">
+  <div class="camp-head">
+    <div class="camp-code">#4302</div>
+    <div class="camp-name">&lt;Chỉ áp dụng 01 camp, không áp dụng cùng camp khác&gt;[SP] Vu Lan 25 - Giảm 20% all mã máy massage</div>
+    <span class="dl-badge dl-soon">Còn 6 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 28/08/2025 → 30/04/2026</span>
+    <span class="mi"><b>Salon áp dụng:</b> 3</span>
+    <span class="mi"><b>Đã dùng:</b> 3 lượt</span>
+  </div>
+  <div class="salon-list"><span class="salon-chip">116 TK <b>·1</b></span> <span class="salon-chip">290 QT TH <b>·1</b></span> <span class="salon-chip">8 CVL <b>·1</b></span></div>
+</div>
+<div class="camp-card ending-soon">
+  <div class="camp-head">
+    <div class="camp-code">#4303</div>
+    <div class="camp-name">&lt;Chỉ áp dụng 01 camp, không áp dụng cùng camp khác&gt;[SP] Vu Lan 25 - Mua máy massage đấm hoặc massage mắt giá cao (&gt;1300k) - tặng máy massage cổ vai gáy</div>
+    <span class="dl-badge dl-soon">Còn 6 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 28/08/2025 → 30/04/2026</span>
+    <span class="mi"><b>Salon áp dụng:</b> 3</span>
+    <span class="mi"><b>Đã dùng:</b> 3 lượt</span>
+  </div>
+  <div class="salon-list"><span class="salon-chip">1180 QT <b>·1</b></span> <span class="salon-chip">25 TD <b>·1</b></span> <span class="salon-chip">36 N1 BD <b>·1</b></span></div>
+</div>
+<div class="camp-card ending-soon">
+  <div class="camp-head">
+    <div class="camp-code">#4301</div>
+    <div class="camp-name">&lt;Chỉ áp dụng 01 camp, không áp dụng cùng camp khác&gt;[SP] Vu Lan 25 - Mua máy massage CVG - tặng máy massage đầu</div>
+    <span class="dl-badge dl-soon">Còn 6 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 28/08/2025 → 30/04/2026</span>
+    <span class="mi"><b>Salon áp dụng:</b> 1</span>
+    <span class="mi"><b>Đã dùng:</b> 1 lượt</span>
+  </div>
+  <div class="salon-list"><span class="salon-chip">116 TK <b>·1</b></span></div>
+</div>
+<!-- Category: ECOM -->
+<div class="sec-hdg"><span class="cat-badge cat-pur">CTKM Ecom / Online</span> <span class="cat-cnt">8 CTKM · 885 lượt dùng</span></div>
+<div class="camp-card">
+  <div class="camp-head">
+    <div class="camp-code">#5062</div>
+    <div class="camp-name">Ecom - Drforskin - Giá cũ</div>
+    <span class="dl-badge dl-mid">Còn 11 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 21/03/2026 → 05/05/2026</span>
+    <span class="mi"><b>Salon áp dụng:</b> 1</span>
+    <span class="mi"><b>Đã dùng:</b> 27 lượt</span>
+  </div>
+  <div class="salon-list"><span class="salon-chip">Shop <b>·27</b></span></div>
+</div>
+<div class="camp-card">
+  <div class="camp-head">
+    <div class="camp-code">#4225</div>
+    <div class="camp-name">Ecom - Ưu đãi tháng 8/2025 - Tặng dao cạo râu/3 mặt nạ</div>
+    <span class="dl-badge dl-mid">Còn 14 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 05/08/2025 → 08/05/2026</span>
+    <span class="mi"><b>Salon áp dụng:</b> 1</span>
+    <span class="mi"><b>Đã dùng:</b> 62 lượt</span>
+  </div>
+  <div class="salon-list"><span class="salon-chip">Shop <b>·62</b></span></div>
+</div>
+<div class="camp-card">
+  <div class="camp-head">
+    <div class="camp-code">#4762</div>
+    <div class="camp-name">Ecom - Serum GGG tặng mặt nạ</div>
+    <span class="dl-badge dl-mid">Còn 14 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 23/01/2026 → 08/05/2026</span>
+    <span class="mi"><b>Salon áp dụng:</b> 1</span>
+    <span class="mi"><b>Đã dùng:</b> 8 lượt</span>
+  </div>
+  <div class="salon-list"><span class="salon-chip">Shop <b>·8</b></span></div>
+</div>
+<div class="camp-card">
+  <div class="camp-head">
+    <div class="camp-code">#4742</div>
+    <div class="camp-name">Ecom - Glanzen - Sáp gỗ tặng xịt dưỡng</div>
+    <span class="dl-badge dl-mid">Còn 14 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 08/01/2026 → 08/05/2026</span>
+    <span class="mi"><b>Salon áp dụng:</b> 1</span>
+    <span class="mi"><b>Đã dùng:</b> 3 lượt</span>
+  </div>
+  <div class="salon-list"><span class="salon-chip">Shop <b>·3</b></span></div>
+</div>
+<div class="camp-card">
+  <div class="camp-head">
+    <div class="camp-code">#4228</div>
+    <div class="camp-name">Ecom - Ưu đãi 2025 - Freeship thứ 3</div>
+    <span class="dl-badge dl-long">Còn 67 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 21/04/2026 → 30/06/2026</span>
+    <span class="mi"><b>Salon áp dụng:</b> 1</span>
+    <span class="mi"><b>Đã dùng:</b> 1 lượt</span>
+  </div>
+  <div class="salon-list"><span class="salon-chip">Shop <b>·1</b></span></div>
+</div>
+<div class="camp-card">
+  <div class="camp-head">
+    <div class="camp-code">#3222</div>
+    <div class="camp-name">[Shine Member] Giảm giá 10% DV ShineCombo, 20% DV Cắt</div>
+    <span class="dl-badge dl-long">Còn 202 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 23/10/2024 → 12/11/2026</span>
+    <span class="mi"><b>Salon áp dụng:</b> 21</span>
+    <span class="mi"><b>Đã dùng:</b> 66 lượt</span>
+  </div>
+  <details class="salon-det"><summary>Xem 21 salon đã áp dụng campaign tháng 4 ▾</summary><div class="salon-list"><span class="salon-chip">103 TN <b>·13</b></span> <span class="salon-chip">145 THT <b>·11</b></span> <span class="salon-chip">237 NTT <b>·6</b></span> <span class="salon-chip">116 TK <b>·4</b></span> <span class="salon-chip">29 HB <b>·4</b></span> <span class="salon-chip">50BT4 NPC LD <b>·4</b></span> <span class="salon-chip">382 NT <b>·3</b></span> <span class="salon-chip">109 TQH <b>·2</b></span> <span class="salon-chip">186 DTH <b>·2</b></span> <span class="salon-chip">401/1 NDT <b>·2</b></span> <span class="salon-chip">708 LTT <b>·2</b></span> <span class="salon-chip">730 TL10 <b>·2</b></span> <span class="salon-chip">8 CVL <b>·2</b></span> <span class="salon-chip">80 PL BD <b>·2</b></span> <span class="salon-chip">148 TD <b>·1</b></span> <span class="salon-chip">190 HB <b>·1</b></span> <span class="salon-chip">25 TD <b>·1</b></span> <span class="salon-chip">346 KT <b>·1</b></span> <span class="salon-chip">62 LH <b>·1</b></span> <span class="salon-chip">68 LN NA <b>·1</b></span> <span class="salon-chip">80 TP TH <b>·1</b></span></div></details>
+</div>
+<div class="camp-card">
+  <div class="camp-head">
+    <div class="camp-code">#3201</div>
+    <div class="camp-name">Giảm 100% Shinecombo khách hàng BHXH</div>
+    <span class="dl-badge dl-long">Còn 616 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 09/10/2024 → 31/12/2027</span>
+    <span class="mi"><b>Salon áp dụng:</b> 1</span>
+    <span class="mi"><b>Đã dùng:</b> 1 lượt</span>
+  </div>
+  <div class="salon-list"><span class="salon-chip">173 TN <b>·1</b></span></div>
+</div>
+<div class="camp-card">
+  <div class="camp-head">
+    <div class="camp-code">#3675</div>
+    <div class="camp-name">1046 - 3 buổi Shinecombo 2  (HSD 6 tháng)</div>
+    <span class="dl-badge dl-long">Còn 1406 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 04/01/2025 → 28/02/2030</span>
+    <span class="mi"><b>Salon áp dụng:</b> 28</span>
+    <span class="mi"><b>Đã dùng:</b> 717 lượt</span>
+  </div>
+  <details class="salon-det"><summary>Xem 28 salon đã áp dụng campaign tháng 4 ▾</summary><div class="salon-list"><span class="salon-chip">927 HG <b>·207</b></span> <span class="salon-chip">80 PL BD <b>·112</b></span> <span class="salon-chip">255 NAN <b>·73</b></span> <span class="salon-chip">99 TSN <b>·63</b></span> <span class="salon-chip">36 N1 BD <b>·49</b></span> <span class="salon-chip">1146 KVC <b>·39</b></span> <span class="salon-chip">103 TN <b>·33</b></span> <span class="salon-chip">730 TL10 <b>·33</b></span> <span class="salon-chip">29 HB <b>·23</b></span> <span class="salon-chip">186 DTH <b>·19</b></span> <span class="salon-chip">145 THT <b>·15</b></span> <span class="salon-chip">312 LVS <b>·7</b></span> <span class="salon-chip">708 LTT <b>·7</b></span> <span class="salon-chip">190 HB <b>·6</b></span> <span class="salon-chip">401/1 NDT <b>·6</b></span> <span class="salon-chip">8 CVL <b>·4</b></span> <span class="salon-chip">1371 PVT <b>·3</b></span> <span class="salon-chip">483 TN <b>·3</b></span> <span class="salon-chip">575 AC <b>·3</b></span> <span class="salon-chip">12 LDT <b>·2</b></span> <span class="salon-chip">237 NTT <b>·2</b></span> <span class="salon-chip">341 XVNT <b>·2</b></span> <span class="salon-chip">113 THD AG <b>·1</b></span> <span class="salon-chip">116 TK <b>·1</b></span> <span class="salon-chip">1180 QT <b>·1</b></span> <span class="salon-chip">236 DBT <b>·1</b></span> <span class="salon-chip">304 NT TH <b>·1</b></span> <span class="salon-chip">68 LN NA <b>·1</b></span></div></details>
+</div>
+<!-- Category: MEMBER -->
+<div class="sec-hdg"><span class="cat-badge cat-grn">Ưu đãi Shine Member & Thẻ Dịch vụ</span> <span class="cat-cnt">5 CTKM · 125 lượt dùng</span></div>
+<div class="camp-card">
+  <div class="camp-head">
+    <div class="camp-code">#2690</div>
+    <div class="camp-name">[Shine member] Áp dụng giảm giá DV, SP khi mua thẻ silver member</div>
+    <span class="dl-badge dl-long">Còn 251 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 23/11/2023 → 31/12/2026</span>
+    <span class="mi"><b>Salon áp dụng:</b> 3</span>
+    <span class="mi"><b>Đã dùng:</b> 3 lượt</span>
+  </div>
+  <div class="salon-list"><span class="salon-chip">237 NTT <b>·1</b></span> <span class="salon-chip">575 AC <b>·1</b></span> <span class="salon-chip">708 LTT <b>·1</b></span></div>
+</div>
+<div class="camp-card">
+  <div class="camp-head">
+    <div class="camp-code">#4348</div>
+    <div class="camp-name">1300- Thẻ dịch vụ upgrade combo 1 lên combo 2 - 6 buổi- HSD 12 tháng</div>
+    <span class="dl-badge dl-long">Còn 1286 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 23/09/2025 → 31/10/2029</span>
+    <span class="mi"><b>Salon áp dụng:</b> 1</span>
+    <span class="mi"><b>Đã dùng:</b> 4 lượt</span>
+  </div>
+  <div class="salon-list"><span class="salon-chip">927 HG <b>·4</b></span></div>
+</div>
+<div class="camp-card">
+  <div class="camp-head">
+    <div class="camp-code">#2669</div>
+    <div class="camp-name">[Shine Member] Giảm 20% Uốn Nhuộm cho lần sau (all dv uốn nhuộm)</div>
+    <span class="dl-badge dl-long">Còn 1347 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 09/11/2023 → 31/12/2029</span>
+    <span class="mi"><b>Salon áp dụng:</b> 19</span>
+    <span class="mi"><b>Đã dùng:</b> 42 lượt</span>
+  </div>
+  <details class="salon-det"><summary>Xem 19 salon đã áp dụng campaign tháng 4 ▾</summary><div class="salon-list"><span class="salon-chip">237 NTT <b>·6</b></span> <span class="salon-chip">103 TN <b>·5</b></span> <span class="salon-chip">116 TK <b>·4</b></span> <span class="salon-chip">382 NT <b>·4</b></span> <span class="salon-chip">145 THT <b>·3</b></span> <span class="salon-chip">186 DTH <b>·3</b></span> <span class="salon-chip">99 TSN <b>·3</b></span> <span class="salon-chip">148 TD <b>·2</b></span> <span class="salon-chip">50BT4 NPC LD <b>·2</b></span> <span class="salon-chip">1180 QT <b>·1</b></span> <span class="salon-chip">186 QT <b>·1</b></span> <span class="salon-chip">190 HB <b>·1</b></span> <span class="salon-chip">236 DBT <b>·1</b></span> <span class="salon-chip">362 NGT BN <b>·1</b></span> <span class="salon-chip">451 PVT <b>·1</b></span> <span class="salon-chip">575 AC <b>·1</b></span> <span class="salon-chip">76 PVH <b>·1</b></span> <span class="salon-chip">8 CVL <b>·1</b></span> <span class="salon-chip">90 NH <b>·1</b></span></div></details>
+</div>
+<div class="camp-card">
+  <div class="camp-head">
+    <div class="camp-code">#3676</div>
+    <div class="camp-name">1047 - 3 buổi Cắt Gội Combo 3 - Chăm da  (HSD 6 tháng)</div>
+    <span class="dl-badge dl-long">Còn 1406 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 04/01/2025 → 28/02/2030</span>
+    <span class="mi"><b>Salon áp dụng:</b> 13</span>
+    <span class="mi"><b>Đã dùng:</b> 68 lượt</span>
+  </div>
+  <details class="salon-det"><summary>Xem 13 salon đã áp dụng campaign tháng 4 ▾</summary><div class="salon-list"><span class="salon-chip">80 PL BD <b>·14</b></span> <span class="salon-chip">927 HG <b>·13</b></span> <span class="salon-chip">36 N1 BD <b>·9</b></span> <span class="salon-chip">99 TSN <b>·7</b></span> <span class="salon-chip">29 HB <b>·6</b></span> <span class="salon-chip">103 TN <b>·5</b></span> <span class="salon-chip">1146 KVC <b>·4</b></span> <span class="salon-chip">255 NAN <b>·3</b></span> <span class="salon-chip">401/1 NDT <b>·2</b></span> <span class="salon-chip">730 TL10 <b>·2</b></span> <span class="salon-chip">145 THT <b>·1</b></span> <span class="salon-chip">190 HB <b>·1</b></span> <span class="salon-chip">68 LN NA <b>·1</b></span></div></details>
+</div>
+<div class="camp-card">
+  <div class="camp-head">
+    <div class="camp-code">#3677</div>
+    <div class="camp-name">1048 - 3 buổi Cắt gội Combo 4 (HSD 6 tháng)</div>
+    <span class="dl-badge dl-long">Còn 1406 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 04/01/2025 → 28/02/2030</span>
+    <span class="mi"><b>Salon áp dụng:</b> 3</span>
+    <span class="mi"><b>Đã dùng:</b> 8 lượt</span>
+  </div>
+  <div class="salon-list"><span class="salon-chip">927 HG <b>·6</b></span> <span class="salon-chip">190 HB <b>·1</b></span> <span class="salon-chip">730 TL10 <b>·1</b></span></div>
+</div>
+<!-- Category: VOUCHER -->
+<div class="sec-hdg"><span class="cat-badge cat-nv">Voucher Code / MKT</span> <span class="cat-cnt">7 CTKM · 133 lượt dùng</span></div>
+<div class="camp-card ending-soon">
+  <div class="camp-head">
+    <div class="camp-code">#5049</div>
+    <div class="camp-name">Code 12% dịch vụ 2026</div>
+    <span class="dl-badge dl-soon">Còn 6 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 14/03/2026 → 30/04/2026</span>
+    <span class="mi"><b>Salon áp dụng:</b> 3</span>
+    <span class="mi"><b>Đã dùng:</b> 4 lượt</span>
+  </div>
+  <div class="salon-list"><span class="salon-chip">80 PL BD <b>·2</b></span> <span class="salon-chip">10 TP <b>·1</b></span> <span class="salon-chip">363 LNQ TN <b>·1</b></span></div>
+</div>
+<div class="camp-card ending-soon">
+  <div class="camp-head">
+    <div class="camp-code">#5048</div>
+    <div class="camp-name">Code 8% Dịch vụ</div>
+    <span class="dl-badge dl-soon">Còn 6 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 14/03/2026 → 30/04/2026</span>
+    <span class="mi"><b>Salon áp dụng:</b> 2</span>
+    <span class="mi"><b>Đã dùng:</b> 3 lượt</span>
+  </div>
+  <div class="salon-list"><span class="salon-chip">363 LNQ TN <b>·2</b></span> <span class="salon-chip">595 BT TH <b>·1</b></span></div>
+</div>
+<div class="camp-card ending-soon">
+  <div class="camp-head">
+    <div class="camp-code">#4955</div>
+    <div class="camp-name">MKT T1 VOUCHER 150K DỊCH VỤ</div>
+    <span class="dl-badge dl-soon">Còn 6 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 06/02/2026 → 30/04/2026</span>
+    <span class="mi"><b>Salon áp dụng:</b> 1</span>
+    <span class="mi"><b>Đã dùng:</b> 2 lượt</span>
+  </div>
+  <div class="salon-list"><span class="salon-chip">236 DBT <b>·2</b></span></div>
+</div>
+<div class="camp-card">
+  <div class="camp-head">
+    <div class="camp-code">#3482</div>
+    <div class="camp-name">code giảm 12% cho salon</div>
+    <span class="dl-badge dl-long">Còn 251 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 01/12/2024 → 31/12/2026</span>
+    <span class="mi"><b>Salon áp dụng:</b> 21</span>
+    <span class="mi"><b>Đã dùng:</b> 66 lượt</span>
+  </div>
+  <details class="salon-det"><summary>Xem 21 salon đã áp dụng campaign tháng 4 ▾</summary><div class="salon-list"><span class="salon-chip">312 LVS <b>·12</b></span> <span class="salon-chip">32 NAT <b>·11</b></span> <span class="salon-chip">401/1 NDT <b>·7</b></span> <span class="salon-chip">190 HB <b>·6</b></span> <span class="salon-chip">25 TD <b>·5</b></span> <span class="salon-chip">103 TN <b>·3</b></span> <span class="salon-chip">116 TK <b>·3</b></span> <span class="salon-chip">237 NTT <b>·3</b></span> <span class="salon-chip">29 HB <b>·2</b></span> <span class="salon-chip">420 HTP <b>·2</b></span> <span class="salon-chip">730 TL10 <b>·2</b></span> <span class="salon-chip">109 TQH <b>·1</b></span> <span class="salon-chip">1180 QT <b>·1</b></span> <span class="salon-chip">145 THT <b>·1</b></span> <span class="salon-chip">236 DBT <b>·1</b></span> <span class="salon-chip">255 NAN <b>·1</b></span> <span class="salon-chip">346 KT <b>·1</b></span> <span class="salon-chip">36 N1 BD <b>·1</b></span> <span class="salon-chip">50BT4 NPC LD <b>·1</b></span> <span class="salon-chip">8 CVL <b>·1</b></span> <span class="salon-chip">99 TSN <b>·1</b></span></div></details>
+</div>
+<div class="camp-card">
+  <div class="camp-head">
+    <div class="camp-code">#3481</div>
+    <div class="camp-name">code giảm 8% cho salon</div>
+    <span class="dl-badge dl-long">Còn 251 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 01/12/2024 → 31/12/2026</span>
+    <span class="mi"><b>Salon áp dụng:</b> 17</span>
+    <span class="mi"><b>Đã dùng:</b> 41 lượt</span>
+  </div>
+  <details class="salon-det"><summary>Xem 17 salon đã áp dụng campaign tháng 4 ▾</summary><div class="salon-list"><span class="salon-chip">1180 QT <b>·7</b></span> <span class="salon-chip">237 NTT <b>·4</b></span> <span class="salon-chip">190 HB <b>·3</b></span> <span class="salon-chip">236 DBT <b>·3</b></span> <span class="salon-chip">25 TD <b>·3</b></span> <span class="salon-chip">29 HB <b>·3</b></span> <span class="salon-chip">708 LTT <b>·3</b></span> <span class="salon-chip">730 TL10 <b>·3</b></span> <span class="salon-chip">109 TQH <b>·2</b></span> <span class="salon-chip">145 THT <b>·2</b></span> <span class="salon-chip">36 N1 BD <b>·2</b></span> <span class="salon-chip">10 TP <b>·1</b></span> <span class="salon-chip">103 TN <b>·1</b></span> <span class="salon-chip">312 LVS <b>·1</b></span> <span class="salon-chip">346 KT <b>·1</b></span> <span class="salon-chip">362 NGT BN <b>·1</b></span> <span class="salon-chip">80 PL BD <b>·1</b></span></div></details>
+</div>
+<div class="camp-card">
+  <div class="camp-head">
+    <div class="camp-code">#5077</div>
+    <div class="camp-name">Voucher đối tác _ Kaopiz</div>
+    <span class="dl-badge dl-long">Còn 282 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 03/04/2026 → 31/01/2027</span>
+    <span class="mi"><b>Salon áp dụng:</b> 3</span>
+    <span class="mi"><b>Đã dùng:</b> 5 lượt</span>
+  </div>
+  <div class="salon-list"><span class="salon-chip">10 TP <b>·2</b></span> <span class="salon-chip">55A NVL <b>·2</b></span> <span class="salon-chip">116 TK <b>·1</b></span></div>
+</div>
+<div class="camp-card">
+  <div class="camp-head">
+    <div class="camp-code">#4339</div>
+    <div class="camp-name">MKT - Camp đi quay MKT - Giảm 100% Dịch vụ</div>
+    <span class="dl-badge dl-long">Còn 1286 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 19/09/2025 → 31/10/2029</span>
+    <span class="mi"><b>Salon áp dụng:</b> 7</span>
+    <span class="mi"><b>Đã dùng:</b> 12 lượt</span>
+  </div>
+  <details class="salon-det"><summary>Xem 7 salon đã áp dụng campaign tháng 4 ▾</summary><div class="salon-list"><span class="salon-chip">927 HG <b>·4</b></span> <span class="salon-chip">382 NT <b>·3</b></span> <span class="salon-chip">103 TN <b>·1</b></span> <span class="salon-chip">341 XVNT <b>·1</b></span> <span class="salon-chip">575 AC <b>·1</b></span> <span class="salon-chip">62 LH <b>·1</b></span> <span class="salon-chip">99 TSN <b>·1</b></span></div></details>
+</div>
+<!-- Category: KHAC -->
+<div class="sec-hdg"><span class="cat-badge cat-dk">Ưu đãi khác / Salon riêng</span> <span class="cat-cnt">10 CTKM · 671 lượt dùng</span></div>
+<div class="camp-card ending-soon">
+  <div class="camp-head">
+    <div class="camp-code">#2909</div>
+    <div class="camp-name">[CAMPAIGN KHÔNG GIA HẠN] Giảm 50k cho cả bill khi mua thẻ giảm 50k cho 3 lần tiếp theo [SC]</div>
+    <span class="dl-badge dl-soon">Còn 6 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 23/04/2024 → 30/04/2026</span>
+    <span class="mi"><b>Salon áp dụng:</b> 33</span>
+    <span class="mi"><b>Đã dùng:</b> 146 lượt</span>
+  </div>
+  <details class="salon-det"><summary>Xem 33 salon đã áp dụng campaign tháng 4 ▾</summary><div class="salon-list"><span class="salon-chip">382 NT <b>·24</b></span> <span class="salon-chip">36 N1 BD <b>·19</b></span> <span class="salon-chip">116 TK <b>·17</b></span> <span class="salon-chip">109 TQH <b>·16</b></span> <span class="salon-chip">29 HB <b>·9</b></span> <span class="salon-chip">65 CD <b>·7</b></span> <span class="salon-chip">55A NVL <b>·6</b></span> <span class="salon-chip">1146 KVC <b>·5</b></span> <span class="salon-chip">148 TD <b>·5</b></span> <span class="salon-chip">1371 PVT <b>·3</b></span> <span class="salon-chip">202 DC <b>·3</b></span> <span class="salon-chip">401/1 NDT <b>·3</b></span> <span class="salon-chip">451 PVT <b>·3</b></span> <span class="salon-chip">90 NH <b>·3</b></span> <span class="salon-chip">113 THD AG <b>·2</b></span> <span class="salon-chip">290 QT TH <b>·2</b></span> <span class="salon-chip">50BT4 NPC LD <b>·2</b></span> <span class="salon-chip">80 TP TH <b>·2</b></span> <span class="salon-chip">1180 QT <b>·1</b></span> <span class="salon-chip">12 LDT <b>·1</b></span> <span class="salon-chip">168 NVC <b>·1</b></span> <span class="salon-chip">173 TN <b>·1</b></span> <span class="salon-chip">186 QT <b>·1</b></span> <span class="salon-chip">25 TD <b>·1</b></span> <span class="salon-chip">341 XVNT <b>·1</b></span> <span class="salon-chip">346 KT <b>·1</b></span> <span class="salon-chip">39 HBT <b>·1</b></span> <span class="salon-chip">483 TN <b>·1</b></span> <span class="salon-chip">62 LH <b>·1</b></span> <span class="salon-chip">68 LN NA <b>·1</b></span> <span class="salon-chip">708 LTT <b>·1</b></span> <span class="salon-chip">8 CVL <b>·1</b></span> <span class="salon-chip">80 PL BD <b>·1</b></span></div></details>
+</div>
+<div class="camp-card ending-soon">
+  <div class="camp-head">
+    <div class="camp-code">#5078</div>
+    <div class="camp-name">362 NGT BN - Tặng Gift (Đồ chơi khủng long, Dép) cho khách hàng sử dụng SC 2, UND</div>
+    <span class="dl-badge dl-soon">Còn 6 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 06/04/2026 → 30/04/2026</span>
+    <span class="mi"><b>Salon áp dụng:</b> 1</span>
+    <span class="mi"><b>Đã dùng:</b> 8 lượt</span>
+  </div>
+  <div class="salon-list"><span class="salon-chip">362 NGT BN <b>·8</b></span></div>
+</div>
+<div class="camp-card ending-soon">
+  <div class="camp-head">
+    <div class="camp-code">#5102</div>
+    <div class="camp-name">202 DC - Kính mắt đồng giá 399k</div>
+    <span class="dl-badge dl-soon">Còn 6 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 23/04/2026 → 30/04/2026</span>
+    <span class="mi"><b>Salon áp dụng:</b> 1</span>
+    <span class="mi"><b>Đã dùng:</b> 1 lượt</span>
+  </div>
+  <div class="salon-list"><span class="salon-chip">202 DC <b>·1</b></span></div>
+</div>
+<div class="camp-card">
+  <div class="camp-head">
+    <div class="camp-code">#4340</div>
+    <div class="camp-name">GiftZonex30Shine - Giảm 20K cho bill từ 100K</div>
+    <span class="dl-badge dl-long">Còn 220 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 19/09/2025 → 30/11/2026</span>
+    <span class="mi"><b>Salon áp dụng:</b> 2</span>
+    <span class="mi"><b>Đã dùng:</b> 2 lượt</span>
+  </div>
+  <div class="salon-list"><span class="salon-chip">236 DBT <b>·1</b></span> <span class="salon-chip">237 NTT <b>·1</b></span></div>
+</div>
+<div class="camp-card">
+  <div class="camp-head">
+    <div class="camp-code">#3155</div>
+    <div class="camp-name">New member 2025_Special Gift_Tặng gội thư giãn cổ vai gáy trị giá 100.000VNĐ khi có tích luỹ chi tiêu trong tháng &gt; 100.000VNĐ (Áp dụng lần thứ 2 đến trong tháng)</div>
+    <span class="dl-badge dl-long">Còn 251 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 01/09/2024 → 31/12/2026</span>
+    <span class="mi"><b>Salon áp dụng:</b> 47</span>
+    <span class="mi"><b>Đã dùng:</b> 215 lượt</span>
+  </div>
+  <details class="salon-det"><summary>Xem 47 salon đã áp dụng campaign tháng 4 ▾</summary><div class="salon-list"><span class="salon-chip">382 NT <b>·34</b></span> <span class="salon-chip">927 HG <b>·17</b></span> <span class="salon-chip">116 TK <b>·13</b></span> <span class="salon-chip">103 TN <b>·9</b></span> <span class="salon-chip">186 DTH <b>·9</b></span> <span class="salon-chip">55A NVL <b>·9</b></span> <span class="salon-chip">312 LVS <b>·8</b></span> <span class="salon-chip">1180 QT <b>·7</b></span> <span class="salon-chip">145 THT <b>·7</b></span> <span class="salon-chip">190 HB <b>·7</b></span> <span class="salon-chip">237 NTT <b>·7</b></span> <span class="salon-chip">25 TD <b>·7</b></span> <span class="salon-chip">575 AC <b>·7</b></span> <span class="salon-chip">10 TP <b>·4</b></span> <span class="salon-chip">109 TQH <b>·4</b></span> <span class="salon-chip">12 LDT <b>·4</b></span> <span class="salon-chip">173 TN <b>·4</b></span> <span class="salon-chip">236 DBT <b>·4</b></span> <span class="salon-chip">32 NAT <b>·4</b></span> <span class="salon-chip">90 NH <b>·4</b></span> <span class="salon-chip">1146 KVC <b>·3</b></span> <span class="salon-chip">290 QT TH <b>·3</b></span> <span class="salon-chip">341 XVNT <b>·3</b></span> <span class="salon-chip">36 N1 BD <b>·3</b></span> <span class="salon-chip">483 TN <b>·3</b></span> <span class="salon-chip">8 CVL <b>·3</b></span> <span class="salon-chip">29 HB <b>·2</b></span> <span class="salon-chip">420 HTP <b>·2</b></span> <span class="salon-chip">62 LH <b>·2</b></span> <span class="salon-chip">7 DTP LA <b>·2</b></span> <span class="salon-chip">708 LTT <b>·2</b></span> <span class="salon-chip">80 PL BD <b>·2</b></span> <span class="salon-chip">80 TP TH <b>·2</b></span> <span class="salon-chip">148 TD <b>·1</b></span> <span class="salon-chip">168 NVC <b>·1</b></span> <span class="salon-chip">186 QT <b>·1</b></span> <span class="salon-chip">202 DC <b>·1</b></span> <span class="salon-chip">255 NAN <b>·1</b></span> <span class="salon-chip">264 LLQ <b>·1</b></span> <span class="salon-chip">346 KT <b>·1</b></span> <span class="salon-chip">39 HBT <b>·1</b></span> <span class="salon-chip">401/1 NDT <b>·1</b></span> <span class="salon-chip">50BT4 NPC LD <b>·1</b></span> <span class="salon-chip">65 CD <b>·1</b></span> <span class="salon-chip">730 TL10 <b>·1</b></span> <span class="salon-chip">76 PVH <b>·1</b></span> <span class="salon-chip">99 TSN <b>·1</b></span></div></details>
+</div>
+<div class="camp-card">
+  <div class="camp-head">
+    <div class="camp-code">#4759</div>
+    <div class="camp-name">Ưu đãi Khách VVIP 2026</div>
+    <span class="dl-badge dl-long">Còn 310 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 22/01/2026 → 28/02/2027</span>
+    <span class="mi"><b>Salon áp dụng:</b> 4</span>
+    <span class="mi"><b>Đã dùng:</b> 6 lượt</span>
+  </div>
+  <details class="salon-det"><summary>Xem 4 salon đã áp dụng campaign tháng 4 ▾</summary><div class="salon-list"><span class="salon-chip">202 DC <b>·3</b></span> <span class="salon-chip">346 KT <b>·1</b></span> <span class="salon-chip">382 NT <b>·1</b></span> <span class="salon-chip">39 HBT <b>·1</b></span></div></details>
+</div>
+<div class="camp-card">
+  <div class="camp-head">
+    <div class="camp-code">#5043</div>
+    <div class="camp-name">[Khách trên 6 tháng quay lại] Ưu đãi Giảm giá thẻ - 4637 [Thẻ giảm 50k cho 3 lần tiếp theo]</div>
+    <span class="dl-badge dl-long">Còn 402 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 10/03/2026 → 31/05/2027</span>
+    <span class="mi"><b>Salon áp dụng:</b> 3</span>
+    <span class="mi"><b>Đã dùng:</b> 5 lượt</span>
+  </div>
+  <div class="salon-list"><span class="salon-chip">25 TD <b>·2</b></span> <span class="salon-chip">451 PVT <b>·2</b></span> <span class="salon-chip">29 HB <b>·1</b></span></div>
+</div>
+<div class="camp-card">
+  <div class="camp-head">
+    <div class="camp-code">#5076</div>
+    <div class="camp-name">Campaign hàng cận date</div>
+    <span class="dl-badge dl-long">Còn 768 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 02/04/2026 → 31/05/2028</span>
+    <span class="mi"><b>Salon áp dụng:</b> 7</span>
+    <span class="mi"><b>Đã dùng:</b> 9 lượt</span>
+  </div>
+  <details class="salon-det"><summary>Xem 7 salon đã áp dụng campaign tháng 4 ▾</summary><div class="salon-list"><span class="salon-chip">186 DTH <b>·2</b></span> <span class="salon-chip">8 CVL <b>·2</b></span> <span class="salon-chip">103 TN <b>·1</b></span> <span class="salon-chip">55A NVL <b>·1</b></span> <span class="salon-chip">76 PVH <b>·1</b></span> <span class="salon-chip">80 PL BD <b>·1</b></span> <span class="salon-chip">927 HG <b>·1</b></span></div></details>
+</div>
+<div class="camp-card">
+  <div class="camp-head">
+    <div class="camp-code">#4206</div>
+    <div class="camp-name">891- Shinecut Infinity (HSD 12 Tháng) - KHÔNG GIA HẠN</div>
+    <span class="dl-badge dl-long">Còn 1620 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 28/07/2025 → 30/09/2030</span>
+    <span class="mi"><b>Salon áp dụng:</b> 54</span>
+    <span class="mi"><b>Đã dùng:</b> 278 lượt</span>
+  </div>
+  <details class="salon-det"><summary>Xem 54 salon đã áp dụng campaign tháng 4 ▾</summary><div class="salon-list"><span class="salon-chip">264 LLQ <b>·23</b></span> <span class="salon-chip">116 TK <b>·17</b></span> <span class="salon-chip">237 NTT <b>·17</b></span> <span class="salon-chip">109 TQH <b>·15</b></span> <span class="salon-chip">145 THT <b>·14</b></span> <span class="salon-chip">420 HTP <b>·11</b></span> <span class="salon-chip">341 XVNT <b>·10</b></span> <span class="salon-chip">346 KT <b>·10</b></span> <span class="salon-chip">50BT4 NPC LD <b>·10</b></span> <span class="salon-chip">173 TN <b>·9</b></span> <span class="salon-chip">168 NVC <b>·8</b></span> <span class="salon-chip">186 DTH <b>·8</b></span> <span class="salon-chip">148 TD <b>·7</b></span> <span class="salon-chip">304 NT TH <b>·7</b></span> <span class="salon-chip">90 NH <b>·7</b></span> <span class="salon-chip">25 TD <b>·6</b></span> <span class="salon-chip">312 LVS <b>·6</b></span> <span class="salon-chip">575 AC <b>·6</b></span> <span class="salon-chip">99 TSN <b>·6</b></span> <span class="salon-chip">12 LDT <b>·5</b></span> <span class="salon-chip">29 HB <b>·5</b></span> <span class="salon-chip">10 TP <b>·4</b></span> <span class="salon-chip">103 TN <b>·4</b></span> <span class="salon-chip">190 HB <b>·4</b></span> <span class="salon-chip">255 NAN <b>·4</b></span> <span class="salon-chip">11 PKT <b>·3</b></span> <span class="salon-chip">202 DC <b>·3</b></span> <span class="salon-chip">290 QT TH <b>·3</b></span> <span class="salon-chip">363 LNQ TN <b>·3</b></span> <span class="salon-chip">382 NT <b>·3</b></span> <span class="salon-chip">55A NVL <b>·3</b></span> <span class="salon-chip">62 LH <b>·3</b></span> <span class="salon-chip">708 LTT <b>·3</b></span> <span class="salon-chip">186 QT <b>·2</b></span> <span class="salon-chip">236 DBT <b>·2</b></span> <span class="salon-chip">39 HBT <b>·2</b></span> <span class="salon-chip">4 LQD BN <b>·2</b></span> <span class="salon-chip">451 PVT <b>·2</b></span> <span class="salon-chip">58 NVC NA <b>·2</b></span> <span class="salon-chip">68 LN NA <b>·2</b></span> <span class="salon-chip">730 TL10 <b>·2</b></span> <span class="salon-chip">8 CVL <b>·2</b></span> <span class="salon-chip">927 HG <b>·2</b></span> <span class="salon-chip">113 THD AG <b>·1</b></span> <span class="salon-chip">1146 KVC <b>·1</b></span> <span class="salon-chip">1180 QT <b>·1</b></span> <span class="salon-chip">32 NAT <b>·1</b></span> <span class="salon-chip">36 N1 BD <b>·1</b></span> <span class="salon-chip">362 NGT BN <b>·1</b></span> <span class="salon-chip">65 CD <b>·1</b></span> <span class="salon-chip">7 DTP LA <b>·1</b></span> <span class="salon-chip">76 PVH <b>·1</b></span> <span class="salon-chip">80 PL BD <b>·1</b></span> <span class="salon-chip">80 TP TH <b>·1</b></span></div></details>
+</div>
+<div class="camp-card">
+  <div class="camp-head">
+    <div class="camp-code">#4162</div>
+    <div class="camp-name">Cảm ơn khách hàng tiếp tục ủng hộ salon</div>
+    <span class="dl-badge dl-long">Còn 1743 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 06/07/2025 → 31/01/2031</span>
+    <span class="mi"><b>Salon áp dụng:</b> 1</span>
+    <span class="mi"><b>Đã dùng:</b> 1 lượt</span>
+  </div>
+  <div class="salon-list"><span class="salon-chip">312 LVS <b>·1</b></span></div>
+</div>
+<!-- Category: NOIBO -->
+<div class="sec-hdg"><span class="cat-badge cat-dk">Camp Nội bộ / Sự cố</span> <span class="cat-cnt">5 CTKM · 42 lượt dùng</span></div>
+<div class="camp-card">
+  <div class="camp-head">
+    <div class="camp-code">#5044</div>
+    <div class="camp-name">Tặng gội free lột mụn giảm 100%</div>
+    <span class="dl-badge dl-long">Còn 402 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 10/03/2026 → 31/05/2027</span>
+    <span class="mi"><b>Salon áp dụng:</b> 1</span>
+    <span class="mi"><b>Đã dùng:</b> 21 lượt</span>
+  </div>
+  <div class="salon-list"><span class="salon-chip">32 NAT <b>·21</b></span></div>
+</div>
+<div class="camp-card">
+  <div class="camp-head">
+    <div class="camp-code">#4358</div>
+    <div class="camp-name">VH_(sự cố) 100% all dịch vụ 2025_[All]</div>
+    <span class="dl-badge dl-long">Còn 1316 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 29/09/2025 → 30/11/2029</span>
+    <span class="mi"><b>Salon áp dụng:</b> 12</span>
+    <span class="mi"><b>Đã dùng:</b> 18 lượt</span>
+  </div>
+  <details class="salon-det"><summary>Xem 12 salon đã áp dụng campaign tháng 4 ▾</summary><div class="salon-list"><span class="salon-chip">50BT4 NPC LD <b>·4</b></span> <span class="salon-chip">103 TN <b>·2</b></span> <span class="salon-chip">109 TQH <b>·2</b></span> <span class="salon-chip">236 DBT <b>·2</b></span> <span class="salon-chip">1146 KVC <b>·1</b></span> <span class="salon-chip">145 THT <b>·1</b></span> <span class="salon-chip">186 DTH <b>·1</b></span> <span class="salon-chip">362 NGT BN <b>·1</b></span> <span class="salon-chip">382 NT <b>·1</b></span> <span class="salon-chip">595 BT TH <b>·1</b></span> <span class="salon-chip">8 CVL <b>·1</b></span> <span class="salon-chip">90 NH <b>·1</b></span></div></details>
+</div>
+<div class="camp-card">
+  <div class="camp-head">
+    <div class="camp-code">#4359</div>
+    <div class="camp-name">VH_(sự cố) 50% all dịch vụ 2025_[All]</div>
+    <span class="dl-badge dl-long">Còn 1316 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 29/09/2025 → 30/11/2029</span>
+    <span class="mi"><b>Salon áp dụng:</b> 1</span>
+    <span class="mi"><b>Đã dùng:</b> 1 lượt</span>
+  </div>
+  <div class="salon-list"><span class="salon-chip">708 LTT <b>·1</b></span></div>
+</div>
+<div class="camp-card">
+  <div class="camp-head">
+    <div class="camp-code">#4361</div>
+    <div class="camp-name">VH_(sự cố) 20% all dịch vụ 2025_[All]</div>
+    <span class="dl-badge dl-long">Còn 1316 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 29/09/2025 → 30/11/2029</span>
+    <span class="mi"><b>Salon áp dụng:</b> 1</span>
+    <span class="mi"><b>Đã dùng:</b> 1 lượt</span>
+  </div>
+  <div class="salon-list"><span class="salon-chip">10 TP <b>·1</b></span></div>
+</div>
+<div class="camp-card">
+  <div class="camp-head">
+    <div class="camp-code">#4549</div>
+    <div class="camp-name">Giảm all dịch vụ 15%</div>
+    <span class="dl-badge dl-long">Còn 1347 ngày</span>
+  </div>
+  <div class="camp-meta">
+    <span class="mi"><b>Thời gian:</b> 30/10/2025 → 31/12/2029</span>
+    <span class="mi"><b>Salon áp dụng:</b> 1</span>
+    <span class="mi"><b>Đã dùng:</b> 1 lượt</span>
+  </div>
+  <div class="salon-list"><span class="salon-chip">99 TSN <b>·1</b></span></div>
+</div>
+
+  <div style="text-align:center;color:var(--muted);font-size:11px;margin-top:30px;padding-top:20px;border-top:1px solid var(--border)">
+    © 30Shine · Nguồn: <i>data campaign đang hoạt động T4</i> + <i>Chia salon cụm Salesup T4</i> · Generated 24/04/2026
+  </div>
+
+</div>
+
+</body>
+</html>
