@@ -79,9 +79,21 @@ CAT_LABELS = {
 }
 CAT_ORDER = ['T4', 'SP', 'ECOM', 'MEMBER', 'VOUCHER', 'KHAC', 'NOIBO']
 
+# Override thủ công theo mã campaign (ưu tiên cao nhất, vượt mọi rule theo tên).
+# Các ID này cố định nên override theo ID an toàn — mỗi camp chỉ active trong tháng của nó.
+ID_OVERRIDES = {
+    # T5 (user duyệt): trọng tâm tháng 5 — CT2 tri ân, Laborie x Umos, CTKM Laborie Bond
+    '5137': 'T4', '5138': 'T4', '5139': 'T4', '5140': 'T4', '5154': 'T4', '5101': 'T4',
+    # T5 (user duyệt): "hàng cận date" là camp salon/khác, không phải trọng tâm
+    '5076': 'KHAC', '5143': 'KHAC',
+}
+
 
 def classify(name: str, month: int) -> str:
     """Phân loại campaign theo tên. Giữ thứ tự check này để tránh xung đột."""
+    m_id = re.match(r'^\((\d+)\)', name)
+    if m_id and m_id.group(1) in ID_OVERRIDES:
+        return ID_OVERRIDES[m_id.group(1)]
     n = name.lower()
 
     # Ưu tiên cao nhất: các camp user đã gắn cứng về MEMBER
