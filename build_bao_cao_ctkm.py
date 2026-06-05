@@ -394,10 +394,12 @@ def main():
         c['total_used_filtered'] = sum(s['used'] for s in filtered)
 
     # Bỏ MOYO, camp hết hạn, camp không còn salon công ty
+    # OFF_CAMPS: camp đã bị tắt thủ công dù end_date chưa qua (user xác nhận)
+    OFF_CAMPS = ('(5074)', '(5041)')  # (5074) Tôi yêu 30Shine - Moyo; (5041) đã off T6
     kept = {
         name: c for name, c in camps.items()
         if c['active'] and c['category'] != 'MOYO' and c['num_salons_filtered'] > 0
-        and not name.startswith('(5074)')  # Tôi yêu 30Shine - Moyo
+        and not name.startswith(OFF_CAMPS)
     }
 
     stats = {
